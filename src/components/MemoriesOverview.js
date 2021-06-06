@@ -1,19 +1,25 @@
 import styled from 'styled-components/macro'
 import memory_1 from '../assets/images/memory_1.jpg'
 import memory_2 from '../assets/images/memory_2.jpg'
+import PropTypes from 'prop-types'
 
-export default function MemoriesOverview() {
+MemoriesOverview.propTypes = {
+  image: PropTypes.node,
+  subtitle: PropTypes.string,
+}
+
+export default function MemoriesOverview({ image, subtitle }) {
   return (
     <Wrapper>
       <h2>Your memories</h2>
       <ListWrapper>
         <li>
-          <Image src={memory_1} alt="" />
-          Memory 1
+          <Image src={memory_1} alt="" width="100%" />
+          <span>Memory 1</span>
         </li>
         <li>
           <Image src={memory_2} alt="" width="100%" />
-          Memory 2
+          <span>Memory 2</span>
         </li>
       </ListWrapper>
     </Wrapper>
