@@ -1,5 +1,6 @@
-import background from '../src/assets/viary-bg2.jpg'
+import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
+import MemoriesOverview from '../src/components/MemoriesOverview'
 
 export default function App() {
   return (
@@ -10,9 +11,14 @@ export default function App() {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        height: '645px',
+        borderRadius: '20px',
+        boxShadow: '2px 2px 4px grey',
+        opacity: '0.99',
       }}
     >
       <Header />
+      <MemoriesOverview />
     </div>
   )
 }

@@ -7,4 +7,7 @@ export default function Header() {
 const Headline = styled.h1`
   font-weight: bolder;
   text-align: center;
+  padding: 10px;
+  margin: 0;
+  font-stretch: ultra-expanded;
 `

@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 10px;
     font-family: Rubik, sans-serif;
-    background-color: #21888F;
+    background-color: #a59997;
+    color: #e4eaeb;
 }
 `
