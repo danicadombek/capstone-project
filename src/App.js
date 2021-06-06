@@ -17,7 +17,7 @@ export default function App() {
         opacity: '0.99',
       }}
     >
-      <Header />
+      <Header>Viary</Header>
       <MemoriesOverview />
     </div>
   )

@@ -1,4 +1,5 @@
 import Header from './Header'
+
 export default {
   title: 'Header',
   component: Header,
@@ -7,4 +8,6 @@ export default {
 const Template = args => <Header {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  children: 'Header',
+}
