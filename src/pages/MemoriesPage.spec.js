@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import MemoriesOverview from './MemoriesOverview'
+import MemoriesPage from './MemoriesPage'
 
-describe('MemoriesOverview', () => {
+describe('MemoriesPage', () => {
   it('renders two listItems', () => {
-    render(<MemoriesOverview />)
+    render(<MemoriesPage />)
 
     const memoryItems = screen.getAllByRole('listitem')
     expect(memoryItems).toHaveLength(2)

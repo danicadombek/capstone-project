@@ -10,7 +10,7 @@ export default function MemoryItem({ image, subtitle }) {
   return (
     <ListWrapper>
       <li>
-        <img src={image} alt="" width="100%" />
+        <Image src={image} alt="" width="100%" />
         <span>{subtitle}</span>
       </li>
     </ListWrapper>

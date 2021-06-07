@@ -1,19 +1,25 @@
 import styled from 'styled-components/macro'
-import MemoryItems from '../components/MemoryItem'
+import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 
-MemoriesOverview.propTypes = {
-  image: PropTypes.node,
-  subtitle: PropTypes.string,
+MemoriesPage.propTypes = {
+  memories: PropTypes.arrayOf(
+    PropTypes.shape({ image: PropTypes.node, subtitle: PropTypes.string })
+  ),
 }
 
-export default function MemoriesOverview() {
+export default function MemoriesPage({ memories }) {
   return (
     <Wrapper>
       <h2>Your memories</h2>
       <ListWrapper>
-        <MemoryItems subtitle="Memory 1" />
-        <MemoryItems subtitle="Memory 2" />
+        {memories.map(memory => (
+          <MemoryItem
+            key={memory.image}
+            image={memory.image}
+            subtitle={memory.subtitle}
+          />
+        ))}
       </ListWrapper>
     </Wrapper>
   )

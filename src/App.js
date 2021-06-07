@@ -1,8 +1,15 @@
 import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
-import MemoriesOverview from '../src/pages/MemoriesOverview'
+import MemoriesPage from './pages/MemoriesPage'
+import image from './assets/images/memory_1.jpg'
+import image2 from './assets/images/memory_2.jpg'
 
 export default function App() {
+  const listOfMemories = [
+    { image, subtitle: 'Memory 1' },
+    { image: image2, subtitle: 'Memory 2' },
+  ]
+
   return (
     <div
       className="App"
@@ -18,7 +25,10 @@ export default function App() {
       }}
     >
       <Header>Viary</Header>
-      <MemoriesOverview />
+      <MemoriesPage memories={listOfMemories} />
     </div>
   )
 }
+
+//
+// { imageURL: './src/assets/images/memory_2.jpg', subtitle: 'Memory 2' },
