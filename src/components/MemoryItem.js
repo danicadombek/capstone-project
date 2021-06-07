@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import memory_1 from '../assets/images/memory_1.jpg'
 import PropTypes from 'prop-types'
 
 MemoryItem.propTypes = {
@@ -7,11 +6,11 @@ MemoryItem.propTypes = {
   subtitle: PropTypes.string,
 }
 
-export default function MemoryItem({ subtitle }) {
+export default function MemoryItem({ image, subtitle }) {
   return (
     <ListWrapper>
       <li>
-        <Image src={memory_1} alt="" width="100%" />
+        <img src={image} alt="" width="100%" />
         <span>{subtitle}</span>
       </li>
     </ListWrapper>
