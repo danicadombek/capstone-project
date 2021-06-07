@@ -7,12 +7,12 @@ MemoryItem.propTypes = {
   subtitle: PropTypes.string,
 }
 
-export default function MemoryItem() {
+export default function MemoryItem({ subtitle }) {
   return (
     <ListWrapper>
       <li>
         <Image src={memory_1} alt="" width="100%" />
-        <span>Memory 1</span>
+        <span>{subtitle}</span>
       </li>
     </ListWrapper>
   )

@@ -1,6 +1,6 @@
 import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
-import MemoriesOverview from '../src/components/MemoriesOverview'
+import MemoriesOverview from './components/MemoryItem'
 
 export default function App() {
   return (

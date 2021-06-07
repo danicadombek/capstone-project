@@ -8,4 +8,6 @@ export default {
 const Template = args => <MemoryItem {...args} />
 
 export const singleMermory = Template.bind({})
-singleMermory.args = {}
+singleMermory.args = {
+  subtitle: 'Memory 1',
+}

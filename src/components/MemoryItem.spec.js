@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import MemoryItem from './MemoryItem'
 
 describe('MemoryItem', () => {
-  it('renders', () => {
-    render(<MemoryItem />)
-    expect(screen.getByText('MemoryItem')).toBeInTheDocument()
+  it('renders a text', () => {
+    render(<MemoryItem subtitle="Memory 1" />)
+    expect(screen.getByText('Memory 1')).toBeInTheDocument()
   })
 })
