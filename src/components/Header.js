@@ -14,7 +14,6 @@ const Headline = styled.h2`
   text-align: center;
   padding: 10px;
   margin: 0;
-  font-stretch: ultra-expanded;
   font-size: 40px;
   background-color: 'hsl(9, 7, 62, 0.8)';
 `

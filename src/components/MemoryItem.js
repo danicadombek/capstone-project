@@ -31,7 +31,6 @@ const ListWrapper = styled.ul`
     padding: 5px;
     text-align: center;
     color: #230707;
-    font-stretch: extra-expanded;
     box-shadow: 2px 2px 4px grey;
   }
 `
