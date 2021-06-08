@@ -29,6 +29,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 
   h2 {
     margin-bottom: 0;
