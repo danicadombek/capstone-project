@@ -1,5 +1,5 @@
 import MemoryItem from './MemoryItem'
-import image from '../assets/images/memory_1.jpg'
+import memory1 from '../assets/images/memory1.jpg'
 
 export default {
   title: 'MemoryItem',
@@ -10,6 +10,6 @@ const Template = args => <MemoryItem {...args} />
 
 export const singleMermory = Template.bind({})
 singleMermory.args = {
-  image: image,
+  image: memory1,
   subtitle: 'Memory 1',
 }

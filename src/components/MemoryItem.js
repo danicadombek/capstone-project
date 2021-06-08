@@ -32,7 +32,7 @@ const ListWrapper = styled.ul`
     text-align: center;
     color: #230707;
     font-stretch: extra-expanded;
-    box-shadow: '2px 2px 4px grey';
+    box-shadow: 2px 2px 4px grey;
   }
 `
 

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
+import '@fontsource/rubik'
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 *box {
     box-sizing: border-box;
 }
