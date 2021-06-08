@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import MemoriesPage from './MemoriesPage'
 
 describe('MemoriesPage', () => {
-  it('renders the list of memories with images and subtitles', () => {
+  it('renders the list of memories with two images and two subtitles', () => {
     const exampleMemories = [
       {
         image: 'memory1',
