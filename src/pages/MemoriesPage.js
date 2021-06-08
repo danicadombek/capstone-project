@@ -38,6 +38,6 @@ const Wrapper = styled.section`
 const ListWrapper = styled.ul`
   list-style-type: none;
   display: grid;
-  gap: 20px;
+  gap: 10px;
   padding: 5px;
 `
