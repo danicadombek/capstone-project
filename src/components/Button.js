@@ -6,8 +6,8 @@ Button.propTypes = {
   children: PropTypes.node,
 }
 
-export default function Button({ children }) {
-  return <ButtonStyle>{children}</ButtonStyle>
+export default function Button(props) {
+  return <ButtonStyle {...props} />
 }
 
 const ButtonStyle = styled.button`
