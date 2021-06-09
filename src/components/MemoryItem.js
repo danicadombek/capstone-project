@@ -24,16 +24,9 @@ const Wrapper = styled.section`
   padding: 5px;
   text-align: center;
   color: #230707;
-  box-shadow: 2px 2px 4px grey;
 `
 
 const Image = styled.img`
   border-radius: 20px;
+  box-shadow: 2px 2px 4px grey;
 `
-
-/* list-style-type: none;
-  display: grid;
-  gap: 20px;
-  padding: 5px;
-
-  li { */

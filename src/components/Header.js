@@ -7,9 +7,9 @@ Header.propTypes = {
 
 export default function Header({ children }) {
   return (
-    <Background>
+    <div>
       <Headline>{children}</Headline>
-    </Background>
+    </div>
   )
 }
 
@@ -19,8 +19,4 @@ const Headline = styled.h2`
   padding: 10px;
   margin: 0;
   font-size: 40px;
-`
-
-const Background = styled.div`
-  background-color: hsl(9, 7%, 62%, 0.35);
 `
