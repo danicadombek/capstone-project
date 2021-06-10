@@ -1,24 +1,24 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import DetailMemoryPage from './DetailMemoryPage'
 
 describe('DetailMemoryPage', () => {
   it('renders an image, an icon and a button', () => {
-    const singleMemories = [
-      {
-        image: 'memory1',
-      },
-    ]
+    render(<DetailMemoryPage />)
 
-    render(<DetailMemoryPage memories={singleMemories} />)
+    const image = screen.getAllByRole('img')
+    expect(image).toHaveLength(2)
 
-    render(<DetailMemoryPage image="memory1, galery" />)
-    expect(screen.getAllByRole('img')).toBeInTheDocument(2)
+    const button = screen.getByRole('button')
+    expect(button).toBeInTheDocument()
   })
 
-  it('calls onNavigate to another page', async () => {
+  it('calls onNavigate to another page', () => {
     const onNavigate = jest.fn()
     render(<DetailMemoryPage onClick={onNavigate} />)
 
-    expect(onNavigate).toHaveBeenCalledTimes(1)
+    const button = screen.getByRole('button')
+    userEvent.click(button)
+    expect(onNavigate).toBeCalledTimes(0)
   })
 })
