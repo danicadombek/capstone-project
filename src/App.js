@@ -9,6 +9,7 @@ import memory3 from './assets/images/memory3.jpg'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('memories')
+  const [detailImage, setDetailImage] = useState(null)
 
   const listOfMemories = [
     { image: memory1, subtitle: 'Memory 1' },
@@ -37,12 +38,16 @@ export default function App() {
         />
       )}
       {currentPage === 'detail' && (
-        <DetailMemoryPage image={memory1} onNavigate={showMemoriesPage} />
+        <DetailMemoryPage
+          image={detailImage.image}
+          onNavigate={showMemoriesPage}
+        />
       )}
     </div>
   )
-  function showDetailMemoryPage() {
+  function showDetailMemoryPage(image) {
     setCurrentPage('detail')
+    setDetailImage({ image })
   }
 
   function showMemoriesPage() {
