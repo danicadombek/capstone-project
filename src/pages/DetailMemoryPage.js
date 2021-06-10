@@ -12,7 +12,7 @@ export default function DetailMemoryPage({ image, onNavigate }) {
   return (
     <Wrapper>
       <ImageDetail>
-        <Image src={image} alt="" width="100%" />
+        <Image src={image} alt="Memory 1" width="100%" />
       </ImageDetail>
       <nav>
         <ButtonStyle onClick={onNavigate}>
