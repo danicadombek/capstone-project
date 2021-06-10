@@ -9,8 +9,8 @@ MemoryItem.propTypes = {
 
 export default function MemoryItem({ image, subtitle, onDetail }) {
   return (
-    <Wrapper>
-      <Image src={image} alt="" width="100%" onClick={() => onDetail(image)} />
+    <Wrapper onClick={() => onDetail(image)}>
+      <Image src={image} alt="" width="100%" />
       <span>{subtitle}</span>
     </Wrapper>
   )
@@ -28,5 +28,7 @@ const Wrapper = styled.section`
 
 const Image = styled.img`
   border-radius: 20px;
-  box-shadow: 2px 2px 4px grey;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 `

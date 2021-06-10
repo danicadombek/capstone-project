@@ -11,7 +11,9 @@ DetailMemoryPage.propTypes = {
 export default function DetailMemoryPage({ image, onNavigate }) {
   return (
     <Wrapper>
-      <Image src={image} alt="" width="95%" />
+      <ImageDetail>
+        <Image src={image} alt="" width="100%" />
+      </ImageDetail>
       <nav>
         <ButtonStyle onClick={onNavigate}>
           <Icon src={MemoriesIcon} alt="" />
@@ -27,17 +29,27 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 86vh;
+  height: 86.9vh;
 
   span {
     letter-spacing: -1px;
     font-size: larger;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   }
 `
 const Image = styled.img`
   border-radius: 20px;
-  box-shadow: 5px 5px 15px 5px #6d6d6d;
-  margin-top: 20px;
+  border-radius: 20px;
+  border: 4px;
+  border-color: white;
+`
+
+const ImageDetail = styled.div`
+  background-color: hsl(60, 2%, 80%, 0.8);
+  position: absolute;
+  left: 20px;
+  padding: 10px;
+  width: 84vw;
 `
 
 const ButtonStyle = styled(Button)`
