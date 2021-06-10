@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import PropTypes from 'prop-types'
+import MemoriesIcon from '../assets/images/icons/galery.png'
 
 DetailMemoryPage.propTypes = {
   image: PropTypes.node,
@@ -12,7 +13,10 @@ export default function DetailMemoryPage({ image, onNavigate }) {
     <Wrapper>
       <Image src={image} alt="" width="95%" />
       <nav>
-        <ButtonStyle onClick={onNavigate}>Back to memories</ButtonStyle>
+        <ButtonStyle onClick={onNavigate}>
+          <Icon src={MemoriesIcon} alt="" />
+          <span>Back to memories</span>
+        </ButtonStyle>
       </nav>
     </Wrapper>
   )
@@ -24,6 +28,11 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: space-between;
   height: 86vh;
+
+  span {
+    letter-spacing: -1px;
+    font-size: larger;
+  }
 `
 const Image = styled.img`
   border-radius: 20px;
@@ -32,6 +41,16 @@ const Image = styled.img`
 `
 
 const ButtonStyle = styled(Button)`
-  left: 150px;
-  bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  left: 23px;
+  bottom: 25px;
+  width: 90vw;
+  height: 5vh;
+`
+
+const Icon = styled.img`
+  height: 20px;
 `

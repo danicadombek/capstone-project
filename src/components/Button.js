@@ -12,7 +12,9 @@ export default function Button(props) {
 
 const ButtonStyle = styled.button`
   border-radius: 50px;
-  background: #dbc9c1;
-  box-shadow: 25px 25px 33px #baaba4, -25px -25px 33px #fce7de;
+  background: #e4eaeb;
+  box-shadow: 25px 25px 33px #baaba4;
   max-width: auto;
+  font-size: 18px;
+  font-weight: semi-bold;
 `
