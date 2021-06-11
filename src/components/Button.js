@@ -6,11 +6,7 @@ Button.propTypes = {
   children: PropTypes.node,
 }
 
-export default function Button(props) {
-  return <ButtonStyle {...props} />
-}
-
-const ButtonStyle = styled.button`
+export default styled.button`
   border-radius: 50px;
   background: #e4eaeb;
   box-shadow: 25px 25px 33px #baaba4;
