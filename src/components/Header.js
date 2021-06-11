@@ -6,11 +6,7 @@ Header.propTypes = {
 }
 
 export default function Header({ children }) {
-  return (
-    <div>
-      <Headline>{children}</Headline>
-    </div>
-  )
+  return <Headline>{children}</Headline>
 }
 
 const Headline = styled.h2`

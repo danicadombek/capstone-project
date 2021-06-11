@@ -25,9 +25,10 @@ export default function App() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '90%',
+        width: 'auto',
         borderRadius: '20px',
         boxShadow: '2px 2px 4px grey',
-        opacity: '0.99',
+        opacity: '0.98',
       }}
     >
       <Header>Viary</Header>

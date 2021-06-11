@@ -1,11 +1,10 @@
 import styled from 'styled-components/macro'
-import Button from '../components/Button'
+import BackButton from '../components/BackButton'
 import PropTypes from 'prop-types'
-import MemoriesIcon from '../assets/images/icons/galery.png'
 
 DetailMemoryPage.propTypes = {
   image: PropTypes.node,
-  onNavigate: PropTypes.func.isRequired,
+  alt: PropTypes.string,
 }
 
 export default function DetailMemoryPage({ image, onNavigate }) {
@@ -15,10 +14,7 @@ export default function DetailMemoryPage({ image, onNavigate }) {
         <Image src={image} alt="Memory 1" width="100%" />
       </ImageDetail>
       <nav>
-        <ButtonStyle onClick={onNavigate}>
-          <Icon src={MemoriesIcon} alt="" />
-          <span>Back to memories</span>
-        </ButtonStyle>
+        <BackButton onClick={onNavigate}>Back to memories</BackButton>
       </nav>
     </Wrapper>
   )
@@ -29,7 +25,8 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 86.9vh;
+  height: 86vh;
+  width: 90%;
 
   span {
     letter-spacing: -1px;
@@ -50,19 +47,4 @@ const ImageDetail = styled.div`
   left: 20px;
   padding: 10px;
   width: 84vw;
-`
-
-const ButtonStyle = styled(Button)`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: fixed;
-  left: 23px;
-  bottom: 25px;
-  width: 90vw;
-  height: 5vh;
-`
-
-const Icon = styled.img`
-  height: 20px;
 `

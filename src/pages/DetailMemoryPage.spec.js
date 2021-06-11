@@ -3,22 +3,26 @@ import userEvent from '@testing-library/user-event'
 import DetailMemoryPage from './DetailMemoryPage'
 
 describe('DetailMemoryPage', () => {
-  it('renders an image, an icon and a button', () => {
-    render(<DetailMemoryPage />)
+  it('renders two images and a button', () => {
+    const onNavigate = jest.fn()
+    render(<DetailMemoryPage onNavigate={onNavigate} alt="Memory 1" />)
+    const imageAltText = screen.getByAltText('Memory 1')
+    expect(imageAltText).toBeInTheDocument(1)
 
     const image = screen.getAllByRole('img')
     expect(image).toHaveLength(2)
 
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button', { name: 'Back to memories' })
     expect(button).toBeInTheDocument()
   })
 
   it('calls onNavigate to another page', () => {
     const onNavigate = jest.fn()
-    render(<DetailMemoryPage onClick={onNavigate} />)
+    render(<DetailMemoryPage onNavigate={onNavigate} />)
 
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button', { name: 'Back to memories' })
     userEvent.click(button)
-    expect(onNavigate).toBeCalledTimes(0)
+
+    expect(onNavigate).toHaveBeenCalledTimes(1)
   })
 })
