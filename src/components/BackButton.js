@@ -21,8 +21,8 @@ const ButtonStyle = styled(Button)`
   justify-content: space-evenly;
   align-items: center;
   position: fixed;
-  left: 23px;
-  bottom: 25px;
+  left: 1.4em;
+  bottom: 1.4em;
   width: 90vw;
   height: 5vh;
   transition-duration: 0.4s;

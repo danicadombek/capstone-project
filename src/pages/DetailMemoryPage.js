@@ -44,7 +44,8 @@ const Image = styled.img`
 const ImageDetail = styled.div`
   background-color: hsl(60, 2%, 80%, 0.8);
   position: absolute;
-  left: 20px;
+  left: 1.35em;
+  right: 1.35em;
   padding: 10px;
   width: 84vw;
 `
