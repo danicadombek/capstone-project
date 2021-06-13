@@ -14,7 +14,7 @@ export default function DetailMemoryPage({ image, onNavigate }) {
         <Image src={image} alt="Memory 1" width="100%" />
       </ImageDetail>
       <nav>
-        <BackButton onClick={onNavigate}>Back to memories</BackButton>
+        <BackButtonStyle onClick={onNavigate}>Back to memories</BackButtonStyle>
       </nav>
     </Wrapper>
   )
@@ -23,13 +23,13 @@ export default function DetailMemoryPage({ image, onNavigate }) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-items: center;
   justify-content: space-between;
   height: 86vh;
   width: 90%;
 
   span {
-    letter-spacing: -1px;
+    letter-spacing: 4px;
     font-size: larger;
     text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   }
@@ -44,8 +44,11 @@ const Image = styled.img`
 const ImageDetail = styled.div`
   background-color: hsl(60, 2%, 80%, 0.8);
   position: absolute;
-  left: 1.35em;
-  right: 1.35em;
+  left: 1.15em;
   padding: 10px;
-  width: 84vw;
+  width: 85%;
+`
+
+const BackButtonStyle = styled(BackButton)`
+  width: 88%;
 `

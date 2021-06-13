@@ -25,7 +25,6 @@ const ButtonStyle = styled(Button)`
   bottom: 1.4em;
   width: 90vw;
   height: 5vh;
-  transition-duration: 0.4s;
 `
 
 const Icon = styled.img`
