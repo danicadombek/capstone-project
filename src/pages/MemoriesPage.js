@@ -3,22 +3,25 @@ import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 
 MemoriesPage.propTypes = {
+  onDetail: PropTypes.func.isRequired,
   memories: PropTypes.arrayOf(
     PropTypes.shape({ image: PropTypes.node, subtitle: PropTypes.string })
   ),
 }
 
-export default function MemoriesPage({ memories }) {
+export default function MemoriesPage({ memories, onDetail }) {
   return (
     <Wrapper>
       <h2>Your memories</h2>
       <ListWrapper>
         {memories.map(memory => (
-          <MemoryItem
-            key={memory.image}
-            image={memory.image}
-            subtitle={memory.subtitle}
-          />
+          <li key={memory.image}>
+            <MemoryItem
+              image={memory.image}
+              subtitle={memory.subtitle}
+              onDetail={() => onDetail(memory.image)}
+            />
+          </li>
         ))}
       </ListWrapper>
     </Wrapper>
@@ -41,4 +44,5 @@ const ListWrapper = styled.ul`
   display: grid;
   gap: 10px;
   padding: 5px;
+  font-weight: bold;
 `
