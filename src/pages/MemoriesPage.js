@@ -44,4 +44,5 @@ const ListWrapper = styled.ul`
   display: grid;
   gap: 10px;
   padding: 5px;
+  font-weight: bold;
 `
