@@ -13,6 +13,8 @@ export default function CameraPage() {
 }
 
 const Wrapper = styled.section`
-  display: grid;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
 `
