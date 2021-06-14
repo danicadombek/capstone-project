@@ -1,13 +1,13 @@
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
-import BackButton from '../components/BackButton'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 
 export default function CameraPage() {
   return (
     <Wrapper>
       <Button>Cam</Button>
       Start your cam
-      <BackButton>Your memories</BackButton>
+      <ToMemoriesButton>Your memories</ToMemoriesButton>
     </Wrapper>
   )
 }

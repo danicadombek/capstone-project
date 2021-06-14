@@ -1,12 +1,12 @@
-import BackButton from './BackButton'
+import ToMemoriesButton from './ToMemoriesButton'
 import MemoriesIcon from '../assets/images/icons/galery.png'
 
 export default {
-  title: 'BackButton',
-  component: BackButton,
+  title: 'ToMemoriesButton',
+  component: ToMemoriesButton,
 }
 
-const Template = args => <BackButton {...args} />
+const Template = args => <ToMemoriesButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

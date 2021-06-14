@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import BackButton from '../components/BackButton'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 import PropTypes from 'prop-types'
 
 DetailMemoryPage.propTypes = {
@@ -14,7 +14,7 @@ export default function DetailMemoryPage({ image, onNavigate }) {
         <Image src={image} alt="Memory 1" width="100%" />
       </ImageDetail>
       <nav>
-        <BackButtonStyle onClick={onNavigate}>Back to memories</BackButtonStyle>
+        <BackButtonStyle onClick={onNavigate} />
       </nav>
     </Wrapper>
   )
@@ -43,6 +43,6 @@ const ImageDetail = styled.div`
   width: 85%;
 `
 
-const BackButtonStyle = styled(BackButton)`
+const BackButtonStyle = styled(ToMemoriesButton)`
   width: 88%;
 `
