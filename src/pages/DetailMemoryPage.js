@@ -27,12 +27,6 @@ const Wrapper = styled.section`
   justify-content: space-between;
   height: 86vh;
   width: 90%;
-
-  span {
-    letter-spacing: 4px;
-    font-size: larger;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
-  }
 `
 const Image = styled.img`
   border-radius: 20px;

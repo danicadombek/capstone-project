@@ -25,6 +25,12 @@ const ButtonStyle = styled(Button)`
   bottom: 1.4em;
   width: 90vw;
   height: 5vh;
+
+  span {
+    letter-spacing: 4px;
+    font-size: larger;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+  }
 `
 
 const Icon = styled.img`
