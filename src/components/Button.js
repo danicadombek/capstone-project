@@ -13,4 +13,5 @@ export default styled.button`
   max-width: auto;
   font-size: 18px;
   font-weight: 'semi-bold';
+  border: none;
 `

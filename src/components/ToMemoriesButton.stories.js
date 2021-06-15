@@ -11,5 +11,5 @@ const Template = args => <ToMemoriesButton {...args} />
 export const Default = Template.bind({})
 Default.args = {
   image: MemoriesIcon,
-  children: 'Back to memories',
+  children: 'To your memories',
 }
