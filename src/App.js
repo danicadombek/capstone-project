@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import background from '../src/assets/viary-bg2.jpg'
 import Header from '../src/components/Header'
+import CameraPage from './pages/CameraPage'
 import MemoriesPage from './pages/MemoriesPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
 import memory1 from './assets/images/memory1.jpg'
@@ -32,6 +33,8 @@ export default function App() {
       }}
     >
       <Header>Viary</Header>
+      <CameraPage />
+
       {currentPage === 'memories' && (
         <MemoriesPage
           memories={listOfMemories}
@@ -46,6 +49,7 @@ export default function App() {
       )}
     </div>
   )
+
   function showDetailMemoryPage(image) {
     setCurrentPage('detail')
     setDetailImage({ image })
