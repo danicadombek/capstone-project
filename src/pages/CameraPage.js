@@ -6,6 +6,8 @@ import CamIcon from '../assets/images/icons/cam.png'
 
 export default function CameraPage() {
   const videoRef = useRef(null)
+  const pictureRef = useRef(null)
+  const stripRef = useRef(null)
 
   useEffect(() => {
     getVideo()
@@ -13,7 +15,7 @@ export default function CameraPage() {
 
   const getVideo = () => {
     navigator.mediaDevices
-      .getUserMedia({ video: { width: 300 } })
+      .getUserMedia({ video: { width: 250 } })
       .then(stream => {
         let video = videoRef.current
         video.srcObject = stream
@@ -24,14 +26,46 @@ export default function CameraPage() {
       })
   }
 
+  const paintToCanvas = () => {
+    let video = videoRef.current
+    let picture = pictureRef.current
+    let compress = picture.getContext('2D')
+
+    const width = 250
+    const height = 400
+    picture.width = width
+    picture.height = height
+
+    return setInterval(() => {
+      compress.drawImage(video, 0, 0, width, height)
+    }, 200)
+  }
+
+  const takePicture = () => {
+    let picture = pictureRef.current
+    let strip = stripRef.current
+
+    console.warn(strip)
+
+    const data = picture.toDataURL('image/jpeg')
+
+    console.warn(data)
+    const link = document.createElement('a')
+    link.href = data
+    link.setAttribute('download', 'myWebcam')
+    link.innerHTML = `<img scr='${data}' alt='thumbnail'/>`
+    strip.insertBefore(link, strip.firstChild)
+  }
+
   return (
     <Wrapper>
-      <CamButton>
+      <CamButton onClick={() => takePicture()}>
         <img src={CamIcon} alt="" />
         <span>Cam</span>
       </CamButton>
-      <video ref={videoRef} />
-      <canvas />
+      <video onCanPlay={() => paintToCanvas()} ref={videoRef} />
+      <canvas ref={pictureRef} />
+      <div ref={stripRef} />
       <h2>Start your cam</h2>
       <ToMemoriesButton>To your memories</ToMemoriesButton>
     </Wrapper>
@@ -48,8 +82,8 @@ const CamButton = styled(Button)`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 250px;
-  width: 250px;
+  height: 230px;
+  width: 230px;
 
   span {
     letter-spacing: 4px;
