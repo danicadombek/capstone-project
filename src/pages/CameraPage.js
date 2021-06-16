@@ -3,6 +3,10 @@ import Button from '../components/Button'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 import CamIcon from '../assets/images/icons/cam.png'
 
+// CameraPage.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// }
+
 export default function CameraPage() {
   return (
     <Wrapper>
