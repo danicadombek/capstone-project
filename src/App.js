@@ -5,24 +5,15 @@ import Header from '../src/components/Header'
 import CameraPage from './pages/CameraPage'
 import MemoriesPage from './pages/MemoriesPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
-import memory1 from './assets/images/memory1.jpg'
-import memory2 from './assets/images/memory2.jpg'
-import memory3 from './assets/images/memory3.jpg'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 export default function App() {
   const [image, setImage] = useState('')
-  // const [memories, setMemories] = useState([])
+  const [memories, setMemories] = useState([])
   const [currentPage, setCurrentPage] = useState('camera')
   const [detailImage, setDetailImage] = useState(null)
-
-  const listOfMemories = [
-    { image: memory1, subtitle: 'Memory 1' },
-    { image: memory2, subtitle: 'Memory 2' },
-    { image: memory3, subtitle: 'Memory 3' },
-  ]
 
   return (
     <div
@@ -44,18 +35,16 @@ export default function App() {
           image={image}
           upload={upload}
           onNavigate={showMemoriesPage}
+          onSubmit={handleSubmit}
         />
       )}
       {currentPage === 'memories' && (
-        <MemoriesPage
-          memories={listOfMemories}
-          onDetail={showDetailMemoryPage}
-        />
+        <MemoriesPage memories={memories} onDetail={showDetailMemoryPage} />
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
-          image={detailImage.image}
-          subtitle={detailImage.subtitle}
+          ownImage={detailImage.ownImage}
+          ownTitle={detailImage.ownTitle}
           onNavigate={showMemoriesPage}
         />
       )}
@@ -83,9 +72,10 @@ export default function App() {
     setImage(response.data.url)
   }
 
-  // function showCameraPage() {
-  //   setCurrentPage('camera')
-  // }
+  function handleSubmit({ memories }) {
+    setMemories(memories)
+    setCurrentPage('memories')
+  }
 
   function showDetailMemoryPage(image) {
     setCurrentPage('detail')

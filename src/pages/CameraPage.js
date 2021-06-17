@@ -18,7 +18,7 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
           Start your cam
           <ImageSection>
             {image ? (
-              <img src={image} alt="" style={{ width: '100%' }} />
+              <Image src={image} alt="" />
             ) : (
               <input type="file" name="file" onChange={upload} />
             )}
@@ -26,7 +26,11 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
           </ImageSection>
         </label>
 
-        <input type="text" name="title" placeholder="Name of memory"></input>
+        <input
+          type="text"
+          name="title"
+          placeholder="Name of your memory"
+        ></input>
         <Button>Save your memory</Button>
       </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
@@ -37,9 +41,15 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
     const form = event.target
     const file = form.elements.file
     const title = form.elements.title
-    onSubmit(file, title)
+
+    const memories = {
+      ownImage: file,
+      ownTitle: title,
+    }
+
+    onSubmit(memories)
     form.reset()
-    file.focus()
+    // file.focus()
   }
 }
 
@@ -61,6 +71,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2.5em;
+  height: 87vh;
 `
 
 const ImageSection = styled.div`
@@ -77,4 +88,10 @@ const ImageSection = styled.div`
     font-size: larger;
     text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
   }
+`
+
+const Image = styled.img`
+  width: 100%;
+  border: 4px solid #e4eaeb;
+  border-radius: 50px;
 `
