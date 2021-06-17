@@ -29,7 +29,7 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
         <input
           type="text"
           name="title"
-          placeholder="Name of your memory"
+          placeholder="Give your memory a name"
         ></input>
         <Button>Save your memory</Button>
       </FormWrap>
@@ -42,14 +42,14 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
     const file = form.elements.file
     const title = form.elements.title
 
-    const memories = {
+    const memory = {
+      key: file,
       ownImage: file,
       ownTitle: title,
     }
 
-    onSubmit(memories)
+    onSubmit(memory)
     form.reset()
-    // file.focus()
   }
 }
 

@@ -39,7 +39,7 @@ export default function App() {
         />
       )}
       {currentPage === 'memories' && (
-        <MemoriesPage memories={memories} onDetail={showDetailMemoryPage} />
+        <MemoriesPage memories={[memories]} onDetail={showDetailMemoryPage} />
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
@@ -72,7 +72,7 @@ export default function App() {
     setImage(response.data.url)
   }
 
-  function handleSubmit({ memories }) {
+  function handleSubmit({ memory }) {
     setMemories(memories)
     setCurrentPage('memories')
   }

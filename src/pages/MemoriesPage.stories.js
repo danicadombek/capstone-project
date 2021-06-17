@@ -12,7 +12,7 @@ const Template = args => <MemoriesPage {...args} />
 export const listedMemories = Template.bind({})
 listedMemories.args = {
   memories: [
-    { image: memory1, subtitle: 'Memory 1' },
-    { image: memory2, subtitle: 'Memory 2' },
+    { ownImage: memory1, ownTitle: 'Memory 1' },
+    { ownImage: memory2, ownTitle: 'Memory 2' },
   ],
 }

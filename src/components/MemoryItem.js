@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 
 MemoryItem.propTypes = {
   onDetail: PropTypes.func.isRequired,
-  image: PropTypes.node,
-  subtitle: PropTypes.string,
+  ownImage: PropTypes.string,
+  ownTitle: PropTypes.string,
 }
 
-export default function MemoryItem({ image, subtitle, onDetail }) {
+export default function MemoryItem({ ownImage, ownTitle, onDetail }) {
   return (
-    <Wrapper onClick={() => onDetail(image)}>
-      <Image src={image} alt="" width="300" height="200" />
-      <span>{subtitle}</span>
+    <Wrapper onClick={() => onDetail(ownImage)}>
+      <Image src={ownImage} alt="" width="300" height="200" />
+      <span>{ownTitle}</span>
     </Wrapper>
   )
 }

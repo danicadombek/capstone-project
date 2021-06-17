@@ -3,15 +3,17 @@ import ToMemoriesButton from '../components/ToMemoriesButton'
 import PropTypes from 'prop-types'
 
 DetailMemoryPage.propTypes = {
-  image: PropTypes.node,
+  ownImage: PropTypes.string,
+  ownTitle: PropTypes.string,
   alt: PropTypes.string,
 }
 
-export default function DetailMemoryPage({ image, onNavigate }) {
+export default function DetailMemoryPage({ ownImage, ownTitle, onNavigate }) {
   return (
     <Wrapper>
       <ImageDetail>
-        <Image src={image} alt="Memory 1" width="100%" />
+        <Image src={ownImage} alt="Memory" width="100%" />
+        {ownTitle}
       </ImageDetail>
       <nav>
         <BackButtonStyle onClick={onNavigate} />
