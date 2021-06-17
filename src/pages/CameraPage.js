@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 import PropTypes from 'prop-types'
+import Button from '../components/Button'
 
 CameraPage.propTypes = {
   image: PropTypes.string,
@@ -11,19 +12,39 @@ CameraPage.propTypes = {
 export default function CameraPage({ image, upload, onNavigate }) {
   return (
     <Wrapper>
-      <CamButton>
-        {image ? (
-          <img src={image} alt="" style={{ width: '100%' }} />
-        ) : (
-          <input type="file" name="file" onChange={upload} />
-        )}
-        {upload}
-      </CamButton>
-      <h2>Start your cam</h2>
+      <FormWrap>
+        <label>
+          Start your cam
+          <ImageSection>
+            {image ? (
+              <img src={image} alt="" style={{ width: '100%' }} />
+            ) : (
+              <input type="file" name="file" onChange={upload} />
+            )}
+            {upload}
+          </ImageSection>
+        </label>
+
+        <input type="text" name="titel" placeholder="Name of memory"></input>
+        <Button>Save your memory</Button>
+      </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
   )
 }
+
+const FormWrap = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5em;
+
+  .label {
+    display: flex;
+    align-self: center;
+    gap: 2.5em;
+  }
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,7 +52,8 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 2.5em;
 `
-const CamButton = styled.div`
+
+const ImageSection = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
