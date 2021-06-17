@@ -1,37 +1,44 @@
 import styled from 'styled-components/macro'
-import Button from '../components/Button'
 import ToMemoriesButton from '../components/ToMemoriesButton'
-import CamIcon from '../assets/images/icons/cam.png'
+import PropTypes from 'prop-types'
 
-// CameraPage.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// }
+CameraPage.propTypes = {
+  image: PropTypes.string,
+  upload: PropTypes.func,
+  onNavigate: PropTypes.func,
+}
 
-export default function CameraPage() {
+export default function CameraPage({ image, upload, onNavigate }) {
   return (
     <Wrapper>
       <CamButton>
-        <img src={CamIcon} alt="" />
-        <span>Cam</span>
+        {image ? (
+          <img src={image} alt="" style={{ width: '100%' }} />
+        ) : (
+          <input type="file" name="file" onChange={upload} />
+        )}
+        {upload}
       </CamButton>
       <h2>Start your cam</h2>
-      <ToMemoriesButton>To your memories</ToMemoriesButton>
+      <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.5em;
 `
-const CamButton = styled(Button)`
+const CamButton = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 230px;
   width: 230px;
+  background: #e4eaeb;
+  border-radius: 50px;
 
   span {
     letter-spacing: 4px;

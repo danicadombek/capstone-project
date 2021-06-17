@@ -14,7 +14,8 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 export default function App() {
   const [image, setImage] = useState('')
-  const [currentPage, setCurrentPage] = useState('memories')
+  // const [memories, setMemories] = useState([])
+  const [currentPage, setCurrentPage] = useState('camera')
   const [detailImage, setDetailImage] = useState(null)
 
   const listOfMemories = [
@@ -38,15 +39,13 @@ export default function App() {
       }}
     >
       <Header>Viary</Header>
-      <div>
-        {image ? (
-          <img src={image} alt="" style={{ width: '100%' }} />
-        ) : (
-          <input type="file" name="file" onChange={upload} />
-        )}
-      </div>
-      )
-      <CameraPage />
+      {currentPage === 'camera' && (
+        <CameraPage
+          image={image}
+          upload={upload}
+          onNavigate={showMemoriesPage}
+        />
+      )}
       {currentPage === 'memories' && (
         <MemoriesPage
           memories={listOfMemories}
@@ -56,6 +55,7 @@ export default function App() {
       {currentPage === 'detail' && (
         <DetailMemoryPage
           image={detailImage.image}
+          subtitle={detailImage.subtitle}
           onNavigate={showMemoriesPage}
         />
       )}
@@ -82,6 +82,10 @@ export default function App() {
   function onImageSave(response) {
     setImage(response.data.url)
   }
+
+  // function showCameraPage() {
+  //   setCurrentPage('camera')
+  // }
 
   function showDetailMemoryPage(image) {
     setCurrentPage('detail')

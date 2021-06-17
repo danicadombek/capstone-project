@@ -16,7 +16,7 @@ export default function MemoryItem({ image, subtitle, onDetail }) {
   )
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   background-color: hsl(60, 2%, 80%, 0.8);
   display: grid;
   align-items: center;
