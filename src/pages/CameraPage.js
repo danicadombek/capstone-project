@@ -7,12 +7,13 @@ CameraPage.propTypes = {
   image: PropTypes.string,
   upload: PropTypes.func,
   onNavigate: PropTypes.func,
+  onSubmit: PropTypes.func,
 }
 
-export default function CameraPage({ image, upload, onNavigate }) {
+export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
   return (
     <Wrapper>
-      <FormWrap>
+      <FormWrap onSubmit={handleSubmit}>
         <label>
           Start your cam
           <ImageSection>
@@ -25,12 +26,21 @@ export default function CameraPage({ image, upload, onNavigate }) {
           </ImageSection>
         </label>
 
-        <input type="text" name="titel" placeholder="Name of memory"></input>
+        <input type="text" name="title" placeholder="Name of memory"></input>
         <Button>Save your memory</Button>
       </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
   )
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const file = form.elements.file
+    const title = form.elements.title
+    onSubmit(file, title)
+    form.reset()
+    file.focus()
+  }
 }
 
 const FormWrap = styled.form`
