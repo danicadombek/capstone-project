@@ -9,6 +9,7 @@ MemoryItem.propTypes = {
 }
 
 export default function MemoryItem({ image, ownTitle, onDetail }) {
+  console.log(image)
   return (
     <Wrapper onClick={() => onDetail(image)}>
       <Image src={image} alt="" width="300" height="200" />

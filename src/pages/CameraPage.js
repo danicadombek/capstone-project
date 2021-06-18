@@ -21,13 +21,18 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
             {image ? (
               <Image src={image} alt="" />
             ) : (
-              <input type="file" name="file" onChange={upload} />
+              <input
+                id="upload-img"
+                type="file"
+                name="file"
+                onChange={upload}
+              />
             )}
             {upload}
           </ImageSection>
         </label>
-
         <input
+          id="upload-img"
           type="text"
           name="title"
           placeholder="Give your memory a name"
@@ -68,7 +73,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2.5em;
-  height: 87vh;
+  height: 86vh;
 `
 
 const ImageSection = styled.div`

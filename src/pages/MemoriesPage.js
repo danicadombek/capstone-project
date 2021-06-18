@@ -1,3 +1,4 @@
+//@ts-check
 import styled from 'styled-components/macro'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
@@ -14,6 +15,7 @@ MemoriesPage.propTypes = {
 }
 
 export default function MemoriesPage({ memories, onDetail }) {
+  console.log(memories[0].image)
   return (
     <Wrapper>
       <h2>Your memories</h2>
@@ -21,7 +23,7 @@ export default function MemoriesPage({ memories, onDetail }) {
         {memories.map(({ image, ownTitle, id }) => (
           <li key={id}>
             <MemoryItem
-              ownImage={image}
+              image={image}
               ownTitle={ownTitle}
               onDetail={() => onDetail(image)}
             />
