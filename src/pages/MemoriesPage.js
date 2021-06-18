@@ -5,7 +5,11 @@ import PropTypes from 'prop-types'
 MemoriesPage.propTypes = {
   onDetail: PropTypes.func.isRequired,
   memories: PropTypes.arrayOf(
-    PropTypes.shape({ ownImage: PropTypes.string, ownTitle: PropTypes.string })
+    PropTypes.shape({
+      image: PropTypes.string,
+      id: PropTypes.string,
+      ownTitle: PropTypes.string,
+    })
   ),
 }
 
@@ -14,12 +18,12 @@ export default function MemoriesPage({ memories, onDetail }) {
     <Wrapper>
       <h2>Your memories</h2>
       <ListWrapper>
-        {memories.map(({ ownImage, ownTitle }) => (
-          <li key={ownImage}>
+        {memories.map(({ image, ownTitle, id }) => (
+          <li key={id}>
             <MemoryItem
-              ownImage={ownImage}
+              ownImage={image}
               ownTitle={ownTitle}
-              onDetail={() => onDetail(ownImage)}
+              onDetail={() => onDetail(image)}
             />
           </li>
         ))}

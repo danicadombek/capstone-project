@@ -10,6 +10,6 @@ const Template = args => <DetailMemoryPage {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  ownImage: memory1,
+  image: memory1,
   ownTitle: 'Memory',
 }

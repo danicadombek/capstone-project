@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 import PropTypes from 'prop-types'
 import Button from '../components/Button'
+import { v4 as uuidv4 } from 'uuid'
 
 CameraPage.propTypes = {
   image: PropTypes.string,
@@ -39,17 +40,14 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const file = form.elements.file
     const title = form.elements.title
 
-    const memory = {
-      key: file,
-      ownImage: file,
+    const newMemory = {
+      id: uuidv4(),
       ownTitle: title,
     }
 
-    onSubmit(memory)
-    form.reset()
+    onSubmit({ newMemory })
   }
 }
 
@@ -60,8 +58,7 @@ const FormWrap = styled.form`
   gap: 2.5em;
 
   .label {
-    display: flex;
-    align-self: center;
+    display: grid;
     gap: 2.5em;
   }
 `
@@ -78,7 +75,8 @@ const ImageSection = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 230px;
+  min-height: 230px;
+  max-height: max-content;
   width: 230px;
   background: #e4eaeb;
   border-radius: 50px;

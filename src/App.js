@@ -11,6 +11,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 export default function App() {
   const [image, setImage] = useState('')
+  const [currentMemory, setCurrentMemory] = useState({})
   const [memories, setMemories] = useState([])
   const [currentPage, setCurrentPage] = useState('camera')
   const [detailImage, setDetailImage] = useState(null)
@@ -39,11 +40,11 @@ export default function App() {
         />
       )}
       {currentPage === 'memories' && (
-        <MemoriesPage memories={[memories]} onDetail={showDetailMemoryPage} />
+        <MemoriesPage memories={memories} onDetail={showDetailMemoryPage} />
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
-          ownImage={detailImage.ownImage}
+          image={detailImage.image}
           ownTitle={detailImage.ownTitle}
           onNavigate={showMemoriesPage}
         />
@@ -70,10 +71,12 @@ export default function App() {
 
   function onImageSave(response) {
     setImage(response.data.url)
+    setCurrentMemory({ image: response.data.url, ...currentMemory })
   }
 
-  function handleSubmit({ memory }) {
-    setMemories(memories)
+  function handleSubmit(newMemory) {
+    setCurrentMemory({ ...newMemory, ...currentMemory })
+    setMemories([currentMemory, ...memories])
     setCurrentPage('memories')
   }
 
