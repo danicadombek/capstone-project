@@ -29,7 +29,7 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
           type="text"
           name="title"
           placeholder="Give your memory a name"
-        ></input>
+        />
         <Button>Save your memory</Button>
       </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
