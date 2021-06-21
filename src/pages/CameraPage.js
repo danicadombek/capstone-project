@@ -15,22 +15,15 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
   return (
     <Wrapper>
       <FormWrap onSubmit={handleSubmit}>
-        <label>
-          Start your cam
-          <ImageSection>
-            {image ? (
-              <Image src={image} alt="" />
-            ) : (
-              <input
-                id="upload-img"
-                type="file"
-                name="file"
-                onChange={upload}
-              />
-            )}
-            {upload}
-          </ImageSection>
-        </label>
+        Start your cam
+        <ImageSection>
+          {image ? (
+            <Image src={image} alt="" />
+          ) : (
+            <Input id="upload-img" type="file" name="file" onChange={upload} />
+          )}
+          {upload}
+        </ImageSection>
         <input
           id="upload-img"
           type="text"
@@ -49,10 +42,11 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
 
     const newMemory = {
       id: uuidv4(),
-      ownTitle: title,
+      title: title,
     }
 
     onSubmit({ newMemory })
+    form.reset()
   }
 }
 
@@ -60,12 +54,8 @@ const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2.5em;
-
-  .label {
-    display: grid;
-    gap: 2.5em;
-  }
 `
 
 const Wrapper = styled.div`
@@ -97,4 +87,9 @@ const Image = styled.img`
   width: 100%;
   border: 4px solid #e4eaeb;
   border-radius: 50px;
+`
+
+const Input = styled.input`
+  height: 230px;
+  width: 230px;
 `
