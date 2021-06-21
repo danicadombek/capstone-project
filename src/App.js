@@ -40,12 +40,16 @@ export default function App() {
         />
       )}
       {currentPage === 'memories' && (
-        <MemoriesPage memories={memories} onDetail={showDetailMemoryPage} />
+        <MemoriesPage
+          memories={memories}
+          onDetail={showDetailMemoryPage}
+          onNavigate={showCameraPage}
+        />
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
           image={detailImage.image}
-          ownTitle={detailImage.ownTitle}
+          title={detailImage.title}
           onNavigate={showMemoriesPage}
         />
       )}
@@ -87,5 +91,9 @@ export default function App() {
 
   function showMemoriesPage() {
     setCurrentPage('memories')
+  }
+
+  function showCameraPage() {
+    setCurrentPage('camera')
   }
 }
