@@ -43,6 +43,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  min-height: 86vh;
 `
 
 const Title = styled.section`
