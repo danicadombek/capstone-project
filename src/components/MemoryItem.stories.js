@@ -11,5 +11,5 @@ const Template = args => <MemoryItem {...args} />
 export const singleMermory = Template.bind({})
 singleMermory.args = {
   image: memory1,
-  ownTitle: 'Memory 1',
+  title: 'Memory 1',
 }

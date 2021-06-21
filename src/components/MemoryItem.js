@@ -4,16 +4,15 @@ import PropTypes from 'prop-types'
 MemoryItem.propTypes = {
   onDetail: PropTypes.func.isRequired,
   newMemory: PropTypes.objectOf(
-    PropTypes.shape({ image: PropTypes.string, ownTitle: PropTypes.string })
+    PropTypes.shape({ image: PropTypes.string, title: PropTypes.string })
   ),
 }
 
-export default function MemoryItem({ image, ownTitle, onDetail }) {
-  console.log(image)
+export default function MemoryItem({ image, title, onDetail }) {
   return (
     <Wrapper onClick={() => onDetail(image)}>
       <Image src={image} alt="" width="300" height="200" />
-      <span>{ownTitle}</span>
+      <span>{title}</span>
     </Wrapper>
   )
 }
