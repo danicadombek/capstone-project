@@ -41,7 +41,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
           id="upload-img"
           type="text"
           name="title"
-          placeholder="Give your memory a name"
+          placeholder="Give it a name"
         />
         <SaveButton>Save your memory</SaveButton>
       </FormWrap>
