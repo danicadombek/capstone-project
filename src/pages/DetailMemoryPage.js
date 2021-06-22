@@ -12,8 +12,8 @@ export default function DetailMemoryPage({ image, title, onNavigate }) {
   return (
     <Wrapper>
       <ImageDetail>
-        <Image src={image} alt="Memory" width="320" max-height="240" />
-        {title}
+        <Image src={image} alt="Memory" width="320" max-height="180" />
+        <span>{title}</span>
       </ImageDetail>
       <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
@@ -32,12 +32,13 @@ const ImageDetail = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: hsl(60, 2%, 80%, 0.8);
-  max-height: max-content;
   padding: 10px;
   max-width: 88%;
+  max-height: 75%;
 `
 
 const Image = styled.img`
   border-radius: 20px;
   border: 4px;
+  max-height: 98%;
 `

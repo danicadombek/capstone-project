@@ -6,8 +6,6 @@ describe('DetailMemoryPage', () => {
   it('renders two images and a button', () => {
     const onNavigate = jest.fn()
     render(<DetailMemoryPage onNavigate={onNavigate} alt="Memory 1" />)
-    const imageAltText = screen.getByAltText('Memory 1')
-    expect(imageAltText).toBeInTheDocument(1)
 
     const image = screen.getAllByRole('img')
     expect(image).toHaveLength(2)
