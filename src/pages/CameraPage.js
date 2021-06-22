@@ -28,6 +28,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
             <Image src={image} alt="" />
           ) : (
             <Input
+              aria-label="Start your cam"
               label="New memory"
               id="upload-img"
               type="file"
@@ -37,6 +38,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
           )}
         </ImageSection>
         <InputText
+          aria-label="Choose a name"
           label="Memory name"
           id="upload-img"
           type="text"
