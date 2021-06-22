@@ -16,5 +16,8 @@ body {
     font-family: Rubik, sans-serif;
     background-color: #a59997;
     color: #e4eaeb;
+    width: 95%;
+    height: 100%;
+    overflow-x: hidden;
 }
 `

@@ -21,8 +21,10 @@ export default function CameraPage({ onNavigate, onSubmit }) {
 
   return (
     <Wrapper>
-      <Title>Start your cam</Title>
       <FormWrap aria-label="Open your camera" onSubmit={handleSubmit}>
+        <Label for="New Memory">
+          Start your cam with click in the white space
+        </Label>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
@@ -95,10 +97,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   gap: 2em;
   height: 86vh;
-`
-
-const Title = styled.h2`
-  margin-bottom: -60px;
+  width: 100%;
 `
 
 const FormWrap = styled.form`
@@ -107,6 +106,13 @@ const FormWrap = styled.form`
   align-items: center;
   justify-content: center;
   gap: 1.5em;
+`
+
+const Label = styled.label`
+  font-size: 20px;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: -15px;
 `
 
 const ImageSection = styled.div`
@@ -140,9 +146,9 @@ const Image = styled.img`
 `
 
 const Input = styled.input`
-  font-size: 20px;
-  position: absolute;
-  left: 20%;
+  height: 220px;
+  width: 280px;
+  opacity: 0;
 `
 
 const InputText = styled.input`

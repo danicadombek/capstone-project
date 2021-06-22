@@ -50,9 +50,9 @@ export default function App() {
     setCurrentPage('memories')
   }
 
-  function showDetailMemoryPage(image) {
+  function showDetailMemoryPage(image, title) {
     setCurrentPage('detail')
-    setDetailImage({ image })
+    setDetailImage({ image, title })
   }
 
   function showMemoriesPage() {
