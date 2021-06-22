@@ -14,4 +14,5 @@ export default styled.button`
   font-size: 18px;
   font-weight: 'semi-bold';
   border: none;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 `

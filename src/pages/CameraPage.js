@@ -14,8 +14,8 @@ CameraPage.propTypes = {
 export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
   return (
     <Wrapper>
+      <Title>Start your cam</Title>
       <FormWrap onSubmit={handleSubmit}>
-        Start your cam
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
@@ -24,7 +24,7 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
           )}
           {upload}
         </ImageSection>
-        <input
+        <InputText
           id="upload-img"
           type="text"
           name="title"
@@ -56,6 +56,11 @@ const FormWrap = styled.form`
   align-items: center;
   justify-content: center;
   gap: 2.5em;
+`
+
+const Title = styled.h2`
+  font-size: 24px;
+  margin-bottom: 0;
 `
 
 const Wrapper = styled.div`
@@ -92,4 +97,9 @@ const Image = styled.img`
 const Input = styled.input`
   height: 230px;
   width: 230px;
+`
+
+const InputText = styled.input`
+  border: 4px solid #e4eaeb;
+  border-radius: 50px;
 `
