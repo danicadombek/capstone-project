@@ -18,6 +18,7 @@ CameraPage.propTypes = {
 
 export default function CameraPage({ onNavigate, onSubmit }) {
   const [image, setImage] = useState(null)
+
   return (
     <Wrapper>
       <Title>Start your cam</Title>
@@ -42,7 +43,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
           name="title"
           placeholder="Give your memory a name"
         />
-        <Button>Save your memory</Button>
+        <SaveButton>Save your memory</SaveButton>
       </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
@@ -85,34 +86,33 @@ export default function CameraPage({ onNavigate, onSubmit }) {
   }
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  height: 86vh;
+`
+
+const Title = styled.h2`
+  margin-bottom: 0;
+`
+
 const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5em;
-`
-
-const Title = styled.h2`
-  font-size: 24px;
-  margin-bottom: 0;
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5em;
-  height: 86vh;
+  gap: 1.5em;
 `
 
 const ImageSection = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 230px;
-  max-height: max-content;
-  width: 230px;
+  min-height: 200px;
+  max-height: 300px;
+  width: 300px;
   background: #e4eaeb;
   border-radius: 50px;
 
@@ -123,18 +123,28 @@ const ImageSection = styled.div`
   }
 `
 
+const SaveButton = styled(Button)`
+  width: 300px;
+  padding: 4px;
+`
+
 const Image = styled.img`
   width: 100%;
+  height: 95%;
   border: 4px solid #e4eaeb;
   border-radius: 50px;
 `
 
 const Input = styled.input`
-  height: 230px;
-  width: 230px;
+  font-size: 20px;
+  position: absolute;
+  left: 20%;
+  color: black;
 `
 
 const InputText = styled.input`
   border: 4px solid #e4eaeb;
   border-radius: 50px;
+  width: 280px;
+  padding: 4px;
 `
