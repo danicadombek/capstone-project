@@ -43,7 +43,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
           id="upload-img"
           type="text"
           name="title"
-          placeholder="Give it a name"
+          placeholder="Choose a name"
         />
         <SaveButton>Save your memory</SaveButton>
       </FormWrap>
@@ -92,12 +92,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 2em;
   height: 86vh;
 `
 
 const Title = styled.h2`
-  margin-bottom: 0;
+  margin-bottom: -60px;
 `
 
 const FormWrap = styled.form`
@@ -112,9 +113,9 @@ const ImageSection = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 200px;
+  min-height: 220px;
   max-height: 300px;
-  width: 300px;
+  width: 280px;
   background: #e4eaeb;
   border-radius: 50px;
 
@@ -126,12 +127,13 @@ const ImageSection = styled.div`
 `
 
 const SaveButton = styled(Button)`
-  width: 300px;
+  width: 260px;
   padding: 4px;
+  box-shadow: none;
 `
 
 const Image = styled.img`
-  width: 100%;
+  width: 95%;
   height: 95%;
   border: 4px solid #e4eaeb;
   border-radius: 50px;
@@ -141,12 +143,11 @@ const Input = styled.input`
   font-size: 20px;
   position: absolute;
   left: 20%;
-  color: black;
 `
 
 const InputText = styled.input`
   border: 4px solid #e4eaeb;
   border-radius: 50px;
-  width: 280px;
+  width: 240px;
   padding: 4px;
 `
