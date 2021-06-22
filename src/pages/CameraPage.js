@@ -3,6 +3,11 @@ import ToMemoriesButton from '../components/ToMemoriesButton'
 import PropTypes from 'prop-types'
 import Button from '../components/Button'
 import { v4 as uuidv4 } from 'uuid'
+import { useState } from 'react'
+import axios from 'axios'
+
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
   image: PropTypes.string,
@@ -11,20 +16,27 @@ CameraPage.propTypes = {
   onSubmit: PropTypes.func,
 }
 
-export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
+export default function CameraPage({ onNavigate, onSubmit }) {
+  const [image, setImage] = useState(null)
   return (
     <Wrapper>
       <Title>Start your cam</Title>
-      <FormWrap onSubmit={handleSubmit}>
+      <FormWrap aria-label="Open your camera" onSubmit={handleSubmit}>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
           ) : (
-            <Input id="upload-img" type="file" name="file" onChange={upload} />
+            <Input
+              label="New memory"
+              id="upload-img"
+              type="file"
+              name="file"
+              onChange={upload}
+            />
           )}
-          {upload}
         </ImageSection>
         <InputText
+          label="Memory name"
           id="upload-img"
           type="text"
           name="title"
@@ -35,17 +47,40 @@ export default function CameraPage({ image, upload, onNavigate, onSubmit }) {
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
   )
+
+  function upload(event) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`
+
+    const formData = new FormData()
+    formData.append('file', event.target.files[0])
+    formData.append('upload_preset', PRESET)
+
+    axios
+      .post(url, formData, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+        },
+      })
+      .then(saveImage)
+      .catch(err => console.error(err))
+  }
+
+  function saveImage(response) {
+    setImage(response.data.url)
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const title = form.elements.title
+    const title = form.elements.title.value
 
     const newMemory = {
       id: uuidv4(),
       title: title,
+      image: image,
     }
 
-    onSubmit({ newMemory })
+    onSubmit(newMemory)
     form.reset()
   }
 }
