@@ -12,12 +12,10 @@ export default function DetailMemoryPage({ image, title, onNavigate }) {
   return (
     <Wrapper>
       <ImageDetail>
-        <Image src={image} alt="Memory" width="100%" />
+        <Image src={image} alt="Memory" width="320" max-height="240" />
         {title}
       </ImageDetail>
-      <nav>
-        <BackButtonStyle onClick={onNavigate} />
-      </nav>
+      <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
 }
@@ -25,26 +23,21 @@ export default function DetailMemoryPage({ image, title, onNavigate }) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  place-items: center;
   justify-content: space-between;
   height: 86vh;
-  width: 90%;
 `
+const ImageDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(60, 2%, 80%, 0.8);
+  max-height: max-content;
+  padding: 10px;
+  max-width: 88%;
+`
+
 const Image = styled.img`
   border-radius: 20px;
-  border-radius: 20px;
   border: 4px;
-  border-color: white;
-`
-
-const ImageDetail = styled.div`
-  background-color: hsl(60, 2%, 80%, 0.8);
-  position: absolute;
-  left: 1.15em;
-  padding: 10px;
-  width: 85%;
-`
-
-const BackButtonStyle = styled(ToMemoriesButton)`
-  width: 88%;
 `
