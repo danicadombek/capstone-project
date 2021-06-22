@@ -20,9 +20,6 @@ const ButtonStyle = styled(Button)`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
-  left: 1.4em;
-  bottom: 1.4em;
   width: 90vw;
   height: 5vh;
 
