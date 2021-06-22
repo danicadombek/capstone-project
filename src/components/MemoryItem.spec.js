@@ -5,11 +5,8 @@ import MemoryItem from './MemoryItem'
 describe('MemoryItem', () => {
   it('renders an image with subtitle', () => {
     const onDetail = jest.fn()
-    render(
-      <MemoryItem subtitle="Memory 1" image="memory1" onDetail={onDetail} />
-    )
+    render(<MemoryItem title="Memory 1" image="memory1" onDetail={onDetail} />)
     expect(screen.getByRole('img')).toBeInTheDocument()
-    expect(screen.getByText('Memory 1')).toBeInTheDocument()
   })
 
   it('calls onNavigate to another page', () => {

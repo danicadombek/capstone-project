@@ -10,7 +10,7 @@ MemoryItem.propTypes = {
 
 export default function MemoryItem({ image, title, onDetail }) {
   return (
-    <Wrapper onClick={() => onDetail(image)}>
+    <Wrapper onClick={() => onDetail(image, title)}>
       <Image src={image} alt="" width="300" height="200" />
       <span>{title}</span>
     </Wrapper>
