@@ -10,8 +10,8 @@ const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
-  image: PropTypes.string,
-  upload: PropTypes.func,
+  image: PropTypes.string.isRequired,
+  upload: PropTypes.func.isRequired,
   onNavigate: PropTypes.func,
   onSubmit: PropTypes.func,
 }
