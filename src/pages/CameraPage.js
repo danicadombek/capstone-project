@@ -5,6 +5,7 @@ import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import Button from '../components/Button'
 import ToMemoriesButton from '../components/ToMemoriesButton'
+import cam from '../assets/images/icons/cam.png'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -16,27 +17,28 @@ CameraPage.propTypes = {
   handleMemorySubmit: PropTypes.func,
 }
 
-export default function CameraPage({ onNavigate, onSubmit }) {
+export default function CameraPage({ onNavigate, handleMemorySubmit }) {
   const [image, setImage] = useState(null)
 
   return (
     <Wrapper>
-      <FormWrap aria-label="Open your camera" onSubmit={handleMemorySubmit}>
-        <Label for="New Memory">
-          Start your cam with click in the white space
-        </Label>
+      <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
+        <Label for="New Memory">Start your cam</Label>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
           ) : (
-            <Input
-              aria-label="Start your cam"
-              label="New memory"
-              id="upload-img"
-              type="file"
-              name="file"
-              onChange={upload}
-            />
+            <>
+              <CamIcon src={cam} alt="" />
+              <Input
+                aria-label="Start your cam"
+                label="New memory"
+                id="upload-img"
+                type="file"
+                name="file"
+                onChange={upload}
+              />
+            </>
           )}
         </ImageSection>
         <LabelText>Name for your memory:</LabelText>
@@ -75,7 +77,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
     setImage(response.data.url)
   }
 
-  function handleMemorySubmit(event) {
+  function onSubmit(event) {
     event.preventDefault()
     const form = event.target
     const title = form.elements.title.value
@@ -86,7 +88,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
       image: image,
     }
 
-    onSubmit(newMemory)
+    handleMemorySubmit(newMemory)
     form.reset()
   }
 }
@@ -110,18 +112,18 @@ const FormWrap = styled.form`
 `
 
 const Label = styled.label`
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: -15px;
   padding: 8px;
   text-align: center;
 `
 
 const ImageSection = styled.div`
+  display: flex;
   align-items: center;
   background: var(--color-background-white);
   border-radius: var(--border-radius-global);
   box-shadow: var(--shadow-img);
-  display: flex;
   justify-content: space-evenly;
   max-height: 300px;
   min-height: 220px;
@@ -132,6 +134,10 @@ const ImageSection = styled.div`
     letter-spacing: 4px;
     text-shadow: var(--shadow-text);
   }
+`
+
+const CamIcon = styled.img`
+  position: absolute;
 `
 
 const LabelText = styled.label`

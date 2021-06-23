@@ -13,8 +13,9 @@ export default function DetailMemoryPage({ image, title, onNavigate }) {
     <Wrapper>
       <ImageDetail>
         <Image src={image} alt="Memory" width="320" max-height="180" />
-        <span>{title}</span>
+        <Title>{title}</Title>
       </ImageDetail>
+
       <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
@@ -26,7 +27,10 @@ const Wrapper = styled.section`
   height: 86vh;
   justify-content: space-between;
   place-items: center;
+  color: var(--color-text);
+  font-weight: bold;
 `
+
 const ImageDetail = styled.div`
   align-items: center;
   background-color: var(--color-background);
@@ -42,4 +46,8 @@ const Image = styled.img`
   border: 4px;
   box-shadow: var(--shadow-img);
   max-height: 98%;
+`
+
+const Title = styled.span`
+  margin-top: 5px;
 `

@@ -28,7 +28,7 @@ export default function App() {
       {currentPage === 'camera' && (
         <CameraPage
           onNavigate={showMemoriesPage}
-          onSubmit={handleMemorySubmit}
+          handleMemorySubmit={handleMemorySubmit}
         />
       )}
       {currentPage === 'memories' && (

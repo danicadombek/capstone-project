@@ -29,7 +29,7 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
             <MemoryItem
               image={image}
               title={title}
-              onDetail={() => onDetail(image)}
+              onDetail={() => onDetail(image, title)}
             />
           </li>
         ))}
