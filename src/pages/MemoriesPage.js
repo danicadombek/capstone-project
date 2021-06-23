@@ -1,8 +1,8 @@
 //@ts-check
-import styled from 'styled-components/macro'
-import MemoryItem from '../components/MemoryItem'
-import Button from '../components/Button'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import Button from '../components/Button'
+import MemoryItem from '../components/MemoryItem'
 
 MemoriesPage.propTypes = {
   onNavigate: PropTypes.func,
@@ -39,30 +39,30 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
 }
 
 const Wrapper = styled.section`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow-y: scroll;
   min-height: 86vh;
+  overflow-y: scroll;
 `
 
 const Title = styled.section`
-  display: flex;
   align-items: center;
+  display: flex;
 `
 
 const ListWrapper = styled.ul`
-  list-style-type: none;
   display: grid;
-  gap: 10px;
-  padding: 5px;
   font-weight: bold;
+  gap: 10px;
+  list-style-type: none;
+  padding: 5px;
 `
 
 const BackToCam = styled(Button)`
   background: none;
   color: #e4eaeb;
+  left: -30px;
   position: relative;
   top: 0;
-  left: -30px;
 `

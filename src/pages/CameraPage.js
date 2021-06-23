@@ -1,10 +1,10 @@
-import styled from 'styled-components/macro'
-import ToMemoriesButton from '../components/ToMemoriesButton'
-import PropTypes from 'prop-types'
-import Button from '../components/Button'
-import { v4 as uuidv4 } from 'uuid'
-import { useState } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
+import { useState } from 'react'
+import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
+import Button from '../components/Button'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -13,7 +13,7 @@ CameraPage.propTypes = {
   image: PropTypes.string.isRequired,
   upload: PropTypes.func.isRequired,
   onNavigate: PropTypes.func,
-  onSubmit: PropTypes.func,
+  handleMemorySubmit: PropTypes.func,
 }
 
 export default function CameraPage({ onNavigate, onSubmit }) {
@@ -21,7 +21,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
 
   return (
     <Wrapper>
-      <FormWrap aria-label="Open your camera" onSubmit={handleSubmit}>
+      <FormWrap aria-label="Open your camera" onSubmit={handleMemorySubmit}>
         <Label for="New Memory">
           Start your cam with click in the white space
         </Label>
@@ -39,6 +39,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
             />
           )}
         </ImageSection>
+        <LabelText>Name for your memory:</LabelText>
         <InputText
           aria-label="Choose a name"
           label="Memory name"
@@ -74,7 +75,7 @@ export default function CameraPage({ onNavigate, onSubmit }) {
     setImage(response.data.url)
   }
 
-  function handleSubmit(event) {
+  function handleMemorySubmit(event) {
     event.preventDefault()
     const form = event.target
     const title = form.elements.title.value
@@ -91,69 +92,75 @@ export default function CameraPage({ onNavigate, onSubmit }) {
 }
 
 const Wrapper = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   gap: 2em;
   height: 86vh;
+  justify-content: space-between;
   width: 100%;
 `
 
 const FormWrap = styled.form`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 1.5em;
+  justify-content: center;
 `
 
 const Label = styled.label`
   font-size: 20px;
-  text-align: center;
-  padding: 8px;
   margin-bottom: -15px;
+  padding: 8px;
+  text-align: center;
 `
 
 const ImageSection = styled.div`
+  align-items: center;
+  background: var(--color-background-white);
+  border-radius: var(--border-radius-global);
+  box-shadow: var(--shadow-img);
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  min-height: 220px;
   max-height: 300px;
+  min-height: 220px;
   width: 280px;
-  background: #e4eaeb;
-  border-radius: 50px;
 
   span {
-    letter-spacing: 4px;
     font-size: larger;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    letter-spacing: 4px;
+    text-shadow: var(--shadow-text);
   }
 `
 
+const LabelText = styled.label`
+  font-weight: bold;
+  margin-bottom: -15px;
+`
+
 const SaveButton = styled(Button)`
-  width: 260px;
   padding: 4px;
-  box-shadow: none;
+  width: 260px;
 `
 
 const Image = styled.img`
-  width: 95%;
-  height: 95%;
-  border: 4px solid #e4eaeb;
   border-radius: 50px;
+  border: 4px solid #e4eaeb;
+  height: 95%;
+  width: 95%;
 `
 
 const Input = styled.input`
   height: 220px;
-  width: 280px;
   opacity: 0;
+  width: 280px;
 `
 
 const InputText = styled.input`
-  border: 4px solid #e4eaeb;
   border-radius: 50px;
-  width: 240px;
+  border: 4px solid #e4eaeb;
+  box-shadow: var(--shadow-img);
   padding: 4px;
+  width: 240px;
 `

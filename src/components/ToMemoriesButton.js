@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import MemoriesIcon from '../assets/images/icons/galery.png'
-import PropTypes from 'prop-types'
 import Button from './Button'
 
 ToMemoriesButton.propTypes = {
@@ -17,16 +17,16 @@ export default function ToMemoriesButton(props) {
 }
 
 const ButtonStyle = styled(Button)`
-  display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  width: 90vw;
+  display: flex;
   height: 5vh;
+  justify-content: space-evenly;
+  width: 90vw;
 
   span {
-    letter-spacing: 4px;
     font-size: larger;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    letter-spacing: 0.2em;
+    text-shadow: var(--shadow-text);
   }
 `
 

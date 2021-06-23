@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
-import PropTypes from 'prop-types'
 
 DetailMemoryPage.propTypes = {
   image: PropTypes.string,
@@ -23,22 +23,23 @@ export default function DetailMemoryPage({ image, title, onNavigate }) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  place-items: center;
-  justify-content: space-between;
   height: 86vh;
+  justify-content: space-between;
+  place-items: center;
 `
 const ImageDetail = styled.div`
+  align-items: center;
+  background-color: var(--color-background);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: hsl(60, 2%, 80%, 0.8);
-  padding: 10px;
-  max-width: 88%;
   max-height: 75%;
+  max-width: 88%;
+  padding: 10px;
 `
 
 const Image = styled.img`
   border-radius: 20px;
   border: 4px;
+  box-shadow: var(--shadow-img);
   max-height: 98%;
 `

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import background from '../src/assets/viary-bg2.jpg'
+import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
@@ -26,7 +26,10 @@ export default function App() {
     >
       <Header>Viary</Header>
       {currentPage === 'camera' && (
-        <CameraPage onNavigate={showMemoriesPage} onSubmit={handleSubmit} />
+        <CameraPage
+          onNavigate={showMemoriesPage}
+          onSubmit={handleMemorySubmit}
+        />
       )}
       {currentPage === 'memories' && (
         <MemoriesPage
@@ -45,7 +48,7 @@ export default function App() {
     </div>
   )
 
-  function handleSubmit(newMemory) {
+  function handleMemorySubmit(newMemory) {
     setMemories([newMemory, ...memories])
     setCurrentPage('memories')
   }

@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 
 MemoryItem.propTypes = {
   onDetail: PropTypes.func.isRequired,
@@ -18,18 +18,18 @@ export default function MemoryItem({ image, title, onDetail }) {
 }
 
 const Wrapper = styled.div`
-  background-color: hsl(60, 2%, 80%, 0.8);
-  display: grid;
   align-items: center;
+  background: var(--color-background);
+  color: var(--color-text);
+  display: grid;
   gap: 5px;
   padding: 5px;
   text-align: center;
-  color: #230707;
 `
 
 const Image = styled.img`
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: var(--img-shadow);
+  box-shadow: var(--shadow-img);
   border-radius: 20px;
 `
