@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 
 styled.button.propTypes = {
   onClick: PropTypes.func,
@@ -7,10 +7,12 @@ styled.button.propTypes = {
 }
 
 export default styled.button`
-  border-radius: 50px;
-  background: #e4eaeb;
-  box-shadow: 25px 25px 33px #baaba4;
-  max-width: auto;
+  background: var(--color-background-white);
+  border-radius: var(--border-radius-global);
+  border: none;
+  box-shadow: var(--shadow-img);
   font-size: 18px;
   font-weight: 'semi-bold';
+  max-width: auto;
+  text-shadow: var(--shadow-text);
 `

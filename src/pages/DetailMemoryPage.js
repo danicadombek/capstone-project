@@ -1,21 +1,22 @@
-import styled from 'styled-components/macro'
-import BackButton from '../components/BackButton'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 
 DetailMemoryPage.propTypes = {
-  image: PropTypes.node,
+  image: PropTypes.string,
+  title: PropTypes.string,
   alt: PropTypes.string,
 }
 
-export default function DetailMemoryPage({ image, onNavigate }) {
+export default function DetailMemoryPage({ image, title, onNavigate }) {
   return (
     <Wrapper>
       <ImageDetail>
-        <Image src={image} alt="Memory 1" width="100%" />
+        <Image src={image} alt="Memory" width="320" max-height="180" />
+        <Title>{title}</Title>
       </ImageDetail>
-      <nav>
-        <BackButtonStyle onClick={onNavigate}>Back to memories</BackButtonStyle>
-      </nav>
+
+      <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
 }
@@ -23,32 +24,30 @@ export default function DetailMemoryPage({ image, onNavigate }) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  justify-content: space-between;
   height: 86vh;
-  width: 90%;
-
-  span {
-    letter-spacing: 4px;
-    font-size: larger;
-    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
-  }
-`
-const Image = styled.img`
-  border-radius: 20px;
-  border-radius: 20px;
-  border: 4px;
-  border-color: white;
+  justify-content: space-between;
+  place-items: center;
+  color: var(--color-text);
+  font-weight: bold;
 `
 
 const ImageDetail = styled.div`
-  background-color: hsl(60, 2%, 80%, 0.8);
-  position: absolute;
-  left: 1.15em;
+  align-items: center;
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  max-height: 75%;
+  max-width: 88%;
   padding: 10px;
-  width: 85%;
 `
 
-const BackButtonStyle = styled(BackButton)`
-  width: 88%;
+const Image = styled.img`
+  border-radius: 20px;
+  border: 4px;
+  box-shadow: var(--shadow-img);
+  max-height: 98%;
+`
+
+const Title = styled.span`
+  margin-top: 5px;
 `

@@ -1,30 +1,33 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import MemoriesIcon from '../assets/images/icons/galery.png'
-import PropTypes from 'prop-types'
-import Button from '../components/Button'
+import Button from './Button'
 
-BackButton.propTypes = {
+ToMemoriesButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-export default function BackButton(props) {
+export default function ToMemoriesButton(props) {
   return (
     <ButtonStyle {...props}>
       <Icon src={MemoriesIcon} alt="" />
-      <span>Back to memories</span>
+      <span>To your memories</span>
     </ButtonStyle>
   )
 }
 
 const ButtonStyle = styled(Button)`
-  display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  position: fixed;
-  left: 1.4em;
-  bottom: 1.4em;
-  width: 90vw;
+  display: flex;
   height: 5vh;
+  justify-content: space-evenly;
+  width: 90vw;
+
+  span {
+    font-size: larger;
+    letter-spacing: 0.2em;
+    text-shadow: var(--shadow-text);
+  }
 `
 
 const Icon = styled.img`

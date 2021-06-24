@@ -1,21 +1,14 @@
 import { useState } from 'react'
-import background from '../src/assets/viary-bg2.jpg'
+import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
-import MemoriesPage from './pages/MemoriesPage'
+import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
-import memory1 from './assets/images/memory1.jpg'
-import memory2 from './assets/images/memory2.jpg'
-import memory3 from './assets/images/memory3.jpg'
+import MemoriesPage from './pages/MemoriesPage'
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('memories')
+  const [memories, setMemories] = useState([])
+  const [currentPage, setCurrentPage] = useState('camera')
   const [detailImage, setDetailImage] = useState(null)
-
-  const listOfMemories = [
-    { image: memory1, subtitle: 'Memory 1' },
-    { image: memory2, subtitle: 'Memory 2' },
-    { image: memory3, subtitle: 'Memory 3' },
-  ]
 
   return (
     <div
@@ -32,26 +25,44 @@ export default function App() {
       }}
     >
       <Header>Viary</Header>
+      {currentPage === 'camera' && (
+        <CameraPage
+          onNavigate={showMemoriesPage}
+          handleMemorySubmit={handleMemorySubmit}
+        />
+      )}
       {currentPage === 'memories' && (
         <MemoriesPage
-          memories={listOfMemories}
+          memories={memories}
           onDetail={showDetailMemoryPage}
+          onNavigate={showCameraPage}
         />
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
           image={detailImage.image}
+          title={detailImage.title}
           onNavigate={showMemoriesPage}
         />
       )}
     </div>
   )
-  function showDetailMemoryPage(image) {
+
+  function handleMemorySubmit(newMemory) {
+    setMemories([newMemory, ...memories])
+    setCurrentPage('memories')
+  }
+
+  function showDetailMemoryPage(image, title) {
     setCurrentPage('detail')
-    setDetailImage({ image })
+    setDetailImage({ image, title })
   }
 
   function showMemoriesPage() {
     setCurrentPage('memories')
+  }
+
+  function showCameraPage() {
+    setCurrentPage('camera')
   }
 }

@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react'
-import BackButton from './BackButton'
+import ToMemoriesButton from './ToMemoriesButton'
 import userEvent from '@testing-library/user-event'
 
-describe('BackButton', () => {
+describe('ToMemoriesButton', () => {
   it('contains a text', () => {
     const onNavigate = jest.fn()
-    render(<BackButton onClick={onNavigate}>Back</BackButton>)
+    render(
+      <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
+    )
 
     const button = screen.getByRole('button')
     expect(button).toBeInTheDocument()
@@ -13,7 +15,9 @@ describe('BackButton', () => {
 
   it('calls onClick', () => {
     const onNavigate = jest.fn()
-    render(<BackButton onClick={onNavigate}>Back</BackButton>)
+    render(
+      <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
+    )
 
     const button = screen.getByRole('button')
     userEvent.click(button)
