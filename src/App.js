@@ -9,7 +9,7 @@ import { loadFromLocal, saveToLocal } from './utils/localStorage'
 export default function App() {
   const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
   const [currentPage, setCurrentPage] = useState('camera')
-  const [detailImage, setDetailImage] = useState(null)
+  const [memoryDetail, setMemoryDetail] = useState(null)
 
   useEffect(() => {
     saveToLocal('memories', memories)
@@ -45,8 +45,8 @@ export default function App() {
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
-          image={detailImage.image}
-          title={detailImage.title}
+          image={memoryDetail.image}
+          title={memoryDetail.title}
           onNavigate={showMemoriesPage}
         />
       )}
@@ -60,7 +60,7 @@ export default function App() {
 
   function showDetailMemoryPage(image, title) {
     setCurrentPage('detail')
-    setDetailImage({ image, title })
+    setMemoryDetail({ image, title })
   }
 
   function showMemoriesPage() {

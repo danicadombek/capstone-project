@@ -31,7 +31,6 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             <>
               <CamIcon src={cam} alt="" />
               <Input
-                aria-label="Start your cam"
                 label="New memory"
                 id="upload-img"
                 type="file"
@@ -41,7 +40,6 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             </>
           )}
         </ImageSection>
-        <LabelText>Name for your memory:</LabelText>
         <InputText
           aria-label="Choose a name"
           label="Memory name"
@@ -140,18 +138,13 @@ const CamIcon = styled.img`
   position: absolute;
 `
 
-const LabelText = styled.label`
-  font-weight: bold;
-  margin-bottom: -15px;
-`
-
 const SaveButton = styled(Button)`
   padding: 4px;
   width: 260px;
 `
 
 const Image = styled.img`
-  border-radius: 50px;
+  border-radius: var(--border-radius-global);
   border: 4px solid #e4eaeb;
   height: 95%;
   width: 95%;
@@ -164,7 +157,7 @@ const Input = styled.input`
 `
 
 const InputText = styled.input`
-  border-radius: 50px;
+  border-radius: var(--border-radius-global);
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;

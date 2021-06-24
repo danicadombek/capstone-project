@@ -12,7 +12,7 @@ export default createGlobalStyle`
 
 }
 
-*box {
+* {
     box-sizing: border-box;
 }
 
