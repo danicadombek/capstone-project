@@ -19,9 +19,9 @@ export default function ToMemoriesButton(props) {
 const ButtonStyle = styled(Button)`
   align-items: center;
   display: flex;
-  height: 5vh;
   justify-content: space-evenly;
-  width: 90vw;
+  width: 100%;
+  padding: 3px;
 
   span {
     font-size: larger;

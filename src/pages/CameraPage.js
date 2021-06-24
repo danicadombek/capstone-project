@@ -93,9 +93,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2em;
-  height: 86vh;
   justify-content: space-between;
-  width: 100%;
+  margin: -120px 10px 10px 10px;
 `
 
 const FormWrap = styled.form`
@@ -131,7 +130,7 @@ const CamIcon = styled.img`
 
 const SaveButton = styled(Button)`
   padding: 4px;
-  width: 260px;
+  width: 100%;
 `
 
 const Image = styled.img`
@@ -152,5 +151,5 @@ const InputText = styled.input`
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;
-  width: 240px;
+  width: 100%;
 `

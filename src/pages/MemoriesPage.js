@@ -20,7 +20,7 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
   return (
     <Wrapper>
       <Title>
-        <BackToCam onClick={onNavigate}> &lt; Cam</BackToCam>
+        <BackToCam onClick={onNavigate}> &lt;</BackToCam>
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
@@ -42,13 +42,18 @@ const Wrapper = styled.section`
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 86vh;
   overflow-y: scroll;
+  margin-top: -130px;
 `
 
 const Title = styled.section`
   align-items: center;
   display: flex;
+  justify-content: flex-start;
+
+  h2 {
+    font-size: 22px;
+  }
 `
 
 const ListWrapper = styled.ul`
@@ -61,9 +66,9 @@ const ListWrapper = styled.ul`
 `
 
 const BackToCam = styled(Button)`
-  background: none;
-  color: #e4eaeb;
   left: -30px;
   position: relative;
   top: 0;
+  padding: 3px;
+  width: 30%;
 `
