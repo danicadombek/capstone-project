@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import background from '../src/assets/viary-bg.jpg'
 import Header from '../src/components/Header'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
 import MemoriesPage from './pages/MemoriesPage'
+import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
-  const [memories, setMemories] = useState([])
+  const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
   const [currentPage, setCurrentPage] = useState('camera')
   const [detailImage, setDetailImage] = useState(null)
+
+  useEffect(() => {
+    saveToLocal('memories', memories)
+  }, [memories])
 
   return (
     <div
