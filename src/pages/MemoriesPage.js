@@ -57,6 +57,7 @@ const ListWrapper = styled.ul`
   gap: 10px;
   list-style-type: none;
   padding: 5px;
+  border: var(--border-radius-global);
 `
 
 const BackToCam = styled(Button)`

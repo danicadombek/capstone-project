@@ -11,8 +11,9 @@ MemoryItem.propTypes = {
 export default function MemoryItem({ image, title, onDetail }) {
   return (
     <Wrapper onClick={() => onDetail(image, title)}>
-      <Image src={image} alt="" width="300" height="200" />
-      <span>{title}</span>
+      <Image src={image} alt="" width="60" height="60" />
+      <Title>{title}</Title>
+      &gt;
     </Wrapper>
   )
 }
@@ -21,7 +22,9 @@ const Wrapper = styled.div`
   align-items: center;
   background: var(--color-background);
   color: var(--color-text);
-  display: grid;
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
   gap: 5px;
   padding: 5px;
   text-align: center;
@@ -32,4 +35,8 @@ const Image = styled.img`
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: var(--shadow-img);
   border-radius: 20px;
+`
+
+const Title = styled.span`
+  font-size: 20px;
 `
