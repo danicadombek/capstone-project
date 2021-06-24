@@ -11,8 +11,6 @@ const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
-  image: PropTypes.string.isRequired,
-  upload: PropTypes.func.isRequired,
   onNavigate: PropTypes.func,
   handleMemorySubmit: PropTypes.func,
 }
@@ -23,7 +21,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
   return (
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
-        <Label for="New Memory">Start your cam</Label>
+        <Label>Start your cam</Label>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
@@ -31,7 +29,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             <>
               <CamIcon src={cam} alt="" />
               <Input
-                label="New memory"
+                aria-label="Start your cam"
                 id="upload-img"
                 type="file"
                 name="file"
@@ -42,7 +40,6 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
         </ImageSection>
         <InputText
           aria-label="Choose a name"
-          label="Memory name"
           id="upload-img"
           type="text"
           name="title"
@@ -126,12 +123,6 @@ const ImageSection = styled.div`
   max-height: 300px;
   min-height: 220px;
   width: 280px;
-
-  span {
-    font-size: larger;
-    letter-spacing: 4px;
-    text-shadow: var(--shadow-text);
-  }
 `
 
 const CamIcon = styled.img`
