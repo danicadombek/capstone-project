@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import MemoryItem from '../components/MemoryItem'
+import Delete from '../assets/images/icons/delete.png'
 
 MemoriesPage.propTypes = {
   onNavigate: PropTypes.func,
