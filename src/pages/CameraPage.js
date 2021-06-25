@@ -94,7 +94,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 2em;
   justify-content: space-between;
-  margin: -120px 10px 10px 10px;
+  margin: 10px 10px 10px;
 `
 
 const FormWrap = styled.form`
