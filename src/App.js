@@ -1,11 +1,11 @@
+import { loadFromLocal, saveToLocal } from './utils/localStorage'
 import { useEffect, useState } from 'react'
 import background from '../src/assets/viary-bg.jpg'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
-import MemoriesPage from './pages/MemoriesPage'
-import { loadFromLocal, saveToLocal } from './utils/localStorage'
-import styled from 'styled-components/macro'
 import Header from './components/Header'
+import MemoriesPage from './pages/MemoriesPage'
+import styled from 'styled-components/macro'
 
 export default function App() {
   const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
