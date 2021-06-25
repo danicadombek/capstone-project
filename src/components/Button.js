@@ -1,10 +1,4 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-
-styled.button.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-}
 
 export default styled.button`
   background: var(--color-background-white);

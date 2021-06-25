@@ -12,7 +12,7 @@ export default createGlobalStyle`
 
 }
 
-*box {
+* {
     box-sizing: border-box;
 }
 
@@ -24,6 +24,5 @@ body {
     margin: 0;
     overflow-x: hidden;
     padding: 10px;
-    width: 95%;
 }
 `

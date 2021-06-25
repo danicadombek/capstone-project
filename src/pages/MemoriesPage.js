@@ -39,30 +39,35 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
 }
 
 const Wrapper = styled.section`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 86vh;
+  display: grid;
+  grid-template-rows: 10%;
+  justify-content: center;
   overflow-y: scroll;
 `
 
 const Title = styled.section`
   align-items: center;
   display: flex;
+  justify-content: center;
+
+  h2 {
+    font-size: 22px;
+  }
 `
 
 const ListWrapper = styled.ul`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
-  padding: 5px;
+  padding: 0;
 `
 
 const BackToCam = styled(Button)`
-  background: none;
-  color: #e4eaeb;
   left: -30px;
+  padding: 3px;
   position: relative;
   top: 0;
+  width: 30%;
 `

@@ -2,10 +2,11 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CameraPage from './CameraPage'
 
+const noop = () => {}
+
 describe('CameraPage', () => {
   it('renders a form with one textbox and two buttons', async () => {
-    const onNavigate = jest.fn()
-    render(<CameraPage onSubmit={jest.fn()} onNavigate={onNavigate} />)
+    render(<CameraPage onSubmit={noop} onNavigate={noop} />)
 
     const form = screen.getByRole('form')
     expect(form).toBeInTheDocument()
@@ -19,7 +20,7 @@ describe('CameraPage', () => {
 
   it('calls onSubmit with an image and a title', () => {
     const handleSubmit = jest.fn()
-    render(<CameraPage onSubmit={handleSubmit} />)
+    render(<CameraPage handleMemorySubmit={handleSubmit} onNavigate={noop} />)
 
     const fileInput = screen.getByLabelText('Start your cam')
     userEvent.type(fileInput, 'img')
@@ -30,7 +31,10 @@ describe('CameraPage', () => {
     const button = screen.getByRole('button', { name: 'Save your memory' })
     userEvent.click(button)
 
-    expect(handleSubmit).toHaveBeenCalledTimes(1)
+    const newMemory = { title: 'Wald' }
+    expect(handleSubmit).toHaveBeenCalledWith(
+      expect.objectContaining(newMemory)
+    )
   })
 
   it('calls onNavigate to another page', () => {

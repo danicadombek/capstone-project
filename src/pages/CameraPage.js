@@ -11,8 +11,6 @@ const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
-  image: PropTypes.string.isRequired,
-  upload: PropTypes.func.isRequired,
   onNavigate: PropTypes.func,
   handleMemorySubmit: PropTypes.func,
 }
@@ -23,7 +21,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
   return (
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
-        <Label for="New Memory">Start your cam</Label>
+        <Label>Start your cam</Label>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
@@ -32,7 +30,6 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
               <CamIcon src={cam} alt="" />
               <Input
                 aria-label="Start your cam"
-                label="New memory"
                 id="upload-img"
                 type="file"
                 name="file"
@@ -41,10 +38,8 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             </>
           )}
         </ImageSection>
-        <LabelText>Name for your memory:</LabelText>
         <InputText
           aria-label="Choose a name"
-          label="Memory name"
           id="upload-img"
           type="text"
           name="title"
@@ -98,9 +93,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2em;
-  height: 86vh;
   justify-content: space-between;
-  width: 100%;
+  margin: 10px 10px 10px;
 `
 
 const FormWrap = styled.form`
@@ -128,30 +122,19 @@ const ImageSection = styled.div`
   max-height: 300px;
   min-height: 220px;
   width: 280px;
-
-  span {
-    font-size: larger;
-    letter-spacing: 4px;
-    text-shadow: var(--shadow-text);
-  }
 `
 
 const CamIcon = styled.img`
   position: absolute;
 `
 
-const LabelText = styled.label`
-  font-weight: bold;
-  margin-bottom: -15px;
-`
-
 const SaveButton = styled(Button)`
   padding: 4px;
-  width: 260px;
+  width: 100%;
 `
 
 const Image = styled.img`
-  border-radius: 50px;
+  border-radius: var(--border-radius-global);
   border: 4px solid #e4eaeb;
   height: 95%;
   width: 95%;
@@ -164,9 +147,9 @@ const Input = styled.input`
 `
 
 const InputText = styled.input`
-  border-radius: 50px;
+  border-radius: var(--border-radius-global);
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;
-  width: 240px;
+  width: 100%;
 `

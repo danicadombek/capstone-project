@@ -1,29 +1,23 @@
-import { useState } from 'react'
+import { loadFromLocal, saveToLocal } from './utils/localStorage'
+import { useEffect, useState } from 'react'
 import background from '../src/assets/viary-bg.jpg'
-import Header from '../src/components/Header'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
+import Header from './components/Header'
 import MemoriesPage from './pages/MemoriesPage'
+import styled from 'styled-components/macro'
 
 export default function App() {
-  const [memories, setMemories] = useState([])
+  const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
   const [currentPage, setCurrentPage] = useState('camera')
-  const [detailImage, setDetailImage] = useState(null)
+  const [memoryDetail, setMemoryDetail] = useState(null)
+
+  useEffect(() => {
+    saveToLocal('memories', memories)
+  }, [memories])
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        height: '90%',
-        width: 'auto',
-        borderRadius: '20px',
-        boxShadow: '2px 2px 4px grey',
-        opacity: '0.98',
-      }}
-    >
+    <Wrapper>
       <Header>Viary</Header>
       {currentPage === 'camera' && (
         <CameraPage
@@ -40,12 +34,12 @@ export default function App() {
       )}
       {currentPage === 'detail' && (
         <DetailMemoryPage
-          image={detailImage.image}
-          title={detailImage.title}
+          image={memoryDetail.image}
+          title={memoryDetail.title}
           onNavigate={showMemoriesPage}
         />
       )}
-    </div>
+    </Wrapper>
   )
 
   function handleMemorySubmit(newMemory) {
@@ -55,7 +49,7 @@ export default function App() {
 
   function showDetailMemoryPage(image, title) {
     setCurrentPage('detail')
-    setDetailImage({ image, title })
+    setMemoryDetail({ image, title })
   }
 
   function showMemoriesPage() {
@@ -66,3 +60,20 @@ export default function App() {
     setCurrentPage('camera')
   }
 }
+
+const Wrapper = styled.div`
+  background-image: url(${background});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px grey;
+  opacity: 0.98;
+  display: grid;
+  grid-template-rows: 10% auto;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  bottom: 10px;
+`
