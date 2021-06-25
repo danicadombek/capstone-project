@@ -16,10 +16,11 @@ export default function DeleteButton(props) {
   )
 }
 const ToDeleteButton = styled(Button)`
-  width: 10%;
-  padding: 3px;
+  background: none;
+  box-shadow: none;
 `
 
 const Icon = styled.img`
-  height: 20px;
+  height: 40px;
+  width: 45px;
 `

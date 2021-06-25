@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import MemoryItem from '../components/MemoryItem'
-import Delete from '../assets/images/icons/delete.png'
+import DeleteButton from '../components/DeleteButton'
 
 MemoriesPage.propTypes = {
   onNavigate: PropTypes.func,
@@ -26,13 +26,14 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
       </Title>
       <ListWrapper>
         {memories.map(({ image, title, id }) => (
-          <li key={id}>
+          <ListItem key={id}>
+            <DeleteButton />
             <MemoryItem
               image={image}
               title={title}
               onDetail={() => onDetail(image, title)}
             />
-          </li>
+          </ListItem>
         ))}
       </ListWrapper>
     </Wrapper>
@@ -59,10 +60,21 @@ const Title = styled.section`
 const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
   padding: 0;
+  width: 90vw;
+`
+
+const ListItem = styled.li`
+  display: flex;
+  gap: 10px;
+  background-color: var(--color-background);
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--border-radius-global);
 `
 
 const BackToCam = styled(Button)`
