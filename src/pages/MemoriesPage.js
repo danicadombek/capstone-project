@@ -15,7 +15,7 @@ MemoriesPage.propTypes = {
       title: PropTypes.string,
     })
   ),
-  onDelete: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
 }
 
 export default function MemoriesPage({

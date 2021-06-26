@@ -20,6 +20,6 @@ const ToDeleteButton = styled(Button)`
 `
 
 const Icon = styled.img`
-  height: 40px;
-  width: 45px;
+  height: 30px;
+  width: 35px;
 `
