@@ -15,9 +15,15 @@ MemoriesPage.propTypes = {
       title: PropTypes.string,
     })
   ),
+  onDelete: PropTypes.func,
 }
 
-export default function MemoriesPage({ memories, onDetail, onNavigate }) {
+export default function MemoriesPage({
+  onNavigate,
+  onDetail,
+  memories,
+  onDelete,
+}) {
   return (
     <Wrapper>
       <Title>
@@ -25,9 +31,9 @@ export default function MemoriesPage({ memories, onDetail, onNavigate }) {
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
-        {memories.map(({ image, title, id }) => (
+        {memories.map(({ image, title, id, onDelete }) => (
           <ListItem key={id}>
-            <DeleteButton />
+            <DeleteButton onDelete={() => onDelete(id)} />
             <MemoryItem
               image={image}
               title={title}
