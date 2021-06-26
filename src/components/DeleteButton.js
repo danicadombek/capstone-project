@@ -4,7 +4,7 @@ import DeleteIcon from '../assets/images/icons/delete.png'
 import styled from 'styled-components/macro'
 
 DeleteButton.propTypes = {
-  onDelete: PropTypes.func,
+  onClick: PropTypes.func,
 }
 
 export default function DeleteButton(props) {

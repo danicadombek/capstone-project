@@ -50,8 +50,13 @@ export default function App() {
   }
 
   function handleDeleteMemory(id) {
-    setMemories([...memories.slice(0, id), ...memories.slice(id + 1)])
-    console.log(handleDeleteMemory)
+    const index = memories.findIndex(memory => memory.id === id)
+    const deletedMemory = [
+      ...memories.slice(0, index),
+      ...memories.slice(index + 1),
+    ]
+
+    setMemories(deletedMemory)
   }
 
   function showDetailMemoryPage(image, title) {

@@ -31,9 +31,9 @@ export default function MemoriesPage({
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
-        {memories.map(({ image, title, id, onDelete }) => (
+        {memories.map(({ image, title, id }) => (
           <ListItem key={id}>
-            <DeleteButton onDelete={() => onDelete(id)} />
+            <DeleteButton onClick={() => onDelete(id)} />
             <MemoryItem
               image={image}
               title={title}
