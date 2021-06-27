@@ -30,8 +30,10 @@ export default function App() {
           memories={memories}
           onDetail={showDetailMemoryPage}
           onNavigate={showCameraPage}
+          onDelete={handleDeleteMemory}
         />
       )}
+
       {currentPage === 'detail' && (
         <DetailMemoryPage
           image={memoryDetail.image}
@@ -45,6 +47,16 @@ export default function App() {
   function handleMemorySubmit(newMemory) {
     setMemories([newMemory, ...memories])
     setCurrentPage('memories')
+  }
+
+  function handleDeleteMemory(id) {
+    const index = memories.findIndex(memory => memory.id === id)
+    const deletedMemory = [
+      ...memories.slice(0, index),
+      ...memories.slice(index + 1),
+    ]
+
+    setMemories(deletedMemory)
   }
 
   function showDetailMemoryPage(image, title) {

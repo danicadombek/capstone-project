@@ -4,7 +4,7 @@ import MemoriesIcon from '../assets/images/icons/galery.png'
 import Button from './Button'
 
 ToMemoriesButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 }
 
 export default function ToMemoriesButton(props) {

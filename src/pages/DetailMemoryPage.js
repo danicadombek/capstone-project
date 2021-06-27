@@ -34,6 +34,7 @@ const Wrapper = styled.section`
 const ImageDetail = styled.div`
   align-items: center;
   background-color: var(--color-background);
+  border-radius: var(--border-radius-global);
   display: flex;
   flex-direction: column;
   max-height: 85%;

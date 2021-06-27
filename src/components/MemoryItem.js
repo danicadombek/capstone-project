@@ -20,13 +20,13 @@ export default function MemoryItem({ image, title, onDetail }) {
 
 const Wrapper = styled.div`
   align-items: center;
-  background: var(--color-background);
   color: var(--color-text);
   display: flex;
-  justify-content: space-around;
-  width: 80vw;
+  justify-content: space-between;
+  width: 75vw;
   gap: 5px;
   padding: 5px;
+  margin-right: 10px;
   text-align: center;
 `
 

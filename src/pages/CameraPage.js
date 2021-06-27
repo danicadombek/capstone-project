@@ -44,6 +44,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
           type="text"
           name="title"
           placeholder="Choose a name"
+          autoComplete="off"
         />
         <SaveButton>Save your memory</SaveButton>
       </FormWrap>
