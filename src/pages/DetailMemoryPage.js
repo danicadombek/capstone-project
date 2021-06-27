@@ -21,7 +21,7 @@ export default function DetailMemoryPage({
     <Wrapper>
       <MemoryDetail>
         <Title>
-          {title.toUpperCase()} {date}
+          {title.toUpperCase()} {formatDate(date)}
         </Title>
         <Image src={image} alt="Memory" width="320" max-height="180" />
         <Text>{text}</Text>
@@ -29,6 +29,9 @@ export default function DetailMemoryPage({
       <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
+  function formatDate(date) {
+    return date.split('-').reverse().join('.')
+  }
 }
 
 const Wrapper = styled.section`

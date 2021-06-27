@@ -46,6 +46,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             name="title"
             placeholder="Choose a name"
             autoComplete="off"
+            maxlength="30"
           />
           <Datepicker type="date" name="date" />
         </TitleDate>
@@ -54,6 +55,7 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
           cols="33"
           placeholder="Write your feelings"
           name="textarea"
+          maxlength="200"
         />
         <SaveButton>Save your memory</SaveButton>
       </FormWrap>
