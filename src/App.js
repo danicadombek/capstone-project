@@ -38,6 +38,8 @@ export default function App() {
         <DetailMemoryPage
           image={memoryDetail.image}
           title={memoryDetail.title}
+          date={memoryDetail.date}
+          text={memoryDetail.text}
           onNavigate={showMemoriesPage}
         />
       )}
@@ -59,9 +61,9 @@ export default function App() {
     setMemories(deletedMemory)
   }
 
-  function showDetailMemoryPage(image, title) {
+  function showDetailMemoryPage(image, title, date, text) {
     setCurrentPage('detail')
-    setMemoryDetail({ image, title })
+    setMemoryDetail({ image, title, date, text })
   }
 
   function showMemoriesPage() {

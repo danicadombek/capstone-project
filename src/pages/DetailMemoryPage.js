@@ -21,7 +21,7 @@ export default function DetailMemoryPage({
     <Wrapper>
       <MemoryDetail>
         <Title>
-          {title} am {date}
+          {title.toUpperCase()} {date}
         </Title>
         <Image src={image} alt="Memory" width="320" max-height="180" />
         <Text>{text}</Text>

@@ -4,6 +4,8 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
 :root {
   --border-radius-global: 50px;
+  --border-radius-form: 20px;
+  --border-radius-form: 10px;
   --color-background-white: #e4eaeb;
   --color-background: hsl(60, 2%, 80%, 0.8);
   --color-text: #230707;

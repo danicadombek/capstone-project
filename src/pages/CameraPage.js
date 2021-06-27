@@ -130,7 +130,7 @@ const ImageSection = styled.div`
   display: flex;
   align-items: center;
   background: var(--color-background-white);
-  border-radius: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
   box-shadow: var(--shadow-img);
   justify-content: space-evenly;
   max-height: 240px;
@@ -162,26 +162,26 @@ const TitleDate = styled.section`
 `
 
 const InputTitle = styled.input`
-  border-radius: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;
-  width: 55%;
+  width: 56%;
 `
 
 const Datepicker = styled.input`
-  border-radius: 20px;
+  border-radius: var(--border-radius-form);
   width: 280px;
   padding: 7px;
-  width: 25%;
+  width: 26%;
 `
 
 const Textarea = styled.textarea`
-  border-radius: 20px;
+  border-radius: var(--border-radius-form);
   width: 280px;
   padding: 8px;
 `
 const SaveButton = styled(Button)`
   padding: 4px;
-  width: 85%;
+  width: 83%;
 `
