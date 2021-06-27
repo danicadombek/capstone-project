@@ -9,12 +9,12 @@ DeleteButton.propTypes = {
 
 export default function DeleteButton(props) {
   return (
-    <ToDeleteButton {...props}>
+    <DeleteButtonStyle {...props}>
       <Icon src={DeleteIcon} alt="" />
-    </ToDeleteButton>
+    </DeleteButtonStyle>
   )
 }
-const ToDeleteButton = styled(Button)`
+const DeleteButtonStyle = styled(Button)`
   background: none;
   box-shadow: none;
 `
