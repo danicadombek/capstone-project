@@ -51,8 +51,8 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
           <Datepicker type="date" name="date" />
         </TitleDate>
         <Textarea
-          rows="5"
-          cols="33"
+          rows="4"
+          cols="30"
           placeholder="Write your feelings"
           name="textarea"
           maxlength="200"
@@ -117,7 +117,7 @@ const FormWrap = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
+  gap: 0.7em;
   justify-content: center;
 `
 
@@ -145,10 +145,10 @@ const CamIcon = styled.img`
 `
 
 const Image = styled.img`
-  border-radius: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
   border: 4px solid #e4eaeb;
-  height: 95%;
-  width: 95%;
+  max-height: 90%;
+  max-width: 90%;
 `
 
 const Input = styled.input`

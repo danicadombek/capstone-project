@@ -51,7 +51,7 @@ const MemoryDetail = styled.div`
   border-radius: var(--border-radius-global);
   display: flex;
   flex-direction: column;
-  max-height: 85%;
+  max-height: 80%;
   padding: 10px;
 `
 
@@ -59,7 +59,7 @@ const Image = styled.img`
   border-radius: 20px;
   border: 4px;
   box-shadow: var(--shadow-img);
-  max-height: 70%;
+  max-height: 80%;
 `
 
 const Title = styled.span`
