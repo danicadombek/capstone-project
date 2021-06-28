@@ -51,8 +51,9 @@ const MemoryDetail = styled.div`
   border-radius: var(--border-radius-global);
   display: flex;
   flex-direction: column;
-  max-height: 80%;
+  max-height: 90%;
   padding: 10px;
+  overflow-y: scroll;
 `
 
 const Image = styled.img`
