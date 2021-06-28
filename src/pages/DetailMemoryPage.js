@@ -5,7 +5,7 @@ import ToMemoriesButton from '../components/ToMemoriesButton'
 DetailMemoryPage.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
-  date: PropTypes.number,
+  date: PropTypes.string,
   text: PropTypes.string,
   alt: PropTypes.string,
 }
@@ -72,4 +72,5 @@ const Title = styled.div`
 const Text = styled.span`
   margin-top: 10px;
   padding: 10px;
+  text-align: justify;
 `
