@@ -5,11 +5,12 @@ import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
 import Header from './components/Header'
 import MemoriesPage from './pages/MemoriesPage'
+import StartPage from './pages/StartPage'
 import styled from 'styled-components/macro'
 
 export default function App() {
   const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
-  const [currentPage, setCurrentPage] = useState('camera')
+  const [currentPage, setCurrentPage] = useState('home')
   const [memoryDetail, setMemoryDetail] = useState(null)
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function App() {
   return (
     <Wrapper>
       <Header>Viary</Header>
+      {currentPage === 'home' && <StartPage onNavigate={showCameraPage} />}
       {currentPage === 'camera' && (
         <CameraPage
           onNavigate={showMemoriesPage}
