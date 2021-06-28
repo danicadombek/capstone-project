@@ -13,6 +13,8 @@ MemoriesPage.propTypes = {
       image: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
+      date: PropTypes.number,
+      text: PropTypes.string,
     })
   ),
   onDelete: PropTypes.func.isRequired,
@@ -31,13 +33,15 @@ export default function MemoriesPage({
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
-        {memories.map(({ image, title, id }) => (
+        {memories.map(({ image, title, date, text, id }) => (
           <ListItem key={id}>
             <DeleteButton onClick={() => onDelete(id)} />
             <MemoryItem
               image={image}
               title={title}
-              onDetail={() => onDetail(image, title)}
+              date={date}
+              text={text}
+              onDetail={() => onDetail(image, title, date, text)}
             />
           </ListItem>
         ))}

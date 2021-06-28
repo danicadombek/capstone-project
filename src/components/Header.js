@@ -11,7 +11,7 @@ export default function Header({ children }) {
 
 const Headline = styled.h2`
   font-size: 40px;
-  font-weight: bolder;
+  font-weight: bold;
   margin: 0;
   padding: 10px;
   text-align: center;

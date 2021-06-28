@@ -5,19 +5,33 @@ import ToMemoriesButton from '../components/ToMemoriesButton'
 DetailMemoryPage.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
+  date: PropTypes.number,
+  text: PropTypes.string,
   alt: PropTypes.string,
 }
 
-export default function DetailMemoryPage({ image, title, onNavigate }) {
+export default function DetailMemoryPage({
+  image,
+  title,
+  date,
+  text,
+  onNavigate,
+}) {
   return (
     <Wrapper>
-      <ImageDetail>
-        <Title>{title}</Title>
+      <MemoryDetail>
+        <Title>
+          {title.toUpperCase()} {formatDate(date)}
+        </Title>
         <Image src={image} alt="Memory" width="320" max-height="180" />
-      </ImageDetail>
+        <Text>{text}</Text>
+      </MemoryDetail>
       <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
+  function formatDate(date) {
+    return date.split('-').reverse().join('.')
+  }
 }
 
 const Wrapper = styled.section`
@@ -31,25 +45,31 @@ const Wrapper = styled.section`
   margin: 5px;
 `
 
-const ImageDetail = styled.div`
+const MemoryDetail = styled.div`
   align-items: center;
   background-color: var(--color-background);
   border-radius: var(--border-radius-global);
   display: flex;
   flex-direction: column;
-  max-height: 85%;
+  max-height: 90%;
   padding: 10px;
+  overflow-y: scroll;
 `
 
 const Image = styled.img`
   border-radius: 20px;
   border: 4px;
   box-shadow: var(--shadow-img);
-  max-height: 90%;
+  max-height: 80%;
 `
 
-const Title = styled.span`
+const Title = styled.div`
   padding: 10px;
   text-align: center;
   font-size: 18px;
+`
+
+const Text = styled.span`
+  margin-top: 10px;
+  padding: 10px;
 `

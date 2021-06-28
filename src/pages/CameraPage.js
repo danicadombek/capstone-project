@@ -38,13 +38,24 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
             </>
           )}
         </ImageSection>
-        <InputText
-          aria-label="Choose a name"
-          id="upload-img"
-          type="text"
-          name="title"
-          placeholder="Choose a name"
-          autoComplete="off"
+        <TitleDate>
+          <InputTitle
+            aria-label="Choose a name"
+            id="upload-img"
+            type="text"
+            name="title"
+            placeholder="Choose a name"
+            autoComplete="off"
+            maxlength="100"
+          />
+          <Datepicker type="date" name="date" />
+        </TitleDate>
+        <Textarea
+          rows="4"
+          cols="30"
+          placeholder="Write your feelings"
+          name="textarea"
+          maxlength="500"
         />
         <SaveButton>Save your memory</SaveButton>
       </FormWrap>
@@ -77,11 +88,15 @@ export default function CameraPage({ onNavigate, handleMemorySubmit }) {
     event.preventDefault()
     const form = event.target
     const title = form.elements.title.value
+    const date = form.elements.date.value
+    const text = form.elements.textarea.value
 
     const newMemory = {
       id: uuidv4(),
       title: title,
       image: image,
+      date: date,
+      text: text,
     }
 
     handleMemorySubmit(newMemory)
@@ -102,13 +117,13 @@ const FormWrap = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 0.7em;
   justify-content: center;
 `
 
 const Label = styled.label`
   font-size: 24px;
-  margin-bottom: -15px;
+  margin-bottom: 0;
   padding: 8px;
   text-align: center;
 `
@@ -117,11 +132,11 @@ const ImageSection = styled.div`
   display: flex;
   align-items: center;
   background: var(--color-background-white);
-  border-radius: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
   box-shadow: var(--shadow-img);
   justify-content: space-evenly;
-  max-height: 300px;
-  min-height: 220px;
+  max-height: 240px;
+  min-height: 100px;
   width: 280px;
 `
 
@@ -129,28 +144,46 @@ const CamIcon = styled.img`
   position: absolute;
 `
 
-const SaveButton = styled(Button)`
-  padding: 4px;
-  width: 100%;
-`
-
 const Image = styled.img`
-  border-radius: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
   border: 4px solid #e4eaeb;
-  height: 95%;
-  width: 95%;
+  max-height: 90%;
+  max-width: 90%;
 `
 
 const Input = styled.input`
-  height: 220px;
+  height: 120px;
   opacity: 0;
   width: 280px;
 `
 
-const InputText = styled.input`
-  border-radius: var(--border-radius-global);
+const TitleDate = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+`
+
+const InputTitle = styled.input`
+  border-radius: var(--border-radius-title-date);
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;
-  width: 100%;
+  width: 56%;
+`
+
+const Datepicker = styled.input`
+  border-radius: var(--border-radius-title-date);
+  width: 280px;
+  padding: 7px;
+  width: 26%;
+`
+
+const Textarea = styled.textarea`
+  border-radius: var(--border-radius-form);
+  width: 280px;
+  padding: 8px;
+`
+const SaveButton = styled(Button)`
+  padding: 4px;
+  width: 83%;
 `
