@@ -72,4 +72,5 @@ const Title = styled.div`
 const Text = styled.span`
   margin-top: 10px;
   padding: 10px;
+  text-align: justify;
 `
