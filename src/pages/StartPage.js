@@ -1,49 +1,55 @@
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import PropTypes from 'prop-types'
+import Slider from '../components/Slider'
 import memory1 from '../assets/images/memory1.jpg'
 import memory2 from '../assets/images/memory2.jpg'
 import memory3 from '../assets/images/memory3.jpg'
 
-HomePage.propTypes = {
+StartPage.propTypes = {
   onNavigate: PropTypes.func,
 }
 
-export default function HomePage({ onNavigate }) {
+export default function StartPage({ onNavigate }) {
   return (
     <Wrapper>
       <Title>
-        Welcome to your own virtuell diary - the place for your memories
+        Welcome to your virtuell diary - the place for your memories
       </Title>
-      <ImageSlider>
-        <img src={memory1} alt="" />
-        <img src={memory2} alt="" />
-        <img src={memory3} alt="" />
-      </ImageSlider>
+      <Slider images={[memory1, memory2, memory3]}>
+        <Sliderarea />
+      </Slider>
       <EnterButton onClick={onNavigate}>Enter</EnterButton>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 20% auto 20%;
-  justify-items: center;
-  padding: 20px;
-  gap: 20px;
+  grid-template-rows: 20% 50% 30%;
 `
 
-const ImageSlider = styled.section`
-  display: none;
-  width: 100%;
+const Sliderarea = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 `
 
 const Title = styled.h2`
   font-size: 26px;
   text-align: center;
+  font-weight: 700;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  height: 20vh;
+  padding: 10px;
 `
 
 const EnterButton = styled(Button)`
   height: 50px;
   width: 50%;
+  position: relative;
+  left: 25%;
+  bottom: 20%;
 `
