@@ -164,7 +164,7 @@ const TitleDate = styled.section`
 `
 
 const InputTitle = styled.input`
-  border-radius: var(--border-radius-form);
+  border-radius: var(--border-radius-title-date);
   border: 4px solid #e4eaeb;
   box-shadow: var(--shadow-img);
   padding: 4px;
@@ -172,7 +172,7 @@ const InputTitle = styled.input`
 `
 
 const Datepicker = styled.input`
-  border-radius: var(--border-radius-form);
+  border-radius: var(--border-radius-title-date);
   width: 280px;
   padding: 7px;
   width: 26%;
