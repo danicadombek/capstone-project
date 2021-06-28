@@ -88,8 +88,8 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 10% auto;
   position: fixed;
-  top: 10px;
-  right: 10px;
-  left: 10px;
-  bottom: 10px;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
 `
