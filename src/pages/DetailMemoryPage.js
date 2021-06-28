@@ -63,7 +63,7 @@ const Image = styled.img`
   max-height: 80%;
 `
 
-const Title = styled.span`
+const Title = styled.div`
   padding: 10px;
   text-align: center;
   font-size: 18px;
