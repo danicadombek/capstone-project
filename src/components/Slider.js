@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-const ImageSlider = ({
-  images = [],
-  autoPlay = true,
-  autoPlayTime = 3000,
-  children,
-  ...props
-}) => {
+const ImageSlider = ({ images = [], autoPlay = true, autoPlayTime = 3000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   function nextSlide(slideIndex = currentSlide + 1) {
@@ -22,10 +16,10 @@ const ImageSlider = ({
     }, autoPlayTime)
 
     return () => clearTimeout(timer)
-  }, [currentSlide])
+  })
 
   return (
-    <Wrapper {...props}>
+    <Wrapper>
       {images.map((imageUrl, index) => (
         <Slide
           key={index}
@@ -33,10 +27,9 @@ const ImageSlider = ({
             backgroundImage: `url(${imageUrl})`,
             marginLeft: index === 0 ? `-${currentSlide * 100}%` : undefined,
           }}
-        ></Slide>
+        />
       ))}
       <Gradient />
-      <ChildrenWrapper>{children}</ChildrenWrapper>
     </Wrapper>
   )
 }
@@ -50,17 +43,12 @@ const Wrapper = styled.div`
 `
 
 const Slide = styled.div`
-  height: 50%;
+  height: 55%;
   width: 100%;
   flex-shrink: 0;
   background-position: center;
   background-size: cover;
   transition: 800ms all ease-in-out;
-`
-
-const ChildrenWrapper = styled.div`
-  position: absolute;
-  transform: translate(-50%, -50%);
 `
 
 const Gradient = styled.div`
