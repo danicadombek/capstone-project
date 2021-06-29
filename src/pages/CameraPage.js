@@ -37,7 +37,7 @@ export default function CameraPage({
           ) : (
             <>
               <CamIcon src={cam} alt="" />
-              <Input
+              <InputImage
                 aria-label="Start your cam"
                 id="upload-img"
                 type="file"
@@ -172,7 +172,7 @@ const Image = styled.img`
   max-width: 90%;
 `
 
-const Input = styled.input`
+const InputImage = styled.input`
   height: 120px;
   opacity: 0;
   width: 280px;

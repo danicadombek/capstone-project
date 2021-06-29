@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-const ImageSlider = ({ images = [], autoPlay = true, autoPlayTime = 3000 }) => {
+export default function ImageSlider({
+  images = [],
+  autoPlay = true,
+  autoPlayTime = 3000,
+}) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   function nextSlide(slideIndex = currentSlide + 1) {
@@ -58,5 +62,3 @@ const Gradient = styled.div`
   top: 0;
   width: 90%;
 `
-
-export default ImageSlider
