@@ -20,9 +20,7 @@ export default function StartPage({ onNavigate, memories }) {
   const imageArray = memories.map(memory => memory.image)
   return (
     <Wrapper>
-      <Title>
-        Welcome to your virtuell diary - the place for your memories
-      </Title>
+      <Title>Welcome to your virtual diary - the place for your memories</Title>
       <Slider images={imageArray}>
         <Sliderarea />
       </Slider>
