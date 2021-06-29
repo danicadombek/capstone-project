@@ -35,28 +35,28 @@ const ImageSlider = ({ images = [], autoPlay = true, autoPlayTime = 3000 }) => {
 }
 
 const Wrapper = styled.div`
-  height: 80vh;
   display: flex;
   flex-wrap: nowrap;
+  height: 80vh;
   overflow-x: hidden;
   position: relative;
 `
 
 const Slide = styled.div`
-  height: 55%;
-  width: 100%;
-  flex-shrink: 0;
   background-position: center;
   background-size: cover;
+  flex-shrink: 0;
+  height: 55%;
   transition: 800ms all ease-in-out;
+  width: 100%;
 `
 
 const Gradient = styled.div`
-  width: 90%;
   height: 50%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
+  width: 90%;
 `
 
 export default ImageSlider

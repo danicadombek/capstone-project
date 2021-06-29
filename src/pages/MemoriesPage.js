@@ -1,9 +1,9 @@
 //@ts-check
+import BackButton from '../components/BackButton'
+import DeleteButton from '../components/DeleteButton'
+import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import BackButton from '../components/BackButton'
-import MemoryItem from '../components/MemoryItem'
-import DeleteButton from '../components/DeleteButton'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -69,9 +69,9 @@ const Title = styled.section`
   }
 `
 const ListWrapper = styled.ul`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
@@ -80,10 +80,10 @@ const ListWrapper = styled.ul`
 `
 
 const ListItem = styled.li`
-  display: flex;
-  gap: 10px;
   background-color: var(--color-background);
-  width: 100%;
   border-radius: 20px;
   box-shadow: var(--border-radius-global);
+  display: flex;
+  gap: 10px;
+  width: 100%;
 `

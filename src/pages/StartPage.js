@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import PropTypes from 'prop-types'
 import Slider from '../components/Slider'
+import styled from 'styled-components/macro'
 
 StartPage.propTypes = {
   onNavigate: PropTypes.func,
@@ -37,26 +37,26 @@ const Wrapper = styled.div`
 `
 
 const Sliderarea = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 80%;
 `
 
 const Title = styled.h2`
-  font-size: 26px;
-  text-align: center;
-  font-weight: 700;
   background-color: var(--color-background);
   color: var(--color-text);
+  font-size: 26px;
+  font-weight: 700;
   height: 20vh;
   padding: 20px;
+  text-align: center;
 `
 
 const EnterButton = styled(Button)`
-  height: 50px;
-  width: 50%;
-  position: relative;
-  left: 25%;
   bottom: 20%;
+  height: 50px;
+  left: 25%;
+  position: relative;
+  width: 50%;
 `

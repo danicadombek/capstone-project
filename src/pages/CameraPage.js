@@ -1,12 +1,12 @@
-import axios from 'axios'
-import PropTypes from 'prop-types'
 import { useState } from 'react'
-import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import axios from 'axios'
 import BackButton from '../components/BackButton'
 import Button from '../components/Button'
-import ToMemoriesButton from '../components/ToMemoriesButton'
 import cam from '../assets/images/icons/cam.png'
+import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -150,11 +150,11 @@ const Label = styled.label`
 `
 
 const ImageSection = styled.div`
-  display: flex;
   align-items: center;
   background: var(--color-background-white);
   border-radius: var(--border-radius-form);
   box-shadow: var(--shadow-img);
+  display: flex;
   justify-content: space-evenly;
   max-height: 240px;
   min-height: 100px;
@@ -180,8 +180,8 @@ const Input = styled.input`
 
 const TitleDate = styled.section`
   display: flex;
-  justify-content: center;
   gap: 4px;
+  justify-content: center;
 `
 
 const InputTitle = styled.input`
@@ -194,15 +194,14 @@ const InputTitle = styled.input`
 
 const Datepicker = styled.input`
   border-radius: var(--border-radius-title-date);
-  width: 280px;
   padding: 7px;
   width: 26%;
 `
 
 const Textarea = styled.textarea`
   border-radius: var(--border-radius-form);
-  width: 280px;
   padding: 8px;
+  width: 280px;
 `
 const SaveButton = styled(Button)`
   padding: 4px;
