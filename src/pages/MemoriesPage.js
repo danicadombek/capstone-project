@@ -1,12 +1,12 @@
 //@ts-check
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import Button from '../components/Button'
+import BackButton from '../components/BackButton'
 import MemoryItem from '../components/MemoryItem'
 import DeleteButton from '../components/DeleteButton'
 
 MemoriesPage.propTypes = {
-  onNavigate: PropTypes.func,
+  onNavigateBack: PropTypes.func,
   onDetail: PropTypes.func.isRequired,
   memories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -21,7 +21,7 @@ MemoriesPage.propTypes = {
 }
 
 export default function MemoriesPage({
-  onNavigate,
+  onNavigateBack,
   onDetail,
   memories,
   onDelete,
@@ -29,7 +29,7 @@ export default function MemoriesPage({
   return (
     <Wrapper>
       <Title>
-        <BackToCam onClick={onNavigate}> &lt; Cam</BackToCam>
+        <BackButton onClick={onNavigateBack} />
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
@@ -87,10 +87,10 @@ const ListItem = styled.li`
   box-shadow: var(--border-radius-global);
 `
 
-const BackToCam = styled(Button)`
-  left: -30px;
-  padding: 3px;
-  position: relative;
-  top: 0;
-  width: 30%;
-`
+// const BackToCam = styled(Button)`
+//   left: -30px;
+//   padding: 3px;
+//   position: relative;
+//   top: 0;
+//   width: 30%;
+// `

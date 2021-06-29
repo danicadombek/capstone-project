@@ -3,7 +3,7 @@ import Button from '../components/Button'
 import PropTypes from 'prop-types'
 
 BackButton.propTypes = {
-  onNavigate: PropTypes.func.isRequired,
+  onNavigateBack: PropTypes.func.isRequired,
 }
 
 export default function BackButton(props) {

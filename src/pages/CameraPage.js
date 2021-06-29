@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 import cam from '../assets/images/icons/cam.png'
@@ -12,16 +13,24 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
   onNavigate: PropTypes.func,
+  onNavigateBack: PropTypes.func.isRequired,
   handleMemorySubmit: PropTypes.func,
 }
 
-export default function CameraPage({ onNavigate, handleMemorySubmit }) {
+export default function CameraPage({
+  onNavigateBack,
+  onNavigate,
+  handleMemorySubmit,
+}) {
   const [image, setImage] = useState(null)
 
   return (
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
-        <Label>Start your cam</Label>
+        <Title>
+          <BackButton onClick={onNavigateBack} />
+          <Label>Start your cam</Label>
+        </Title>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
@@ -111,6 +120,10 @@ const Wrapper = styled.div`
   gap: 2em;
   justify-content: space-between;
   margin: 10px 10px 10px;
+`
+
+const Title = styled.div`
+  display: flex;
 `
 
 const FormWrap = styled.form`

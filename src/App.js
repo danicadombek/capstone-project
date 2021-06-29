@@ -27,13 +27,14 @@ export default function App() {
         <CameraPage
           onNavigate={showMemoriesPage}
           handleMemorySubmit={handleMemorySubmit}
+          onNavigateBack={showStartPage}
         />
       )}
       {currentPage === 'memories' && (
         <MemoriesPage
           memories={memories}
           onDetail={showDetailMemoryPage}
-          onNavigate={showCameraPage}
+          onNavigateBack={showCameraPage}
           onDelete={handleDeleteMemory}
         />
       )}
@@ -63,6 +64,10 @@ export default function App() {
     ]
 
     setMemories(deletedMemory)
+  }
+
+  function showStartPage() {
+    setCurrentPage('home')
   }
 
   function showDetailMemoryPage(image, title, date, text) {
