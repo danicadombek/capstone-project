@@ -95,8 +95,8 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 10% auto;
   position: fixed;
-  top: 5px;
-  right: 5px;
-  left: 5px;
-  bottom: 5px;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  bottom: 8px;
 `

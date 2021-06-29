@@ -42,7 +42,7 @@ const Wrapper = styled.section`
   place-items: center;
   color: var(--color-text);
   font-weight: bold;
-  margin: 5px;
+  margin: 10px;
 `
 
 const MemoryDetail = styled.div`

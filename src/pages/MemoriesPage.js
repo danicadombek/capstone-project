@@ -60,13 +60,14 @@ const Wrapper = styled.section`
 const Title = styled.section`
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px 15px 10px -5px;
 
   h2 {
-    font-size: 22px;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
   }
 `
-
 const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
@@ -86,11 +87,3 @@ const ListItem = styled.li`
   border-radius: 20px;
   box-shadow: var(--border-radius-global);
 `
-
-// const BackToCam = styled(Button)`
-//   left: -30px;
-//   padding: 3px;
-//   position: relative;
-//   top: 0;
-//   width: 30%;
-// `

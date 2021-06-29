@@ -119,11 +119,20 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 2em;
   justify-content: space-between;
-  margin: 10px 10px 10px;
+  margin: 5px 10px 10px 10px;
 `
 
-const Title = styled.div`
+const Title = styled.section`
+  align-items: center;
   display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 90%;
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+  }
 `
 
 const FormWrap = styled.form`
@@ -135,10 +144,9 @@ const FormWrap = styled.form`
 `
 
 const Label = styled.label`
-  font-size: 24px;
-  margin-bottom: 0;
-  padding: 8px;
-  text-align: center;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  padding: 10px;
 `
 
 const ImageSection = styled.div`
