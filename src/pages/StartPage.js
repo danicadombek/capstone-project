@@ -5,6 +5,15 @@ import Slider from '../components/Slider'
 
 StartPage.propTypes = {
   onNavigate: PropTypes.func,
+  memories: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      date: PropTypes.number,
+      text: PropTypes.string,
+    })
+  ),
 }
 
 export default function StartPage({ onNavigate, memories }) {

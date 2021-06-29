@@ -13,7 +13,7 @@ MemoriesPage.propTypes = {
       image: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
-      date: PropTypes.number,
+      date: PropTypes.string,
       text: PropTypes.string,
     })
   ),
