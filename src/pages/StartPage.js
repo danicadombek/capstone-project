@@ -2,21 +2,19 @@ import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import PropTypes from 'prop-types'
 import Slider from '../components/Slider'
-import memory1 from '../assets/images/memory1.jpg'
-import memory2 from '../assets/images/memory2.jpg'
-import memory3 from '../assets/images/memory3.jpg'
 
 StartPage.propTypes = {
   onNavigate: PropTypes.func,
 }
 
-export default function StartPage({ onNavigate }) {
+export default function StartPage({ onNavigate, memories }) {
+  const imageArray = memories.map(memory => memory.image)
   return (
     <Wrapper>
       <Title>
         Welcome to your virtuell diary - the place for your memories
       </Title>
-      <Slider images={[memory1, memory2, memory3]}>
+      <Slider images={imageArray}>
         <Sliderarea />
       </Slider>
       <EnterButton onClick={onNavigate}>Enter</EnterButton>
@@ -43,7 +41,7 @@ const Title = styled.h2`
   background-color: var(--color-background);
   color: var(--color-text);
   height: 20vh;
-  padding: 10px;
+  padding: 20px;
 `
 
 const EnterButton = styled(Button)`

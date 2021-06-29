@@ -20,7 +20,9 @@ export default function App() {
   return (
     <Wrapper>
       <Header>Viary</Header>
-      {currentPage === 'home' && <StartPage onNavigate={showCameraPage} />}
+      {currentPage === 'home' && (
+        <StartPage onNavigate={showCameraPage} memories={memories} />
+      )}
       {currentPage === 'camera' && (
         <CameraPage
           onNavigate={showMemoriesPage}
