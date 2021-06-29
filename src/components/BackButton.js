@@ -10,9 +10,6 @@ export default function BackButton(props) {
   return <BackButtonStyle {...props}>&lt; Back</BackButtonStyle>
 }
 const BackButtonStyle = styled(Button)`
-  left: -30px;
-  padding: 3px;
-  position: relative;
-  top: 0;
   width: 30%;
+  margin: 10px;
 `
