@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 
 DetailMemoryPage.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   date: PropTypes.string,
   text: PropTypes.string,
   alt: PropTypes.string,

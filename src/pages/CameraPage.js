@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
-import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import cam from '../assets/images/icons/cam.png'
 import PropTypes from 'prop-types'
@@ -28,7 +27,7 @@ export default function CameraPage({
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
         <Title>
-          <BackButton onClick={onNavigateBack} />
+          <BackButton onClick={onNavigateBack}>&lt; Home</BackButton>
           <Label>Start your cam</Label>
         </Title>
         <ImageSection>
@@ -133,6 +132,11 @@ const Title = styled.section`
     font-size: var(--font-size-title);
     font-weight: var(--font-weight-title);
   }
+`
+
+const BackButton = styled(Button)`
+  padding: 3px;
+  width: 30%;
 `
 
 const FormWrap = styled.form`

@@ -1,5 +1,5 @@
 //@ts-check
-import BackButton from '../components/BackButton'
+import Button from '../components/Button'
 import DeleteButton from '../components/DeleteButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
@@ -29,7 +29,7 @@ export default function MemoriesPage({
   return (
     <Wrapper>
       <Title>
-        <BackButton onClick={onNavigateBack} />
+        <BackToCam onClick={onNavigateBack}>&lt; Cam</BackToCam>
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
@@ -61,17 +61,18 @@ const Title = styled.section`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 10px 15px 10px -5px;
+  margin: 10px 15px 10px 4px;
 
   h2 {
     font-size: var(--font-size-title);
     font-weight: var(--font-weight-title);
   }
 `
+
 const ListWrapper = styled.ul`
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
@@ -80,10 +81,15 @@ const ListWrapper = styled.ul`
 `
 
 const ListItem = styled.li`
-  background-color: var(--color-background);
-  border-radius: 20px;
-  box-shadow: var(--border-radius-global);
   display: flex;
   gap: 10px;
+  background-color: var(--color-background);
   width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--border-radius-global);
+`
+
+const BackToCam = styled(Button)`
+  padding: 3px;
+  width: 30%;
 `

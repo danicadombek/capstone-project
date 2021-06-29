@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro'
 
-export default styled.button`
+export default function Button(props) {
+  return <ButtonStyle {...props} />
+}
+
+const ButtonStyle = styled.button`
   background: var(--color-background-white);
   border-radius: var(--border-radius-global);
   border: none;
