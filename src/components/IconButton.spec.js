@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import DeleteButton from './DeleteButton'
+import IconButton from './IconButton'
 import userEvent from '@testing-library/user-event'
 
-describe('DeleteButton', () => {
+describe('IconButton', () => {
   it('contains a button', () => {
-    render(<DeleteButton />)
+    render(<IconButton />)
 
     const button = screen.getByRole('button')
     expect(button).toBeInTheDocument()
@@ -12,7 +12,7 @@ describe('DeleteButton', () => {
 
   it('calls onClick', () => {
     const onDelete = jest.fn()
-    render(<DeleteButton onClick={onDelete}>To your memories</DeleteButton>)
+    render(<IconButton onClick={onDelete}>To your memories</IconButton>)
 
     const button = screen.getByRole('button')
     userEvent.click(button)

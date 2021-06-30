@@ -1,6 +1,6 @@
 //@ts-check
 import Button from '../components/Button'
-import DeleteButton from '../components/DeleteButton'
+import IconButton from '../components/IconButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
@@ -35,7 +35,7 @@ export default function MemoriesPage({
       <ListWrapper>
         {memories.map(({ image, title, date, text, id }) => (
           <ListItem key={id}>
-            <DeleteButton onClick={() => onDelete(id)} />
+            <IconButton onClick={() => onDelete(id)} />
             <MemoryItem
               image={image}
               title={title}

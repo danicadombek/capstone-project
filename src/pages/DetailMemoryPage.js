@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from '../components/Button'
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
-import EditButton from '../components/EditButton'
+import IconButton from '../components/IconButton'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -36,7 +36,7 @@ export default function DetailMemoryPage({
           <MemoryDetail>
             <Title>
               {title.toUpperCase()} {formatDate(date)}{' '}
-              <EditButton onClick={() => setIsEdited(!isEdited)} />
+              <IconButton onClick={() => setIsEdited(!isEdited)} />
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <Text>{text}</Text>
