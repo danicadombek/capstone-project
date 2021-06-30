@@ -46,6 +46,8 @@ export default function App() {
           date={memoryDetail.date}
           text={memoryDetail.text}
           onNavigate={showMemoriesPage}
+          handleEditSubmit={handleEditSubmit}
+          onEdit={handleEditedMemory}
         />
       )}
     </Wrapper>
@@ -64,6 +66,20 @@ export default function App() {
     ]
 
     setMemories(deletedMemory)
+  }
+  function handleEditSubmit(editedMemory) {
+    setMemories([editedMemory, ...memories])
+    setCurrentPage('memories')
+  }
+
+  function handleEditedMemory(id) {
+    const index = memories.findIndex(memory => memory.id === id)
+    const editedMemory = [
+      ...memories.slice(0, index),
+      ...memories.slice(index + 1),
+    ]
+
+    setMemories(editedMemory)
   }
 
   function showStartPage() {
