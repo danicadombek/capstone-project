@@ -4,20 +4,24 @@ import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 import IconButton from '../components/IconButton'
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import EditIcon from '../assets/images/icons/edit.png'
 
 DetailMemoryPage.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  date: PropTypes.string,
-  text: PropTypes.string,
-  id: PropTypes.string,
-  alt: PropTypes.string,
+  memory: PropTypes.objectOf(
+    PropTypes.shape({
+      image: PropTypes.string,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      date: PropTypes.string,
+      text: PropTypes.string,
+    })
+  ),
   onEdit: PropTypes.func,
-  handleEditedMemory: PropTypes.func,
+  handleEditSubmit: PropTypes.func,
 }
 
 export default function DetailMemoryPage({
+  memory,
   image,
   title,
   date,
@@ -25,9 +29,15 @@ export default function DetailMemoryPage({
   id,
   onEdit,
   onNavigate,
-  handleEditedMemory,
+  handleEditSubmit,
 }) {
   const [isEdited, setIsEdited] = useState(false)
+  // const [title, setEditTitle] = useState('')
+  const [memoriesInputs, setMemoriesInputs] = useState({
+    title,
+    date,
+    text,
+  })
 
   return (
     <Wrapper>
@@ -36,7 +46,10 @@ export default function DetailMemoryPage({
           <MemoryDetail>
             <Title>
               {title.toUpperCase()} {formatDate(date)}{' '}
-              <IconButton onClick={() => setIsEdited(!isEdited)} />
+              <IconButton onClick={() => setIsEdited(!isEdited)}>
+                {' '}
+                <Icon src={EditIcon} alt="" />
+              </IconButton>
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <Text>{text}</Text>
@@ -46,7 +59,7 @@ export default function DetailMemoryPage({
       )}
       {isEdited && (
         <>
-          <form onSubmit={onSubmit} onEdit={onEdit}>
+          <form onSubmit={onSubmit}>
             <EditMemoryDetail>
               <Title>
                 <input
@@ -57,14 +70,19 @@ export default function DetailMemoryPage({
                   autoComplete="off"
                   maxlength="100"
                   value={title}
-                  onChange={title.value}
+                  onChange={handleChange}
                 />
-                <input type="date" value={date} onChange={date.value} />
+                <input
+                  type="date"
+                  name="date"
+                  value={date}
+                  onChange={handleChange}
+                />
               </Title>
               <SavedImage
                 src={image}
                 alt="Memory"
-                width="150"
+                width="180"
                 max-height="180"
               />
               <Textarea
@@ -73,7 +91,7 @@ export default function DetailMemoryPage({
                 name="textarea"
                 maxlength="500"
                 value={text}
-                onChange={text.value}
+                onChange={handleChange}
               />
             </EditMemoryDetail>
             <FormButtons>
@@ -85,6 +103,12 @@ export default function DetailMemoryPage({
       )}
     </Wrapper>
   )
+
+  function handleChange(event) {
+    const { title, date, text } = event.target
+    setMemoriesInputs({ ...memoriesInputs, title, date, text })
+  }
+
   function onSubmit(event) {
     event.preventDefault()
     const form = event.target
@@ -93,15 +117,15 @@ export default function DetailMemoryPage({
     const text = form.elements.textarea.value
 
     const editedMemory = {
-      id: uuidv4(),
-      title: title,
-      image: image,
-      date: date,
-      text: text,
+      ...memory,
+      image,
+      title,
+      date,
+      text,
+      id,
     }
 
-    handleEditedMemory(editedMemory)
-    form.reset()
+    handleEditSubmit(editedMemory)
   }
 }
 
@@ -112,7 +136,7 @@ function formatDate(date) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  height: 85vh;
+  height: 100%;
   justify-content: space-between;
   place-items: center;
   color: var(--color-text);
@@ -181,4 +205,9 @@ const SavedImage = styled.img`
   border: 4px;
   box-shadow: var(--shadow-img);
   max-height: 50%;
+`
+
+const Icon = styled.img`
+  height: 30px;
+  width: 35px;
 `
