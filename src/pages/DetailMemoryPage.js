@@ -3,9 +3,9 @@ import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 
 DetailMemoryPage.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  date: PropTypes.number,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string,
   text: PropTypes.string,
   alt: PropTypes.string,
 }
@@ -35,14 +35,14 @@ export default function DetailMemoryPage({
 }
 
 const Wrapper = styled.section`
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
+  font-weight: bold;
   height: 85vh;
   justify-content: space-between;
+  margin: 10px;
   place-items: center;
-  color: var(--color-text);
-  font-weight: bold;
-  margin: 5px;
 `
 
 const MemoryDetail = styled.div`
@@ -52,8 +52,8 @@ const MemoryDetail = styled.div`
   display: flex;
   flex-direction: column;
   max-height: 90%;
-  padding: 10px;
   overflow-y: scroll;
+  padding: 10px;
 `
 
 const Image = styled.img`
@@ -64,9 +64,9 @@ const Image = styled.img`
 `
 
 const Title = styled.div`
+  font-size: 18px;
   padding: 10px;
   text-align: center;
-  font-size: 18px;
 `
 
 const Text = styled.span`

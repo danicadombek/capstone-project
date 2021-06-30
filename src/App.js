@@ -5,11 +5,12 @@ import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
 import Header from './components/Header'
 import MemoriesPage from './pages/MemoriesPage'
+import StartPage from './pages/StartPage'
 import styled from 'styled-components/macro'
 
 export default function App() {
   const [memories, setMemories] = useState(loadFromLocal('memories') ?? [])
-  const [currentPage, setCurrentPage] = useState('camera')
+  const [currentPage, setCurrentPage] = useState('home')
   const [memoryDetail, setMemoryDetail] = useState(null)
 
   useEffect(() => {
@@ -19,17 +20,21 @@ export default function App() {
   return (
     <Wrapper>
       <Header>Viary</Header>
+      {currentPage === 'home' && (
+        <StartPage onNavigate={showCameraPage} memories={memories} />
+      )}
       {currentPage === 'camera' && (
         <CameraPage
           onNavigate={showMemoriesPage}
           handleMemorySubmit={handleMemorySubmit}
+          onNavigateBack={showStartPage}
         />
       )}
       {currentPage === 'memories' && (
         <MemoriesPage
           memories={memories}
           onDetail={showDetailMemoryPage}
-          onNavigate={showCameraPage}
+          onNavigateBack={showCameraPage}
           onDelete={handleDeleteMemory}
         />
       )}
@@ -61,6 +66,10 @@ export default function App() {
     setMemories(deletedMemory)
   }
 
+  function showStartPage() {
+    setCurrentPage('home')
+  }
+
   function showDetailMemoryPage(image, title, date, text) {
     setCurrentPage('detail')
     setMemoryDetail({ image, title, date, text })
@@ -86,8 +95,8 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 10% auto;
   position: fixed;
-  top: 10px;
-  right: 10px;
-  left: 10px;
-  bottom: 10px;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  bottom: 8px;
 `

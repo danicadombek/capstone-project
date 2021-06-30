@@ -1,19 +1,19 @@
 //@ts-check
+import Button from '../components/Button'
+import DeleteButton from '../components/DeleteButton'
+import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import Button from '../components/Button'
-import MemoryItem from '../components/MemoryItem'
-import DeleteButton from '../components/DeleteButton'
 
 MemoriesPage.propTypes = {
-  onNavigate: PropTypes.func,
+  onNavigateBack: PropTypes.func,
   onDetail: PropTypes.func.isRequired,
   memories: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
-      date: PropTypes.number,
+      date: PropTypes.string,
       text: PropTypes.string,
     })
   ),
@@ -21,7 +21,7 @@ MemoriesPage.propTypes = {
 }
 
 export default function MemoriesPage({
-  onNavigate,
+  onNavigateBack,
   onDetail,
   memories,
   onDelete,
@@ -29,7 +29,7 @@ export default function MemoriesPage({
   return (
     <Wrapper>
       <Title>
-        <BackToCam onClick={onNavigate}> &lt; Cam</BackToCam>
+        <BackToCam onClick={onNavigateBack}>&lt; Cam</BackToCam>
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
@@ -60,10 +60,12 @@ const Wrapper = styled.section`
 const Title = styled.section`
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px 15px 10px 4px;
 
   h2 {
-    font-size: 22px;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
   }
 `
 
@@ -88,9 +90,6 @@ const ListItem = styled.li`
 `
 
 const BackToCam = styled(Button)`
-  left: -30px;
   padding: 3px;
-  position: relative;
-  top: 0;
   width: 30%;
 `

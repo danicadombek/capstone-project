@@ -1,34 +1,42 @@
-import axios from 'axios'
-import PropTypes from 'prop-types'
 import { useState } from 'react'
-import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import axios from 'axios'
 import Button from '../components/Button'
-import ToMemoriesButton from '../components/ToMemoriesButton'
 import cam from '../assets/images/icons/cam.png'
+import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import ToMemoriesButton from '../components/ToMemoriesButton'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
   onNavigate: PropTypes.func,
+  onNavigateBack: PropTypes.func.isRequired,
   handleMemorySubmit: PropTypes.func,
 }
 
-export default function CameraPage({ onNavigate, handleMemorySubmit }) {
+export default function CameraPage({
+  onNavigateBack,
+  onNavigate,
+  handleMemorySubmit,
+}) {
   const [image, setImage] = useState(null)
 
   return (
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
-        <Label>Start your cam</Label>
+        <Title>
+          <BackButton onClick={onNavigateBack}>&lt; Home</BackButton>
+          <Label>Start your cam</Label>
+        </Title>
         <ImageSection>
           {image ? (
             <Image src={image} alt="" />
           ) : (
             <>
               <CamIcon src={cam} alt="" />
-              <Input
+              <InputImage
                 aria-label="Start your cam"
                 id="upload-img"
                 type="file"
@@ -110,7 +118,25 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 2em;
   justify-content: space-between;
-  margin: 10px 10px 10px;
+  margin: 5px 10px 10px 10px;
+`
+
+const Title = styled.section`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 90%;
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+  }
+`
+
+const BackButton = styled(Button)`
+  padding: 3px;
+  width: 30%;
 `
 
 const FormWrap = styled.form`
@@ -122,18 +148,17 @@ const FormWrap = styled.form`
 `
 
 const Label = styled.label`
-  font-size: 24px;
-  margin-bottom: 0;
-  padding: 8px;
-  text-align: center;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  padding: 10px;
 `
 
 const ImageSection = styled.div`
-  display: flex;
   align-items: center;
   background: var(--color-background-white);
   border-radius: var(--border-radius-form);
   box-shadow: var(--shadow-img);
+  display: flex;
   justify-content: space-evenly;
   max-height: 240px;
   min-height: 100px;
@@ -151,7 +176,7 @@ const Image = styled.img`
   max-width: 90%;
 `
 
-const Input = styled.input`
+const InputImage = styled.input`
   height: 120px;
   opacity: 0;
   width: 280px;
@@ -159,8 +184,8 @@ const Input = styled.input`
 
 const TitleDate = styled.section`
   display: flex;
-  justify-content: center;
   gap: 4px;
+  justify-content: center;
 `
 
 const InputTitle = styled.input`
@@ -173,15 +198,14 @@ const InputTitle = styled.input`
 
 const Datepicker = styled.input`
   border-radius: var(--border-radius-title-date);
-  width: 280px;
   padding: 7px;
   width: 26%;
 `
 
 const Textarea = styled.textarea`
   border-radius: var(--border-radius-form);
-  width: 280px;
   padding: 8px;
+  width: 280px;
 `
 const SaveButton = styled(Button)`
   padding: 4px;
