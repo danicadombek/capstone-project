@@ -4,11 +4,12 @@ import IconButton from '../components/IconButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import DeleteIcon from '../assets/images/icons/delete.png'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
   onDetail: PropTypes.func.isRequired,
-  memories: PropTypes.arrayOf(
+  memory: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
       id: PropTypes.string,
@@ -35,7 +36,9 @@ export default function MemoriesPage({
       <ListWrapper>
         {memories.map(({ image, title, date, text, id }) => (
           <ListItem key={id}>
-            <IconButton onClick={() => onDelete(id)} />
+            <IconButton onClick={() => onDelete(id)}>
+              <Icon src={DeleteIcon} alt="" />
+            </IconButton>
             <MemoryItem
               image={image}
               title={title}
@@ -92,4 +95,9 @@ const ListItem = styled.li`
 const BackToCam = styled(Button)`
   padding: 3px;
   width: 30%;
+`
+
+const Icon = styled.img`
+  height: 30px;
+  width: 35px;
 `
