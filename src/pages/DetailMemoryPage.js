@@ -16,7 +16,7 @@ DetailMemoryPage.propTypes = {
       text: PropTypes.string,
     })
   ),
-  onEdit: PropTypes.func,
+
   handleEditSubmit: PropTypes.func,
 }
 
@@ -27,14 +27,13 @@ export default function DetailMemoryPage({
   date,
   text,
   id,
-  onEdit,
   onNavigate,
   handleEditSubmit,
 }) {
   const [isEdited, setIsEdited] = useState(false)
   // const [title, setEditTitle] = useState('')
   const [memoriesInputs, setMemoriesInputs] = useState({
-    title,
+    title: title,
     date,
     text,
   })
@@ -187,6 +186,11 @@ const FormButtons = styled.section`
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
+
+  button {
+    padding: 4px;
+    width: 40%;
+  }
 `
 
 const EditMemoryDetail = styled.div`
