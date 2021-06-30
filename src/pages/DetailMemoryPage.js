@@ -32,11 +32,11 @@ export default function DetailMemoryPage({
 }) {
   const [isEdited, setIsEdited] = useState(false)
   // const [title, setEditTitle] = useState('')
-  const [memoriesInputs, setMemoriesInputs] = useState({
-    title: title,
-    date,
-    text,
-  })
+  // const [memoriesInputs, setMemoriesInputs] = useState({
+  //   title: title,
+  //   date: date,
+  //   text: text,
+  // })
 
   return (
     <Wrapper>
@@ -68,15 +68,9 @@ export default function DetailMemoryPage({
                   name="title"
                   autoComplete="off"
                   maxlength="100"
-                  value={title}
-                  onChange={handleChange}
+                  placeholder={title}
                 />
-                <input
-                  type="date"
-                  name="date"
-                  value={date}
-                  onChange={handleChange}
-                />
+                <input type="date" name="date" placeholder={date} />
               </Title>
               <SavedImage
                 src={image}
@@ -89,8 +83,7 @@ export default function DetailMemoryPage({
                 cols="30"
                 name="textarea"
                 maxlength="500"
-                value={text}
-                onChange={handleChange}
+                placeholder={text}
               />
             </EditMemoryDetail>
             <FormButtons>
@@ -102,11 +95,6 @@ export default function DetailMemoryPage({
       )}
     </Wrapper>
   )
-
-  function handleChange(event) {
-    const { title, date, text } = event.target
-    setMemoriesInputs({ ...memoriesInputs, title, date, text })
-  }
 
   function onSubmit(event) {
     event.preventDefault()
