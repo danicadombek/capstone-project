@@ -155,7 +155,7 @@ const Label = styled.label`
 
 const ImageSection = styled.div`
   align-items: center;
-  background: var(--color-background-white);
+  background-color: var(--color-background);
   border-radius: var(--border-radius-form);
   box-shadow: var(--shadow-img);
   display: flex;
@@ -189,20 +189,21 @@ const TitleDate = styled.section`
 `
 
 const InputTitle = styled.input`
+  background-color: var(--color-background);
   border-radius: var(--border-radius-title-date);
-  border: 4px solid #e4eaeb;
-  box-shadow: var(--shadow-img);
   padding: 4px;
   width: 56%;
 `
 
 const Datepicker = styled.input`
+  background-color: var(--color-background);
   border-radius: var(--border-radius-title-date);
   padding: 7px;
   width: 26%;
 `
 
 const Textarea = styled.textarea`
+  background-color: var(--color-background);
   border-radius: var(--border-radius-form);
   padding: 8px;
   width: 280px;

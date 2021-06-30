@@ -31,12 +31,6 @@ export default function DetailMemoryPage({
   handleEditSubmit,
 }) {
   const [isEdited, setIsEdited] = useState(false)
-  // const [title, setEditTitle] = useState('')
-  // const [memoriesInputs, setMemoriesInputs] = useState({
-  //   title: title,
-  //   date: date,
-  //   text: text,
-  // })
 
   return (
     <Wrapper>
@@ -44,11 +38,13 @@ export default function DetailMemoryPage({
         <>
           <MemoryDetail>
             <Title>
-              {title.toUpperCase()} {formatDate(date)}{' '}
+              {' '}
               <IconButton onClick={() => setIsEdited(!isEdited)}>
                 {' '}
-                <Icon src={EditIcon} alt="" />
+                <img src={EditIcon} alt="" />
               </IconButton>
+              <span>{title.toUpperCase()}</span>
+              <span>{formatDate(date)}</span>
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <Text>{text}</Text>
@@ -58,7 +54,7 @@ export default function DetailMemoryPage({
       )}
       {isEdited && (
         <>
-          <form onSubmit={onSubmit}>
+          <EditForm onSubmit={onSubmit}>
             <EditMemoryDetail>
               <Title>
                 <input
@@ -72,13 +68,8 @@ export default function DetailMemoryPage({
                 />
                 <input type="date" name="date" placeholder={date} />
               </Title>
-              <SavedImage
-                src={image}
-                alt="Memory"
-                width="180"
-                max-height="180"
-              />
-              <Textarea
+              <Image src={image} alt="Memory" width="320" max-height="180" />
+              <textarea
                 rows="4"
                 cols="30"
                 name="textarea"
@@ -87,10 +78,10 @@ export default function DetailMemoryPage({
               />
             </EditMemoryDetail>
             <FormButtons>
-              <Button>Save changes</Button>
               <Button onClick={() => setIsEdited(!isEdited)}>Cancel</Button>
+              <Button>Save changes</Button>
             </FormButtons>
-          </form>
+          </EditForm>
         </>
       )}
     </Wrapper>
@@ -123,21 +114,26 @@ function formatDate(date) {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 86vh;
   justify-content: space-between;
   place-items: center;
   color: var(--color-text);
   font-weight: bold;
   margin: 5px;
-  overflow-y: scroll;
 `
+const Title = styled.div`
+  padding: 4px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
 
-const Textarea = styled.textarea`
-  border-radius: var(--border-radius-form);
-  width: 300px;
-  padding: 8px;
+  img {
+    height: 30px;
+    width: 35px;
+  }
 `
-
 const MemoryDetail = styled.div`
   align-items: center;
   background-color: var(--color-background);
@@ -148,58 +144,54 @@ const MemoryDetail = styled.div`
   padding: 10px;
   overflow-y: scroll;
 `
-
 const Image = styled.img`
   border-radius: 20px;
   border: 4px;
   box-shadow: var(--shadow-img);
   max-height: 80%;
 `
-
-const Title = styled.div`
-  padding: 10px;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
 const Text = styled.span`
   margin-top: 10px;
   padding: 10px;
   text-align: justify;
 `
 
-const FormButtons = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 10px;
+const EditForm = styled.form`
+  height: 90vh;
+  width: 93vw;
 
-  button {
-    padding: 4px;
-    width: 40%;
+  input {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-form);
+    padding: 5px;
+  }
+
+  textarea {
+    margin-top: 10px;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-form);
+    width: 300px;
+    padding: 8px;
+    max-height: auto;
   }
 `
-
 const EditMemoryDetail = styled.div`
   align-items: center;
   background-color: var(--color-background);
   border-radius: var(--border-radius-global);
   display: flex;
   flex-direction: column;
-  max-height: 90%;
-  padding: 10px;
+  max-height: 85%;
+  padding: 4px;
   overflow-y: scroll;
 `
+const FormButtons = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
 
-const SavedImage = styled.img`
-  border-radius: 20px;
-  border: 4px;
-  box-shadow: var(--shadow-img);
-  max-height: 50%;
-`
-
-const Icon = styled.img`
-  height: 30px;
-  width: 35px;
+  button {
+    padding: 4px;
+    width: 40%;
+  }
 `
