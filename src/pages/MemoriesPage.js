@@ -5,6 +5,7 @@ import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import DeleteIcon from '../assets/images/icons/delete.png'
+import cam from '../assets/images/icons/cam.png'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -30,7 +31,10 @@ export default function MemoriesPage({
   return (
     <Wrapper>
       <Title>
-        <BackToCam onClick={onNavigateBack}>&lt; Cam</BackToCam>
+        <BackToCam onClick={onNavigateBack}>
+          &lt;
+          <CamIcon src={cam} alt="" />
+        </BackToCam>
         <h2>Your memories</h2>
       </Title>
       <ListWrapper>
@@ -44,7 +48,8 @@ export default function MemoriesPage({
               title={title}
               date={date}
               text={text}
-              onDetail={() => onDetail(image, title, date, text)}
+              id={id}
+              onDetail={() => onDetail(image, title, date, text, id)}
             />
           </ListItem>
         ))}
@@ -64,7 +69,7 @@ const Title = styled.section`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 10px 15px 10px 4px;
+  margin: 25px 15px 10px 4px;
 
   h2 {
     font-size: var(--font-size-title);
@@ -93,8 +98,14 @@ const ListItem = styled.li`
 `
 
 const BackToCam = styled(Button)`
-  padding: 3px;
-  width: 30%;
+  padding: 0;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`
+const CamIcon = styled.img`
+  height: 40px;
 `
 
 const Icon = styled.img`

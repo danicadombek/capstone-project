@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import Button from '../components/Button'
 import cam from '../assets/images/icons/cam.png'
+import home from '../assets/images/icons/home.png'
+import save from '../assets/images/icons/save.png'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
@@ -27,7 +29,11 @@ export default function CameraPage({
     <Wrapper>
       <FormWrap aria-label="Open your camera" onSubmit={onSubmit}>
         <Title>
-          <BackButton onClick={onNavigateBack}>&lt; Home</BackButton>
+          <BackButton onClick={onNavigateBack}>
+            {' '}
+            &lt;
+            <HomeIcon src={home} alt="" />
+          </BackButton>
           <Label>Start your cam</Label>
         </Title>
         <ImageSection>
@@ -48,24 +54,28 @@ export default function CameraPage({
         </ImageSection>
         <TitleDate>
           <InputTitle
-            aria-label="Choose a name"
+            aria-label="Choose a title"
             id="upload-img"
             type="text"
             name="title"
-            placeholder="Choose a name"
+            placeholder="Choose a title"
             autoComplete="off"
-            maxlength="10"
+            maxLength="10"
           />
           <Datepicker type="date" name="date" />
         </TitleDate>
         <Textarea
           rows="4"
           cols="30"
-          placeholder="Write your feelings"
+          placeholder="This is the place for your thoughts."
           name="textarea"
-          maxlength="500"
+          maxLength="500"
         />
-        <SaveButton>Save your memory</SaveButton>
+        <SaveButton>
+          {' '}
+          <SaveIcon src={save} alt="" />
+          Save your memory
+        </SaveButton>
       </FormWrap>
       <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
@@ -118,7 +128,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 2em;
   justify-content: space-between;
-  margin: 5px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
 `
 
 const Title = styled.section`
@@ -135,8 +145,14 @@ const Title = styled.section`
 `
 
 const BackButton = styled(Button)`
-  padding: 2px;
-  width: 30%;
+  padding: 3px;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`
+const HomeIcon = styled.img`
+  height: 30px;
 `
 
 const FormWrap = styled.form`
@@ -212,4 +228,14 @@ const Textarea = styled.textarea`
 const SaveButton = styled(Button)`
   padding: 4px;
   width: 83%;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  letter-spacing: 0.1em;
+  text-shadow: var(--shadow-text);
+  text-transform: uppercase;
+`
+
+const SaveIcon = styled.img`
+  height: 20px;
 `

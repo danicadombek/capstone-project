@@ -8,6 +8,4 @@ export default {
 const Template = args => <Header {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
-  children: 'Viary',
-}
+Default.args = {}
