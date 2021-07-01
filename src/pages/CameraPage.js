@@ -54,7 +54,7 @@ export default function CameraPage({
             name="title"
             placeholder="Choose a name"
             autoComplete="off"
-            maxlength="100"
+            maxlength="10"
           />
           <Datepicker type="date" name="date" />
         </TitleDate>
@@ -135,7 +135,7 @@ const Title = styled.section`
 `
 
 const BackButton = styled(Button)`
-  padding: 3px;
+  padding: 2px;
   width: 30%;
 `
 
@@ -143,6 +143,7 @@ const FormWrap = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.7em;
   justify-content: center;
 `
