@@ -38,7 +38,6 @@ export default function DetailMemoryPage({
     text: text,
     id: id,
   })
-
   return (
     <Wrapper>
       {isEdited ? (
@@ -118,6 +117,7 @@ export default function DetailMemoryPage({
 
     const editedMemory = {
       ...memory,
+      id,
       image,
       title: title,
       date: date,

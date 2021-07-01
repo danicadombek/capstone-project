@@ -70,7 +70,7 @@ export default function App() {
 
   function handleEditedMemory(editedMemory) {
     const index = memories.findIndex(memory => memory.id === editedMemory.id)
-    console.log(editedMemory)
+
     setMemories([
       ...memories.slice(0, index),
       { ...editedMemory },
@@ -83,9 +83,9 @@ export default function App() {
     setCurrentPage('home')
   }
 
-  function showDetailMemoryPage(image, title, date, text) {
+  function showDetailMemoryPage(image, title, date, text, id) {
     setCurrentPage('detail')
-    setMemoryDetail({ image, title, date, text })
+    setMemoryDetail({ image, title, date, text, id })
   }
 
   function showMemoriesPage() {
