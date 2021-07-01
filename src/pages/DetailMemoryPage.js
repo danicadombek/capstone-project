@@ -140,7 +140,7 @@ const Wrapper = styled.section`
   place-items: center;
   color: var(--color-text);
   font-weight: bold;
-  margin-top: 15px;
+  margin: 15px 5px 5px 5px;
 `
 const Title = styled.div`
   padding: 4px;
