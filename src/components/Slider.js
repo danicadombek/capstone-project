@@ -50,6 +50,6 @@ const Slide = styled.div`
   background-size: cover;
   flex-shrink: 0;
   height: 55%;
-  transition: 800ms all ease-in-out;
+  transition: 1000ms all ease-in-out;
   width: 100%;
 `

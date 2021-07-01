@@ -39,6 +39,7 @@ const Sliderarea = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
+  border: 2px solid #e4eaeb;
 `
 
 const Title = styled.h2`
@@ -46,7 +47,7 @@ const Title = styled.h2`
   color: var(--color-text);
   font-size: 26px;
   font-weight: 700;
-  height: 20vh;
+  height: 95%;
   padding: 20px;
   text-align: center;
 `
