@@ -5,6 +5,8 @@ import ToMemoriesButton from '../components/ToMemoriesButton'
 import IconButton from '../components/IconButton'
 import { useState } from 'react'
 import EditIcon from '../assets/images/icons/edit.png'
+import cancel from '../assets/images/icons/cancel.png'
+import save from '../assets/images/icons/save.png'
 
 DetailMemoryPage.propTypes = {
   memory: PropTypes.objectOf(
@@ -17,7 +19,6 @@ DetailMemoryPage.propTypes = {
     })
   ),
   onEdit: PropTypes.func,
-  handleEditSubmit: PropTypes.func,
 }
 
 export default function DetailMemoryPage({
@@ -28,18 +29,61 @@ export default function DetailMemoryPage({
   text,
   id,
   onNavigate,
-  handleEditSubmit,
+  onEdit,
 }) {
   const [isEdited, setIsEdited] = useState(false)
   const [memoriesInputs, setMemoriesInput] = useState({
     title: title,
     date: date,
     text: text,
+    id: id,
   })
 
   return (
     <Wrapper>
-      {isEdited === false && (
+      {isEdited ? (
+        <EditForm onSubmit={onSubmit}>
+          <EditMemoryDetail>
+            <Title>
+              <input
+                aria-label="Choose a name"
+                id="upload-img"
+                type="text"
+                name="title"
+                autoComplete="off"
+                maxLength="100"
+                value={memoriesInputs.title}
+                onChange={handleChange}
+              />
+              <input
+                type="date"
+                name="date"
+                value={memoriesInputs.date}
+                onChange={handleChange}
+              />
+            </Title>
+            <Image src={image} alt="Memory" width="320" max-height="180" />
+            <textarea
+              rows="4"
+              cols="30"
+              name="text"
+              maxLength="500"
+              value={memoriesInputs.text}
+              onChange={handleChange}
+            />
+          </EditMemoryDetail>
+          <FormButtons>
+            <CancelButton onClick={() => setIsEdited(!isEdited)}>
+              <CancelIcon src={cancel} alt="" />
+              Cancel
+            </CancelButton>
+            <SaveButton>
+              <SaveIcon src={save} alt="" />
+              Save changes
+            </SaveButton>
+          </FormButtons>
+        </EditForm>
+      ) : (
         <>
           <MemoryDetail>
             <Title>
@@ -54,46 +98,7 @@ export default function DetailMemoryPage({
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <Text>{text}</Text>
           </MemoryDetail>
-          <ToMemoriesButton onClick={onNavigate} />
-        </>
-      )}
-      {isEdited && (
-        <>
-          <EditForm onSubmit={onSubmit}>
-            <EditMemoryDetail>
-              <Title>
-                <input
-                  aria-label="Choose a name"
-                  id="upload-img"
-                  type="text"
-                  name="title"
-                  autoComplete="off"
-                  maxlength="100"
-                  value={memoriesInputs.title}
-                  onChange={handleChange}
-                />
-                <input
-                  type="date"
-                  name="date"
-                  value={memoriesInputs.date}
-                  onChange={handleChange}
-                />
-              </Title>
-              <Image src={image} alt="Memory" width="320" max-height="180" />
-              <textarea
-                rows="4"
-                cols="30"
-                name="text"
-                maxlength="500"
-                value={memoriesInputs.text}
-                onChange={handleChange}
-              />
-            </EditMemoryDetail>
-            <FormButtons>
-              <Button onClick={() => setIsEdited(!isEdited)}>Cancel</Button>
-              <Button>Save changes</Button>
-            </FormButtons>
-          </EditForm>
+          <MemoriesButton onClick={onNavigate} />
         </>
       )}
     </Wrapper>
@@ -119,7 +124,7 @@ export default function DetailMemoryPage({
       text: text,
     }
 
-    handleEditSubmit(editedMemory)
+    onEdit(editedMemory)
   }
 }
 
@@ -135,8 +140,7 @@ const Wrapper = styled.section`
   place-items: center;
   color: var(--color-text);
   font-weight: bold;
-  margin: 5px;
-  margin-bottom: 10px;
+  margin-top: 15px;
 `
 const Title = styled.div`
   padding: 4px;
@@ -205,10 +209,41 @@ const EditMemoryDetail = styled.div`
 const FormButtons = styled.section`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 30px;
+  margin-top: 25px;
+  gap: 10px;
+`
 
-  button {
-    padding: 4px;
-    width: 40%;
-  }
+const MemoriesButton = styled(ToMemoriesButton)`
+  margin: 10px;
+  width: 95%;
+`
+
+const CancelButton = styled(Button)`
+  padding: 4px;
+  width: 40%;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  letter-spacing: 0.1em;
+  text-shadow: var(--shadow-text);
+  text-transform: uppercase;
+`
+
+const CancelIcon = styled.img`
+  height: 20px;
+`
+
+const SaveButton = styled(Button)`
+  padding: 4px;
+  width: 60%;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  letter-spacing: 0.1em;
+  text-shadow: var(--shadow-text);
+  text-transform: uppercase;
+`
+
+const SaveIcon = styled.img`
+  height: 20px;
 `

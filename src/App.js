@@ -1,5 +1,5 @@
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
-import { useDebugValue, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import background from '../src/assets/viary-bg.jpg'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <Wrapper>
-      <Header>Viary</Header>
+      <Header />
       {currentPage === 'home' && (
         <StartPage onNavigate={showCameraPage} memories={memories} />
       )}
@@ -47,7 +47,6 @@ export default function App() {
           date={memoryDetail.date}
           text={memoryDetail.text}
           onNavigate={showMemoriesPage}
-          handleEditSubmit={handleEditSubmit}
           onEdit={handleEditedMemory}
         />
       )}
@@ -69,21 +68,15 @@ export default function App() {
     setMemories(deletedMemory)
   }
 
-  function handleEditSubmit(editedMemory) {
-    setMemories([editedMemory])
-    setCurrentPage('memories')
-  }
-
-  function handleEditedMemory(id, title, date, text, memory) {
-    const index = memories.findIndex(memory => memory.id === id)
-    const editedMemory = memory[index]
-
+  function handleEditedMemory(editedMemory) {
+    const index = memories.findIndex(memory => memory.id === editedMemory.id)
+    console.log(editedMemory)
     setMemories([
-      ...memories.slice(index),
-      { ...editedMemory, title, date, text },
-      ...memories.slice(index),
+      ...memories.slice(0, index),
+      { ...editedMemory },
+      ...memories.slice(index + 1),
     ])
-    console.log(memories)
+    setCurrentPage('memories')
   }
 
   function showStartPage() {
