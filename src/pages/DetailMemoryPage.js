@@ -16,7 +16,7 @@ DetailMemoryPage.propTypes = {
       text: PropTypes.string,
     })
   ),
-
+  onEdit: PropTypes.func,
   handleEditSubmit: PropTypes.func,
 }
 
@@ -31,6 +31,11 @@ export default function DetailMemoryPage({
   handleEditSubmit,
 }) {
   const [isEdited, setIsEdited] = useState(false)
+  const [memoriesInputs, setMemoriesInput] = useState({
+    title: title,
+    date: date,
+    text: text,
+  })
 
   return (
     <Wrapper>
@@ -64,17 +69,24 @@ export default function DetailMemoryPage({
                   name="title"
                   autoComplete="off"
                   maxlength="100"
-                  placeholder={title}
+                  value={memoriesInputs.title}
+                  onChange={handleChange}
                 />
-                <input type="date" name="date" placeholder={date} />
+                <input
+                  type="date"
+                  name="date"
+                  value={memoriesInputs.date}
+                  onChange={handleChange}
+                />
               </Title>
               <Image src={image} alt="Memory" width="320" max-height="180" />
               <textarea
                 rows="4"
                 cols="30"
-                name="textarea"
+                name="text"
                 maxlength="500"
-                placeholder={text}
+                value={memoriesInputs.text}
+                onChange={handleChange}
               />
             </EditMemoryDetail>
             <FormButtons>
@@ -87,20 +99,24 @@ export default function DetailMemoryPage({
     </Wrapper>
   )
 
+  function handleChange(event) {
+    const { name, value } = event.target
+    setMemoriesInput({ ...memoriesInputs, [name]: value })
+  }
+
   function onSubmit(event) {
     event.preventDefault()
     const form = event.target
     const title = form.elements.title.value
     const date = form.elements.date.value
-    const text = form.elements.textarea.value
+    const text = form.elements.text.value
 
     const editedMemory = {
       ...memory,
       image,
-      title,
-      date,
-      text,
-      id,
+      title: title,
+      date: date,
+      text: text,
     }
 
     handleEditSubmit(editedMemory)
@@ -120,6 +136,7 @@ const Wrapper = styled.section`
   color: var(--color-text);
   font-weight: bold;
   margin: 5px;
+  margin-bottom: 10px;
 `
 const Title = styled.div`
   padding: 4px;
@@ -148,7 +165,7 @@ const Image = styled.img`
   border-radius: 20px;
   border: 4px;
   box-shadow: var(--shadow-img);
-  max-height: 80%;
+  max-height: 90%;
 `
 const Text = styled.span`
   margin-top: 10px;
