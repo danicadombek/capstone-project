@@ -1,20 +1,25 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import logo from '../assets/logo.png'
 
-Header.propTypes = {
-  children: PropTypes.node.isRequired,
+// Header.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
+
+export default function Header() {
+  return (
+    <LogoStyle>
+      <Logo src={logo} alt="" />
+    </LogoStyle>
+  )
 }
 
-export default function Header({ children }) {
-  return <Headline>{children}</Headline>
-}
+const LogoStyle = styled.section`
+  display: grid;
+  justify-items: center;
+  margin: 10px;
+`
 
-const Headline = styled.h2`
-  font-size: 40px;
-  font-style: inherit;
-  font-weight: bold;
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-  letter-spacing: 0.5em;
+const Logo = styled.img`
+  width: 80%;
 `

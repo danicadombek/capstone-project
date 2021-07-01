@@ -11,7 +11,7 @@ export default function ToMemoriesButton(props) {
   return (
     <ButtonStyle {...props}>
       <Icon src={MemoriesIcon} alt="" />
-      <span>To your memories</span>
+      <span>Your memories</span>
     </ButtonStyle>
   )
 }
@@ -24,9 +24,9 @@ const ButtonStyle = styled(Button)`
   padding: 3px;
 
   span {
-    font-size: larger;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.4em;
     text-shadow: var(--shadow-text);
+    text-transform: uppercase;
   }
 `
 
