@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import DeleteIcon from '../assets/images/icons/delete.png'
 import cam from '../assets/images/icons/cam.png'
+import search from '../assets/images/icons/search.png'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -37,14 +38,17 @@ export default function MemoriesPage({
         </BackToCam>
         <h2>Your memories</h2>
       </Title>
-      <form>
-        <InputSearch type="text"></InputSearch>
-      </form>
+      <FormSearch>
+        <input type="text" />{' '}
+        <SearchButton>
+          <SearchIcon src={search} alt="" />
+        </SearchButton>
+      </FormSearch>
       <ListWrapper>
         {memories.map(({ image, title, date, text, id }) => (
           <ListItem key={id}>
             <IconButton onClick={() => onDelete(id)}>
-              <Icon src={DeleteIcon} alt="" />
+              <DeletedIcon src={DeleteIcon} alt="" />
             </IconButton>
             <MemoryItem
               image={image}
@@ -80,12 +84,22 @@ const Title = styled.section`
   }
 `
 
-const InputSearch = styled.input`
-  height: 30px;
-  padding: 4px;
-  margin: 20px 0;
-  border-radius: var(--border-radius-form);
-  width: 80%;
+const FormSearch = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  input {
+    height: 35px;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: var(--border-radius-form);
+    width: 80%;
+  }
+`
+
+const SearchButton = styled(Button)`
+  width: 15%;
 `
 
 const ListWrapper = styled.ul`
@@ -118,7 +132,11 @@ const CamIcon = styled.img`
   height: 40px;
 `
 
-const Icon = styled.img`
+const DeletedIcon = styled.img`
   height: 30px;
   width: 35px;
+`
+
+const SearchIcon = styled.img`
+  height: 30px;
 `
