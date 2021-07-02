@@ -1,10 +1,10 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import logo from '../assets/logo.png'
 
-// Header.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
+Header.propTypes = {
+  image: PropTypes.node.isRequired,
+}
 
 export default function Header() {
   return (

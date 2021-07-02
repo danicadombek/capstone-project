@@ -1,10 +1,16 @@
 import { render, screen } from '@testing-library/react'
 import Header from './Header'
+import logo from '../assets/images/icons/logo.png'
 
 describe('Header', () => {
-  it('renders children', () => {
-    const { container } = render(<Header>Viary</Header>)
-    expect(container.firstChild).toHaveTextContent('Viary')
-    expect(screen.getByRole('heading')).toBeInTheDocument()
+  it('renders a logo', () => {
+    const { container } = render(
+      <Header>
+        {' '}
+        <img src={logo} alt="" />
+      </Header>
+    )
+    expect(container.firstChild).getByRole('img')
+    expect(screen.getByRole('img')).toBeInTheDocument()
   })
 })

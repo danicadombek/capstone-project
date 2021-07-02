@@ -1,4 +1,5 @@
 import Header from './Header'
+import logo from '../assets/images/icons/logo.png'
 
 export default {
   title: 'Header',
@@ -8,4 +9,6 @@ export default {
 const Template = args => <Header {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  image: logo,
+}
