@@ -37,6 +37,9 @@ export default function MemoriesPage({
         </BackToCam>
         <h2>Your memories</h2>
       </Title>
+      <form>
+        <InputSearch type="text"></InputSearch>
+      </form>
       <ListWrapper>
         {memories.map(({ image, title, date, text, id }) => (
           <ListItem key={id}>
@@ -60,7 +63,7 @@ export default function MemoriesPage({
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: 10%;
+  grid-template-rows: 10% 10%;
   justify-content: center;
   overflow-y: scroll;
 `
@@ -75,6 +78,14 @@ const Title = styled.section`
     font-size: var(--font-size-title);
     font-weight: var(--font-weight-title);
   }
+`
+
+const InputSearch = styled.input`
+  height: 30px;
+  padding: 4px;
+  margin: 20px 0;
+  border-radius: var(--border-radius-form);
+  width: 80%;
 `
 
 const ListWrapper = styled.ul`
@@ -93,8 +104,7 @@ const ListItem = styled.li`
   gap: 10px;
   background-color: var(--color-background);
   width: 100%;
-  border-radius: 20px;
-  box-shadow: var(--border-radius-global);
+  border-radius: var(--border-radius-form);
 `
 
 const BackToCam = styled(Button)`
