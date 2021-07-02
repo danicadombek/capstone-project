@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <Wrapper>
-      <Header>Viary</Header>
+      <Header />
       {currentPage === 'home' && (
         <StartPage onNavigate={showCameraPage} memories={memories} />
       )}
@@ -41,11 +41,13 @@ export default function App() {
 
       {currentPage === 'detail' && (
         <DetailMemoryPage
+          id={memoryDetail.id}
           image={memoryDetail.image}
           title={memoryDetail.title}
           date={memoryDetail.date}
           text={memoryDetail.text}
           onNavigate={showMemoriesPage}
+          onEdit={handleEditedMemory}
         />
       )}
     </Wrapper>
@@ -66,13 +68,24 @@ export default function App() {
     setMemories(deletedMemory)
   }
 
+  function handleEditedMemory(editedMemory) {
+    const index = memories.findIndex(memory => memory.id === editedMemory.id)
+
+    setMemories([
+      ...memories.slice(0, index),
+      { ...editedMemory },
+      ...memories.slice(index + 1),
+    ])
+    setCurrentPage('memories')
+  }
+
   function showStartPage() {
     setCurrentPage('home')
   }
 
-  function showDetailMemoryPage(image, title, date, text) {
+  function showDetailMemoryPage(image, title, date, text, id) {
     setCurrentPage('detail')
-    setMemoryDetail({ image, title, date, text })
+    setMemoryDetail({ image, title, date, text, id })
   }
 
   function showMemoriesPage() {

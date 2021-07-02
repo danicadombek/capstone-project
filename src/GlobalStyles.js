@@ -9,10 +9,10 @@ export default createGlobalStyle`
   --color-background-white: #e4eaeb;
   --color-background: hsl(60, 2%, 80%, 0.8);
   --color-text: #230707;
-  --font-size-title: 22px;
+  --font-size-title: 24px;
   --font-weight-title: bold;
   --shadow-img: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  --shadow-text: 2px 2px 2px rgb(150, 150, 150);
+  --shadow-text: 2px 1px 1px rgb(150, 150, 150);
 
 }
 

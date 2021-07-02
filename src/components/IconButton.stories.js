@@ -1,12 +1,12 @@
-import DeleteButton from './DeleteButton'
+import IconButton from './IconButton'
 import DeleteIcon from '../assets/images/icons/delete.png'
 
 export default {
-  title: 'DeleteButton',
-  component: DeleteButton,
+  title: 'IconButton',
+  component: IconButton,
 }
 
-const Template = args => <DeleteButton {...args} />
+const Template = args => <IconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -33,7 +33,6 @@ export default function ImageSlider({
           }}
         />
       ))}
-      <Gradient />
     </Wrapper>
   )
 }
@@ -51,14 +50,6 @@ const Slide = styled.div`
   background-size: cover;
   flex-shrink: 0;
   height: 55%;
-  transition: 800ms all ease-in-out;
+  transition: 1000ms all ease-in-out;
   width: 100%;
-`
-
-const Gradient = styled.div`
-  height: 50%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 90%;
 `
