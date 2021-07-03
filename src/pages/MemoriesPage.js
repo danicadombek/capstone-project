@@ -7,6 +7,7 @@ import styled from 'styled-components/macro'
 import DeleteIcon from '../assets/images/icons/delete.png'
 import cam from '../assets/images/icons/cam.png'
 import search from '../assets/images/icons/search.png'
+import { useState } from 'react'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -28,7 +29,9 @@ export default function MemoriesPage({
   onDetail,
   memories,
   onDelete,
+  onSubmit,
 }) {
+  const [searchMemory, setSearchMemory] = useState(null)
   return (
     <Wrapper>
       <Title>
@@ -38,36 +41,70 @@ export default function MemoriesPage({
         </BackToCam>
         <h2>Your memories</h2>
       </Title>
-      <FormSearch>
-        <input type="text" />{' '}
+      <FormSearch onSubmit={handleSearch}>
+        <input
+          type="text"
+          onChange={event => setSearchMemory(event.target.value.toLowerCase())}
+          placeholder="Search your memory"
+          name="search"
+          autoComplete="off"
+          aria-label="Search your memory"
+        />{' '}
         <SearchButton>
           <SearchIcon src={search} alt="" />
         </SearchButton>
       </FormSearch>
       <ListWrapper>
-        {memories.map(({ image, title, date, text, id }) => (
-          <ListItem key={id}>
-            <IconButton onClick={() => onDelete(id)}>
-              <DeletedIcon src={DeleteIcon} alt="" />
-            </IconButton>
-            <MemoryItem
-              image={image}
-              title={title}
-              date={date}
-              text={text}
-              id={id}
-              onDetail={() => onDetail(image, title, date, text, id)}
-            />
-          </ListItem>
-        ))}
+        {searchMemory
+          ? memories
+              .filter(memory =>
+                memory.title.toLowerCase().includes(searchMemory)
+              )
+              .map(({ image, title, date, text, id }) => (
+                <ListItem key={id}>
+                  <IconButton onClick={() => onDelete(id)}>
+                    <DeletedIcon src={DeleteIcon} alt="" />
+                  </IconButton>
+                  <MemoryItem
+                    image={image}
+                    title={title}
+                    date={date}
+                    text={text}
+                    id={id}
+                    onDetail={() => onDetail(image, title, date, text, id)}
+                  />
+                </ListItem>
+              ))
+          : memories.map(({ image, title, date, text, id }) => (
+              <ListItem key={id}>
+                <IconButton onClick={() => onDelete(id)}>
+                  <DeletedIcon src={DeleteIcon} alt="" />
+                </IconButton>
+                <MemoryItem
+                  image={image}
+                  title={title}
+                  date={date}
+                  text={text}
+                  id={id}
+                  onDetail={() => onDetail(image, title, date, text, id)}
+                />
+              </ListItem>
+            ))}
       </ListWrapper>
     </Wrapper>
   )
+
+  function handleSearch(event) {
+    event.preventDefault()
+    const form = event.target
+    const input = form.elements.search.value
+    onSubmit(searchMemory)
+  }
 }
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: 10% 10%;
+  grid-template-rows: 12% 8%;
   justify-content: center;
   overflow-y: scroll;
 `
@@ -76,7 +113,7 @@ const Title = styled.section`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 25px 15px 10px 4px;
+  margin: 20px 15px 20px 4px;
 
   h2 {
     font-size: var(--font-size-title);
@@ -99,7 +136,7 @@ const FormSearch = styled.form`
 `
 
 const SearchButton = styled(Button)`
-  width: 15%;
+  width: 18%;
 `
 
 const ListWrapper = styled.ul`
