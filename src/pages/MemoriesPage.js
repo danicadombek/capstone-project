@@ -96,8 +96,6 @@ export default function MemoriesPage({
 
   function handleSearch(event) {
     event.preventDefault()
-    const form = event.target
-    const input = form.elements.search.value
     onSubmit(searchMemory)
   }
 }
