@@ -36,7 +36,6 @@ export default function App() {
           onDetail={showDetailMemoryPage}
           onNavigateBack={showCameraPage}
           onDelete={handleDeleteMemory}
-          // onSubmit={choosenMemory}
         />
       )}
 

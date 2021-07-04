@@ -77,7 +77,7 @@ export default function CameraPage({
           Save your memory
         </SaveButton>
       </FormWrap>
-      <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
+      <ToMemoriesButton onClick={onNavigate} />
     </Wrapper>
   )
 

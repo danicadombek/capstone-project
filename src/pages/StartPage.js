@@ -11,7 +11,7 @@ StartPage.propTypes = {
       image: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
-      date: PropTypes.string,
+      date: PropTypes.number,
       text: PropTypes.string,
     })
   ),

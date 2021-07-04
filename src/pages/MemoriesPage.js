@@ -1,13 +1,13 @@
 //@ts-check
+import { useState } from 'react'
 import Button from '../components/Button'
+import cam from '../assets/images/icons/cam.png'
+import DeleteIcon from '../assets/images/icons/delete.png'
 import IconButton from '../components/IconButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
-import DeleteIcon from '../assets/images/icons/delete.png'
-import cam from '../assets/images/icons/cam.png'
 import search from '../assets/images/icons/search.png'
-import { useState } from 'react'
+import styled from 'styled-components/macro'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -37,7 +37,7 @@ export default function MemoriesPage({
       <Title>
         <BackToCam onClick={onNavigateBack}>
           &lt;
-          <CamIcon src={cam} alt="" />
+          <CamIcon src={cam} alt="To your cam" />
         </BackToCam>
         <h2>Your memories</h2>
       </Title>
@@ -120,15 +120,15 @@ const Title = styled.section`
 `
 
 const FormSearch = styled.form`
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 
   input {
-    height: 35px;
-    padding: 10px;
-    margin: 20px 0;
     border-radius: var(--border-radius-form);
+    height: 35px;
+    margin: 20px 0;
+    padding: 10px;
     width: 80%;
   }
 `
@@ -138,9 +138,9 @@ const SearchButton = styled(Button)`
 `
 
 const ListWrapper = styled.ul`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
@@ -149,19 +149,19 @@ const ListWrapper = styled.ul`
 `
 
 const ListItem = styled.li`
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-form);
   display: flex;
   gap: 10px;
-  background-color: var(--color-background);
   width: 100%;
-  border-radius: var(--border-radius-form);
 `
 
 const BackToCam = styled(Button)`
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
   padding: 0;
   width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 `
 const CamIcon = styled.img`
   height: 40px;

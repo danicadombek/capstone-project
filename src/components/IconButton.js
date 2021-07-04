@@ -5,10 +5,11 @@ import styled from 'styled-components/macro'
 
 IconButton.propTypes = {
   onClick: PropTypes.func,
+  onDelete: PropTypes.func,
 }
 
-export default function IconButton(props) {
-  return <IconButtonStyle {...props} />
+export default function IconButton({ children }) {
+  return <IconButtonStyle>{children}</IconButtonStyle>
 }
 const IconButtonStyle = styled(Button)`
   background: none;
