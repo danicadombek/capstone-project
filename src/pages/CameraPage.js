@@ -14,8 +14,8 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
 CameraPage.propTypes = {
   onNavigate: PropTypes.func,
-  onNavigateBack: PropTypes.func.isRequired,
-  handleMemorySubmit: PropTypes.func,
+  onNavigateBack: PropTypes.func,
+  handleMemorySubmit: PropTypes.func.isRequired,
 }
 
 export default function CameraPage({
@@ -62,7 +62,7 @@ export default function CameraPage({
             autoComplete="off"
             maxLength="10"
           />
-          <Datepicker type="date" name="date" />
+          <Datepicker type="date" name="date" aria-label="Choose a date" />
         </TitleDate>
         <Textarea
           rows="4"
@@ -77,7 +77,7 @@ export default function CameraPage({
           Save your memory
         </SaveButton>
       </FormWrap>
-      <ToMemoriesButton onClick={onNavigate} />
+      <ToMemoriesButton onClick={onNavigate}>To your memories</ToMemoriesButton>
     </Wrapper>
   )
 
