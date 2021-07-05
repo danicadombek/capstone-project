@@ -5,14 +5,14 @@ import CameraPage from './CameraPage'
 const noop = () => {}
 
 describe('CameraPage', () => {
-  it('renders a form with one textbox and two buttons', async () => {
+  it('renders a form with three inputs and two buttons', async () => {
     render(<CameraPage onSubmit={noop} onNavigate={noop} />)
 
     const form = screen.getByRole('form')
     expect(form).toBeInTheDocument()
 
     const inputs = screen.getAllByRole('textbox')
-    expect(inputs).toHaveLength(1)
+    expect(inputs).toHaveLength(3)
 
     const buttons = screen.getAllByRole('button')
     expect(buttons).toHaveLength(2)
@@ -25,7 +25,7 @@ describe('CameraPage', () => {
     const fileInput = screen.getByLabelText('Start your cam')
     userEvent.type(fileInput, 'img')
 
-    const titleInput = screen.getByLabelText('Choose a name')
+    const titleInput = screen.getByLabelText('Choose a title')
     userEvent.type(titleInput, 'Wald')
 
     const button = screen.getByRole('button', { name: 'Save your memory' })
@@ -41,7 +41,7 @@ describe('CameraPage', () => {
     const onNavigate = jest.fn()
     render(<CameraPage onNavigate={onNavigate} />)
 
-    const button = screen.getByRole('button', { name: 'To your memories' })
+    const button = screen.getByRole('button', { name: 'Your memories' })
     userEvent.click(button)
 
     expect(onNavigate).toBeCalled()
