@@ -6,7 +6,6 @@ const noop = () => {}
 
 describe('CameraPage', () => {
   it('renders a form with three inputs and two buttons', () => {
-    const handleMemorySubmit = jest.fn()
     render(<CameraPage handleMemorySubmit={noop} onNavigate={noop} />)
 
     const form = screen.getByRole('form')
