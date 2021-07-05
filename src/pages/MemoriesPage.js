@@ -1,11 +1,13 @@
 //@ts-check
+import { useState } from 'react'
 import Button from '../components/Button'
+import cam from '../assets/images/icons/cam.png'
+import DeleteIcon from '../assets/images/icons/delete.png'
 import IconButton from '../components/IconButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
+import search from '../assets/images/icons/search.png'
 import styled from 'styled-components/macro'
-import DeleteIcon from '../assets/images/icons/delete.png'
-import cam from '../assets/images/icons/cam.png'
 
 MemoriesPage.propTypes = {
   onNavigateBack: PropTypes.func,
@@ -27,40 +29,80 @@ export default function MemoriesPage({
   onDetail,
   memories,
   onDelete,
+  onSubmit,
 }) {
+  const [searchMemory, setSearchMemory] = useState(null)
   return (
     <Wrapper>
       <Title>
         <BackToCam onClick={onNavigateBack}>
           &lt;
-          <CamIcon src={cam} alt="" />
+          <CamIcon src={cam} alt="To your cam" />
         </BackToCam>
         <h2>Your memories</h2>
       </Title>
+      <FormSearch onSubmit={handleSearch}>
+        <input
+          type="text"
+          onChange={event => setSearchMemory(event.target.value.toLowerCase())}
+          placeholder="Search your memory"
+          name="search"
+          autoComplete="off"
+          aria-label="Search your memory"
+        />{' '}
+        <SearchButton>
+          <SearchIcon src={search} alt="" />
+        </SearchButton>
+      </FormSearch>
       <ListWrapper>
-        {memories.map(({ image, title, date, text, id }) => (
-          <ListItem key={id}>
-            <IconButton onClick={() => onDelete(id)}>
-              <Icon src={DeleteIcon} alt="" />
-            </IconButton>
-            <MemoryItem
-              image={image}
-              title={title}
-              date={date}
-              text={text}
-              id={id}
-              onDetail={() => onDetail(image, title, date, text, id)}
-            />
-          </ListItem>
-        ))}
+        {searchMemory
+          ? memories
+              .filter(memory =>
+                memory.title.toLowerCase().includes(searchMemory)
+              )
+              .map(({ image, title, date, text, id }) => (
+                <ListItem key={id}>
+                  <IconButton onClick={() => onDelete(id)}>
+                    <DeletedIcon src={DeleteIcon} alt="" />
+                  </IconButton>
+                  <MemoryItem
+                    image={image}
+                    title={title}
+                    date={date}
+                    text={text}
+                    id={id}
+                    onDetail={() => onDetail(image, title, date, text, id)}
+                  />
+                </ListItem>
+              ))
+          : memories.map(({ image, title, date, text, id }) => (
+              <ListItem key={id}>
+                <IconButton onClick={() => onDelete(id)}>
+                  <DeletedIcon src={DeleteIcon} alt="" />
+                </IconButton>
+                <MemoryItem
+                  image={image}
+                  title={title}
+                  date={date}
+                  text={text}
+                  id={id}
+                  onDetail={() => onDetail(image, title, date, text, id)}
+                />
+              </ListItem>
+            ))}
       </ListWrapper>
     </Wrapper>
   )
+
+  function handleSearch(event) {
+    event.preventDefault()
+    onSubmit(searchMemory)
+  }
 }
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: 10%;
+  grid-template-rows: 12% 8%;
   justify-content: center;
   overflow-y: scroll;
 `
@@ -69,7 +111,7 @@ const Title = styled.section`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 25px 15px 10px 4px;
+  margin: 20px 15px 20px 4px;
 
   h2 {
     font-size: var(--font-size-title);
@@ -77,10 +119,28 @@ const Title = styled.section`
   }
 `
 
+const FormSearch = styled.form`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    border-radius: var(--border-radius-form);
+    height: 35px;
+    margin: 20px 0;
+    padding: 10px;
+    width: 80%;
+  }
+`
+
+const SearchButton = styled(Button)`
+  width: 18%;
+`
+
 const ListWrapper = styled.ul`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-weight: bold;
   gap: 10px;
   list-style-type: none;
@@ -89,26 +149,29 @@ const ListWrapper = styled.ul`
 `
 
 const ListItem = styled.li`
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-form);
   display: flex;
   gap: 10px;
-  background-color: var(--color-background);
   width: 100%;
-  border-radius: 20px;
-  box-shadow: var(--border-radius-global);
 `
 
 const BackToCam = styled(Button)`
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
   padding: 0;
   width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 `
 const CamIcon = styled.img`
   height: 40px;
 `
 
-const Icon = styled.img`
+const DeletedIcon = styled.img`
   height: 30px;
   width: 35px;
+`
+
+const SearchIcon = styled.img`
+  height: 30px;
 `

@@ -4,7 +4,10 @@ import styled from 'styled-components/macro'
 MemoryItem.propTypes = {
   onDetail: PropTypes.func.isRequired,
   newMemory: PropTypes.objectOf(
-    PropTypes.shape({ image: PropTypes.string, title: PropTypes.string })
+    PropTypes.shape({
+      image: PropTypes.string,
+      title: PropTypes.string,
+    })
   ),
 }
 
