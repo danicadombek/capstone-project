@@ -1,6 +1,6 @@
 # Viary
 
-![logo](../assets/images/viary-readme.jpg)
+![logo](../../src/assets/images/viary-readme.jpg)
 
 ## A hearty welcome to "Viary" - a place, where you can keep your little memorys alive.
 
