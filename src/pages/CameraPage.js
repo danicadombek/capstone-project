@@ -4,8 +4,8 @@ import axios from 'axios'
 import Button from '../components/Button'
 import cam from '../assets/images/icons/cam.png'
 import home from '../assets/images/icons/home.png'
-import save from '../assets/images/icons/save.png'
 import PropTypes from 'prop-types'
+import save from '../assets/images/icons/save.png'
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
 
@@ -145,11 +145,11 @@ const Title = styled.section`
 `
 
 const BackButton = styled(Button)`
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
   padding: 3px;
   width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 `
 const HomeIcon = styled.img`
   height: 30px;
@@ -226,14 +226,14 @@ const Textarea = styled.textarea`
   width: 280px;
 `
 const SaveButton = styled(Button)`
-  padding: 4px;
-  width: 83%;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
   letter-spacing: 0.1em;
+  padding: 4px;
   text-shadow: var(--shadow-text);
   text-transform: uppercase;
+  width: 83%;
 `
 
 const SaveIcon = styled.img`

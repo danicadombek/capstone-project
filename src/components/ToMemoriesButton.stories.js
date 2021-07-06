@@ -1,5 +1,5 @@
-import ToMemoriesButton from './ToMemoriesButton'
 import MemoriesIcon from '../assets/images/icons/galery.png'
+import ToMemoriesButton from './ToMemoriesButton'
 
 export default {
   title: 'ToMemoriesButton',

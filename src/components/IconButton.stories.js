@@ -1,5 +1,5 @@
-import IconButton from './IconButton'
 import DeleteIcon from '../assets/images/icons/delete.png'
+import IconButton from './IconButton'
 
 export default {
   title: 'IconButton',

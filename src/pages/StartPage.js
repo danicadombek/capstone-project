@@ -1,8 +1,8 @@
 import Button from '../components/Button'
+import enter from '../assets/images/icons/enter.png'
 import PropTypes from 'prop-types'
 import Slider from '../components/Slider'
 import styled from 'styled-components/macro'
-import enter from '../assets/images/icons/enter.png'
 
 StartPage.propTypes = {
   onNavigate: PropTypes.func,
@@ -57,18 +57,18 @@ const Title = styled.h2`
 `
 
 const EnterButton = styled(Button)`
-  bottom: 20%;
-  height: 50px;
-  left: 27%;
-  position: relative;
-  width: 50%;
-  padding: 4px;
   align-items: center;
+  bottom: 20%;
   display: flex;
+  height: 50px;
   justify-content: space-evenly;
+  left: 27%;
   letter-spacing: 0.1em;
+  padding: 4px;
+  position: relative;
   text-shadow: var(--shadow-text);
   text-transform: uppercase;
+  width: 50%;
 
   img {
     height: 25px;

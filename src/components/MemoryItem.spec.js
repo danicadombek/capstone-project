@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import MemoryItem from './MemoryItem'
+import userEvent from '@testing-library/user-event'
 
 describe('MemoryItem', () => {
   it('renders an image with subtitle', () => {

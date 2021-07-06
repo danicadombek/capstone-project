@@ -1,7 +1,7 @@
+import Button from './Button'
+import MemoriesIcon from '../assets/images/icons/galery.png'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import MemoriesIcon from '../assets/images/icons/galery.png'
-import Button from './Button'
 
 ToMemoriesButton.propTypes = {
   onNavigate: PropTypes.func,
@@ -20,8 +20,8 @@ const ButtonStyle = styled(Button)`
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
   padding: 3px;
+  width: 100%;
 
   span {
     letter-spacing: 0.4em;
