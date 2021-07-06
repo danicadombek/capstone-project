@@ -1,6 +1,6 @@
 # Viary
 
-![logo](../../src/assets/viary-readme.jpg)
+/Users/danicadombek/neuefische/capstone-project/src/assets/viary-bg.jpg
 
 ## A hearty welcome to "Viary" - a place, where you can keep your little memorys alive.
 
