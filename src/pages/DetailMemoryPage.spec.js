@@ -8,9 +8,9 @@ describe('DetailMemoryPage', () => {
     render(<DetailMemoryPage onNavigate={onNavigate} alt="Memory 1" />)
 
     const image = screen.getAllByRole('img')
-    expect(image).toHaveLength(2)
+    expect(image).toHaveLength(3)
 
-    const button = screen.getByRole('button', { name: 'To your memories' })
+    const button = screen.getByRole('button', { name: 'Your memories' })
     expect(button).toBeInTheDocument()
   })
 
@@ -18,7 +18,7 @@ describe('DetailMemoryPage', () => {
     const onNavigate = jest.fn()
     render(<DetailMemoryPage onNavigate={onNavigate} />)
 
-    const button = screen.getByRole('button', { name: 'To your memories' })
+    const button = screen.getByRole('button', { name: 'Your memories' })
     userEvent.click(button)
 
     expect(onNavigate).toHaveBeenCalledTimes(1)

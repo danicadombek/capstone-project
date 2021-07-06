@@ -91,7 +91,7 @@ export default function DetailMemoryPage({
                 {' '}
                 <img src={EditIcon} alt="" />
               </IconButton>
-              <span>{title.toUpperCase()}</span>
+              <span>{formatTitle(title)}</span>
               <span>{formatDate(date)}</span>
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
@@ -130,6 +130,10 @@ export default function DetailMemoryPage({
 
 function formatDate(date) {
   return date.split('-').reverse().join('.')
+}
+
+function formatTitle(title) {
+  return title.toUpperCase()
 }
 
 const Wrapper = styled.section`

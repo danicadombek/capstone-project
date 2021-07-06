@@ -11,7 +11,7 @@ StartPage.propTypes = {
       image: PropTypes.string,
       id: PropTypes.string,
       title: PropTypes.string,
-      date: PropTypes.number,
+      date: PropTypes.string,
       text: PropTypes.string,
     })
   ),
@@ -36,7 +36,7 @@ export default function StartPage({ onNavigate, memories }) {
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 20% 50% 30%;
-  margin-top: 15px;
+  margin-top: 20px;
 `
 
 const Sliderarea = styled.div`
