@@ -1,8 +1,8 @@
 # Viary
 
-![viary-readme](https://user-images.githubusercontent.com/82401318/124611087-68737580-de71-11eb-94ee-161d39592a00.jpg)
-
 ## A hearty welcome to "Viary" - a place, where you can keep your little memorys alive.
+
+![viary-readme](https://user-images.githubusercontent.com/82401318/124611087-68737580-de71-11eb-94ee-161d39592a00.jpg)
 
 This is my capstone-project of the 3 month web development bootcamp at neue fische. It´s optimized for mobile usage 375 x 667 (iPhone 6,7,8).
 
