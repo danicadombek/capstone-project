@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import MemoriesPage from './MemoriesPage'
-import userEvent from '@testing-library/user-event'
 
 const noop = () => {}
 
@@ -22,6 +21,7 @@ describe('MemoriesPage', () => {
     render(
       <MemoriesPage
         memories={exampleMemories}
+        onNavigateBack={noop}
         onDetail={noop}
         onDelete={noop}
       />
@@ -34,14 +34,4 @@ describe('MemoriesPage', () => {
     const titles = screen.getAllByText('Memory')
     expect(titles).toHaveLength(2)
   })
-
-  // it('calls onClick and delete a memory', () => {
-  //   const onDelete = jest.fn()
-  //   render(<MemoriesPage onClick={onDelete} onDetail={noop} />)
-
-  //   const button = screen.getByRole('button')
-  //   userEvent.click(button)
-
-  //   expect(onDelete).toBeCalled()
-  // })
 })
