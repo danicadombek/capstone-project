@@ -1,9 +1,9 @@
+import logo from '../assets/images/logo.png'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import logo from '../assets/logo.png'
 
 Header.propTypes = {
-  image: PropTypes.node.isRequired,
+  image: PropTypes.node,
 }
 
 export default function Header() {

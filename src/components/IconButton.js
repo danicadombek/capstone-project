@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types'
 import Button from './Button'
-// import DeleteIcon from '../assets/images/icons/delete.png'
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 IconButton.propTypes = {

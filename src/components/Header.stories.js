@@ -1,5 +1,5 @@
 import Header from './Header'
-import logo from '../assets/images/icons/logo.png'
+import logo from '../assets/images/logo.png'
 
 export default {
   title: 'Header',

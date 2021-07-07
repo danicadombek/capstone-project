@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types'
+import { useState } from 'react'
 import Button from '../components/Button'
+import cancel from '../assets/images/icons/cancel.png'
+import EditIcon from '../assets/images/icons/edit.png'
+import IconButton from '../components/IconButton'
+import PropTypes from 'prop-types'
+import save from '../assets/images/icons/save.png'
 import styled from 'styled-components/macro'
 import ToMemoriesButton from '../components/ToMemoriesButton'
-import IconButton from '../components/IconButton'
-import { useState } from 'react'
-import EditIcon from '../assets/images/icons/edit.png'
-import cancel from '../assets/images/icons/cancel.png'
-import save from '../assets/images/icons/save.png'
 
 DetailMemoryPage.propTypes = {
   memory: PropTypes.objectOf(
@@ -18,6 +18,7 @@ DetailMemoryPage.propTypes = {
       text: PropTypes.string,
     })
   ),
+  onNavigate: PropTypes.func,
   onEdit: PropTypes.func,
 }
 
@@ -41,7 +42,7 @@ export default function DetailMemoryPage({
   return (
     <Wrapper>
       {isEdited ? (
-        <EditForm onSubmit={onSubmit}>
+        <EditForm onSubmit={onSubmit} aria-label="Edit your memory">
           <EditMemoryDetail>
             <Title>
               <input
@@ -55,6 +56,7 @@ export default function DetailMemoryPage({
                 onChange={handleChange}
               />
               <input
+                aria-label="Choose a date"
                 type="date"
                 name="date"
                 value={memoriesInputs.date}
@@ -63,6 +65,7 @@ export default function DetailMemoryPage({
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <textarea
+              aria-label="Write your text"
               rows="4"
               cols="30"
               name="text"
@@ -91,13 +94,13 @@ export default function DetailMemoryPage({
                 {' '}
                 <img src={EditIcon} alt="" />
               </IconButton>
-              <span>{title.toUpperCase()}</span>
+              <span>{formatTitle(title)}</span>
               <span>{formatDate(date)}</span>
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
             <Text>{text}</Text>
           </MemoryDetail>
-          <MemoriesButton onClick={onNavigate} />
+          <MemoriesButton type="button" onClick={onNavigate} />
         </>
       )}
     </Wrapper>
@@ -132,22 +135,26 @@ function formatDate(date) {
   return date.split('-').reverse().join('.')
 }
 
+function formatTitle(title) {
+  return title.toUpperCase()
+}
+
 const Wrapper = styled.section`
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
+  font-weight: bold;
   height: 86vh;
   justify-content: space-between;
-  place-items: center;
-  color: var(--color-text);
-  font-weight: bold;
   margin: 15px 5px 5px 5px;
+  place-items: center;
 `
 const Title = styled.div`
-  padding: 4px;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  padding: 4px;
   width: 80vw;
 
   img {
@@ -162,11 +169,11 @@ const MemoryDetail = styled.div`
   display: flex;
   flex-direction: column;
   max-height: 90%;
-  padding: 10px;
   overflow-y: scroll;
+  padding: 10px;
 `
 const Image = styled.img`
-  border-radius: 20px;
+  border-radius: var(--border-radius-form);
   border: 4px;
   box-shadow: var(--shadow-img);
   max-height: 90%;

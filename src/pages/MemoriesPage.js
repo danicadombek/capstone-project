@@ -6,7 +6,6 @@ import DeleteIcon from '../assets/images/icons/delete.png'
 import IconButton from '../components/IconButton'
 import MemoryItem from '../components/MemoryItem'
 import PropTypes from 'prop-types'
-import search from '../assets/images/icons/search.png'
 import styled from 'styled-components/macro'
 
 MemoriesPage.propTypes = {
@@ -50,9 +49,6 @@ export default function MemoriesPage({
           autoComplete="off"
           aria-label="Search your memory"
         />{' '}
-        <SearchButton>
-          <SearchIcon src={search} alt="" />
-        </SearchButton>
       </FormSearch>
       <ListWrapper>
         {searchMemory
@@ -129,12 +125,8 @@ const FormSearch = styled.form`
     height: 35px;
     margin: 20px 0;
     padding: 10px;
-    width: 80%;
+    width: 100%;
   }
-`
-
-const SearchButton = styled(Button)`
-  width: 18%;
 `
 
 const ListWrapper = styled.ul`
@@ -170,8 +162,4 @@ const CamIcon = styled.img`
 const DeletedIcon = styled.img`
   height: 30px;
   width: 35px;
-`
-
-const SearchIcon = styled.img`
-  height: 30px;
 `

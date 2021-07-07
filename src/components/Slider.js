@@ -23,7 +23,7 @@ export default function ImageSlider({
   })
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="slider">
       {images.map((imageUrl, index) => (
         <Slide
           key={index}

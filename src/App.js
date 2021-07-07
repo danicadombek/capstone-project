@@ -1,6 +1,6 @@
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 import { useEffect, useState } from 'react'
-import background from '../src/assets/viary-bg.jpg'
+import background from '../src/assets/images/viary-bg.jpg'
 import CameraPage from './pages/CameraPage'
 import DetailMemoryPage from './pages/DetailMemoryPage'
 import Header from './components/Header'

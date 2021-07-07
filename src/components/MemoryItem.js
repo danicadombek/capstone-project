@@ -25,12 +25,12 @@ const Wrapper = styled.div`
   align-items: center;
   color: var(--color-text);
   display: flex;
-  justify-content: space-between;
-  width: 75vw;
   gap: 5px;
-  padding: 5px;
+  justify-content: space-between;
   margin-right: 10px;
+  padding: 5px;
   text-align: center;
+  width: 75vw;
 `
 
 const Image = styled.img`
