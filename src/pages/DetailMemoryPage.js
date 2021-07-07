@@ -195,12 +195,12 @@ const EditForm = styled.form`
   }
 
   textarea {
-    margin-top: 10px;
     background-color: var(--color-background);
     border-radius: var(--border-radius-form);
-    width: 300px;
-    padding: 8px;
+    margin-top: 10px;
     max-height: auto;
+    padding: 8px;
+    width: 300px;
   }
 `
 const EditMemoryDetail = styled.div`
@@ -210,14 +210,14 @@ const EditMemoryDetail = styled.div`
   display: flex;
   flex-direction: column;
   max-height: 85%;
-  padding: 4px;
   overflow-y: scroll;
+  padding: 4px;
 `
 const FormButtons = styled.section`
   display: flex;
+  gap: 10px;
   justify-content: space-evenly;
   margin-top: 25px;
-  gap: 10px;
 `
 
 const MemoriesButton = styled(ToMemoriesButton)`
@@ -226,14 +226,14 @@ const MemoriesButton = styled(ToMemoriesButton)`
 `
 
 const CancelButton = styled(Button)`
-  padding: 4px;
-  width: 40%;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
   letter-spacing: 0.1em;
+  padding: 4px;
   text-shadow: var(--shadow-text);
   text-transform: uppercase;
+  width: 40%;
 `
 
 const CancelIcon = styled.img`
@@ -241,14 +241,14 @@ const CancelIcon = styled.img`
 `
 
 const SaveButton = styled(Button)`
-  padding: 4px;
-  width: 60%;
   align-items: center;
   display: flex;
   justify-content: space-evenly;
   letter-spacing: 0.1em;
+  padding: 4px;
   text-shadow: var(--shadow-text);
   text-transform: uppercase;
+  width: 60%;
 `
 
 const SaveIcon = styled.img`

@@ -37,7 +37,7 @@ const Image = styled.img`
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: var(--shadow-img);
-  border-radius: 20px;
+  border-radius: var(--border-radius-form);
 `
 
 const Title = styled.span`
