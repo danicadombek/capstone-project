@@ -163,7 +163,3 @@ const DeletedIcon = styled.img`
   height: 30px;
   width: 35px;
 `
-
-const SearchIcon = styled.img`
-  height: 30px;
-`
