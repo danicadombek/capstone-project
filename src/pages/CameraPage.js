@@ -15,11 +15,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 CameraPage.propTypes = {
   onNavigate: PropTypes.func,
   onNavigateBack: PropTypes.func,
-<<<<<<< HEAD
-  handleMemorySubmit: PropTypes.func.isRequired,
-=======
   handleMemorySubmit: PropTypes.func,
->>>>>>> c7bcac0 (Clean up code)
 }
 
 export default function CameraPage({
