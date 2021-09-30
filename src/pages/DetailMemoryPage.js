@@ -15,6 +15,7 @@ DetailMemoryPage.propTypes = {
       id: PropTypes.string,
       title: PropTypes.string,
       date: PropTypes.string,
+      category: PropTypes.string,
       text: PropTypes.string,
     })
   ),
@@ -27,6 +28,7 @@ export default function DetailMemoryPage({
   image,
   title,
   date,
+  category,
   text,
   id,
   onNavigate,
@@ -37,6 +39,7 @@ export default function DetailMemoryPage({
     title: title,
     date: date,
     text: text,
+    category: category,
     id: id,
   })
   return (
@@ -98,6 +101,7 @@ export default function DetailMemoryPage({
               <span>{formatDate(date)}</span>
             </Title>
             <Image src={image} alt="Memory" width="320" max-height="180" />
+            <div>{category}</div>
             <Text>{text}</Text>
           </MemoryDetail>
           <MemoriesButton type="button" onClick={onNavigate} />
@@ -116,6 +120,7 @@ export default function DetailMemoryPage({
     const form = event.target
     const title = form.elements.title.value
     const date = form.elements.date.value
+    const category = form.elements.category.value
     const text = form.elements.text.value
 
     const editedMemory = {
@@ -124,6 +129,7 @@ export default function DetailMemoryPage({
       image,
       title: title,
       date: date,
+      category: category,
       text: text,
     }
 

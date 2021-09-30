@@ -136,7 +136,7 @@ const Title = styled.section`
   display: flex;
   justify-content: center;
   padding: 0;
-  width: 90%;
+  width: 95%;
 
   h2 {
     font-size: var(--font-size-title);
@@ -209,14 +209,14 @@ const InputTitle = styled.input`
   background-color: var(--color-background);
   border-radius: var(--border-radius-title-date);
   padding: 4px;
-  width: 56%;
+  width: 65%;
 `
 
 const Datepicker = styled.input`
   background-color: var(--color-background);
   border-radius: var(--border-radius-title-date);
   padding: 7px;
-  width: 26%;
+  width: 30%;
 `
 
 const Textarea = styled.textarea`
@@ -233,7 +233,7 @@ const SaveButton = styled(Button)`
   padding: 4px;
   text-shadow: var(--shadow-text);
   text-transform: uppercase;
-  width: 83%;
+  width: 95%;
 `
 
 const SaveIcon = styled.img`
